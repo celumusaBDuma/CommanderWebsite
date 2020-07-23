@@ -1,7 +1,137 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 50px;
+    padding-top: 0px;
     padding-bottom: 20px;
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+
+#btnEmail {
+    border-radius: 0;
+    margin-top: 5px;
+}
+
+#tbEmailHome {
+    width:100%;
+    border-radius:0;
+}
+
+.Loading {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    left:0;
+    z-index: 1;
+}
+
+@keyframes flickerAnimation{
+ 0% { opacity:0;}
+ 25% { opacity:1;}
+ 50% { opacity:0;}
+ 75% { opacity:1;}
+ 100% { opacity:0;}
+}
+
+.Logo {
+    width: 300px;
+    height: 100px;
+    margin: 150px auto 50px auto;
+    font-size: 50px;
+    text-shadow: -1px 2px 2px #000;
+    text-align: center;
+    font-weight: bolder;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    color: black;
+    animation: flickerAnimation 2s infinite;
+}
+
+
+.imagePic {
+    width: 320px;
+    height: 250px;
+    margin-top: -50px;
+}
+
+@media screen and (max-width: 600px){
+
+    .Logo {
+        width:100%;
+        text-wrap:normal;
+    }
+
+}
+
+.sign {
+    font-size: 30px;
+    vertical-align: top;
+}
+
+.sign0 {
+    font-size: 30px;
+}
+
+.sign1 {
+    font-size: 20px;
+}
+
+.top-header {
+    width: 100%;
+    height: 40px;
+    background-color: black;
+    text-align: center;
+    font-size:larger;
+    border-bottom-style:outset solid;
+}
+
+.top-header b {
+    font-family: 'Berlin Sans FB Demi'; 
+    font-size: 30px; 
+    font-weight: bolder; 
+    font-style: normal; 
+    color: #FFFFFF;
+}
+
+.loaderFrame {
+    width: 70px;
+    height:70px;
+    margin: auto;
+    position: relative;
+} 
+
+.loaderRound1, .loaderRound2 {
+    position: absolute;
+    border: 5px solid transparent;
+    border-radius: 50%;
+}
+
+.loaderRound1{
+    width: 70px;
+    height: 70px;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    animation: clockwisespin 2s linear infinite;
+}
+
+.loaderRound2{
+    width: 60px;
+    height: 60px;
+    border-left: 5px solid red;
+    border-right: 5px solid red;
+    top: 5px; left: 5px;
+    animation: anticlockwisespin 2s linear infinite;
+}
+
+@keyframes clockwisespin {
+    from {transform: rotate(0deg); }
+    to {transform: rotate(360deg); }
+}
+
+@keyframes anticlockwisespin {
+    from {transform: rotate(0deg); }
+    to {transform: rotate(-360deg); }
 }
 
 /* Wrapping element */
@@ -24,7 +154,7 @@ input[type="password"],
 input[type="email"],
 input[type="tel"],
 input[type="select"] {
-    max-width: 280px;
+    max-width: 400px;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -35,4 +165,320 @@ input[type="select"] {
     .body-content {
         padding: 0;
     }
+}
+
+#mynavbar {
+    font-size: 17px;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%;
+    z-index: 98;
+
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+
+    
+}
+
+.stickyNav {
+     
+}
+
+
+.navbar a {
+  color: #f2f2f2;
+  padding: 14px 16px;
+  display:block;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+
+}
+
+#mynavbar a.active {
+  
+  border-bottom:3px #FFF solid;
+}
+
+.navbar #dropbutton{
+    float:left;
+    
+}
+
+.navbar ul {
+    display:block;
+     float:none;
+    }
+.nav-header{
+    float:none;
+}
+@media screen and (max-width: 767px) {
+
+    .navbar ul {
+         display: block;
+     }
+       
+    #nav-links ul li .search {
+        display:block;
+        float:right;
+    }
+    .navbar #dropbutton{
+        display: block;
+    }
+
+    .navbar-brand {
+        transform: translateX(-50%);
+        left: 50%;
+        position: absolute;
+        text-align:center;
+    }
+    #tbEmailHome {
+        width:100%;
+        border-radius:0;
+    }
+    form-group {
+     width: 100%;
+ }
+    input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="select"] {
+    max-width: 350px;
+}
+}
+
+
+
+@media screen and (min-width: 767px) and (max-width: 1000px) {
+    .search.active,
+ .search:hover  {
+        width: 120px;
+        height: 35px;
+        margin-right: 0px;
+        
+    }
+		.search:after {
+			height: 0px;	
+		}
+   
+    #nav-links  {
+         font-size:x-small;
+         flex-wrap:wrap;
+     }
+.sign0{
+    font-size:small;
+   margin-left:1px; 
+}
+    
+ 
+.navbar-brand{
+    width:125px;
+}   
+}
+
+
+
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+
+   .search.active,
+ .search:hover  {
+        width: 160px;
+        height: 35px;
+        margin-right: 0px;
+        
+    }
+		.search:after {
+			height: 0px;	
+		}
+    #nav-links  {
+         font-size: medium;
+     }
+.sign0{
+    font-size:x-large;
+    
+}
+    
+ 
+.navbar-brand{
+    width:200px;
+}   
+}
+
+@media screen and (min-width: 1201px) {
+
+    .navbar ul {
+         display: block;   
+     }
+     
+    .search.active,
+ .search:hover  {
+        width: 280px;
+        height: 35px;
+        margin-right: 0px;
+        
+    }
+    	.search:after {
+			height: 0px;	
+		}
+}
+
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+.search {
+    position: absolute;
+    height: 45px;
+    width: 3px;
+    box-sizing: border-box;
+    margin: 2px 0px 3px 0px;
+    padding: 5px 0px 0px 2px;
+    /*border: 3px solid white;
+    border-radius: 50px;*/
+    transition: all 200ms ease;
+    cursor: text;
+}	
+.search:after {
+		content: "";
+		position: absolute;
+        margin-top:5px;
+		width: 0px;
+		height: 20px;
+		right: -5px;
+		top: 21px;
+		background: transparent;
+		border-radius: 3px;
+		transform: rotate(-45deg);
+		transition: all 200ms ease;
+	}
+/**/
+
+	
+	
+	.search-box {
+		width: 100%;
+        height:45px;
+		border: none;
+        margin-top: 5px;
+		box-sizing: border-box;
+		font-family: Helvetica;
+		font-size: 15px;
+		color: white;
+        border-bottom: 3px solid white;
+		background: transparent;
+		outline-width: 0px;
+	}
+    #inputbtn {
+        border:none;
+        background: transparent;
+        
+    }
+
+.close {
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+
+.close:before {
+  content: "";
+  position: absolute;
+  width: 27px;
+  height: 4px;
+  margin-top: -1px;
+  margin-left: -13px;
+  background-color: #fff;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.close:after {
+  content: "";
+  position: absolute;
+  width: 27px;
+  height: 4px;
+  background-color: #fff;
+  margin-top: -1px;
+  margin-left: -13px;
+  cursor: pointer;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.square {
+  box-sizing: border-box;
+  padding: 0 40px 0 10px;
+  width: 300px;
+  height: 30px;
+  border: 4px solid #ffffff;
+  border-radius: 0;
+  background: none;
+  color: #fff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  outline: 0;
+  -webkit-transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out,
+    padding 0.2s;
+  transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out,
+    padding 0.2s;
+  -webkit-transition-delay: 0.4s, 0s, 0.4s;
+  transition-delay: 0.4s, 0s, 0.4s;
+  -webkit-transform: translate(-100%, -50%);
+  -ms-transform: translate(-100%, -50%);
+  transform: translate(-100%, -50%);
 }
