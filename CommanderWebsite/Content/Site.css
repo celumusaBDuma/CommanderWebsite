@@ -155,6 +155,7 @@ input[type="email"],
 input[type="tel"],
 input[type="select"] {
     max-width: 400px;
+    border-radius: 0px;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -242,19 +243,19 @@ input[type="select"] {
     }
     form-group {
      width: 100%;
- }
+    }
     input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="tel"],
-input[type="select"] {
-    max-width: 350px;
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="select"] {
+        max-width: 350px;
+    }
 }
-}
-
 
 
 @media screen and (min-width: 767px) and (max-width: 1000px) {
+
     .search.active,
  .search:hover  {
         width: 120px;
