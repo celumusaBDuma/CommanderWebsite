@@ -44,7 +44,7 @@
       <h2>Menu</h2>
     <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a Category" />
     <ul id="myMenu">
-      <li><a href="DashboardCustomer.aspx">Dashboard</a></li>
+      <li><a href="DashboardCustomer">Dashboard</a></li>
       <li><a href="Orders">Orders</a></li>
       <li><a href="Returns">Returns</a></li>
       <li><a href="Rewards">Rewards</a></li>

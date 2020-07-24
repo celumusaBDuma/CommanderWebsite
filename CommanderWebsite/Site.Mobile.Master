@@ -11,11 +11,292 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <h1>Mobile Master Page</h1>
-        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
-        <section class="content-wrapper main-content clear-fix">
+
+        <div id="mySidenav" class="sidenav" style="visibility:hidden; height:0px; width:0px;">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
+          
+            <div class="input-group ">
+                <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a Category" />
+                <div class="input-group-addon" style="color:white;border: none; background-color: transparent">
+                <button id="inputbtn2" type="button" class="btn glyphicon glyphicon-search" style="color:white; border-radius: 0px;border:none; height:auto; background-color: transparent"></button>
+                </div>
+            </div>
+          <a runat="server" href="~/Views/Men">Men</a>
+          <a runat="server" href="~/Views/Women">Women</a>
+          <a runat="server" href="~/Views/Brands">Brands</a>
+          <a runat="server" href="~/Views/Offers">Offers</a>
+          <a runat="server" href="~/Views/Sale">Sale</a>
+          <a runat="server" href="~/Contact">Contact</a>
+          
+            <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                    <AnonymousTemplate>
+                                        <a runat="server" href="~/About">About us</a>
+                                            <a runat="server" href="~/Account/Login">Log In</a>
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+                                            <a runat="server" href="~/Account/Manage" title="Manage your account">Manage Account</a>
+                                    
+                                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    </LoggedInTemplate>
+                </asp:LoginView>
+        </div>
+        <div id="main">
+        <div id="mynavbar" class="navbar navbar-default"  role="navigation">
+                
+            <div class="container-fluid">
+                    
+                    <div class="navbar-header">
+                        <button type="button" id="dropbutton" class="navbar-toggle" data-toggle="collapse" onclick="openNav()" data-target="" style="border-style: none; margin-left: 5px">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a id="navBrand" class="navbar-brand" runat="server" href="~/"><b class="sign0">COMMANDER</b><b class="sign1">®</b></a>
+                        <div id="cdd" class="cart-featured" style=" visibility:hidden; background-color:none; outline:none;text-decoration:none; height: 42px;" >
+                                <%if (Context.User.Identity.IsAuthenticated == true) { %>
+                            <a runat="server" style="height:0px;width:0px;  background-color:transparent; outline:none;text-decoration:none;"  class=" cart-feature glyphicon glyphicon-shopping-cart" href="#"></a>
+                            
+                            <a runat="server" style="height:0px;width:0px; background-color:transparent; outline:none;text-decoration:none;"  class="cart-feature glyphicon glyphicon-heart-empty" href="#"></a>
+                            <%} %>
+                            <a runat="server" style="height:0px;width:0px; background-color:transparent; outline:none;text-decoration:none;" class=" cart-feature glyphicon glyphicon-search" href="#" onclick="openNav()"></a>
+                                     
+                            </div>
+                         </div>
+                    <div id="nav-links" class="collapse navbar-collapse " >
+                        <ul class="nav navbar-nav">
+                            <li><a runat="server" href="~/Views/Men">Men</a></li>
+                            <li><a runat="server" href="~/Views/Women">Women</a></li>
+                            <li><a runat="server" href="~/Views/Brands">Brands</a></li>
+                            <li><a runat="server" href="~/Views/Offers">Offers</a></li>
+                            <li><a runat="server" href="~/Views/Sale">Sale</a></li>
+                            <li class="navbar-right">
+                                <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                    <AnonymousTemplate>
+                                            <a runat="server" href="~/Account/Register">Sign Up</a>
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+                                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    </LoggedInTemplate>
+                                </asp:LoginView>
+                            </li>
+                            <li class="navbar-right">
+                                <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                    <AnonymousTemplate>
+                                            <a runat="server" href="~/Account/Login">Log In</a>
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+                                            <a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a>
+                                    </LoggedInTemplate>
+                                </asp:LoginView>
+                            </li>
+                            <% if (Context.User.Identity.IsAuthenticated == true ) {
+                                    
+                                     %>
+                            <li class="navbar-right cart-feature">
+                                    <a runat="server" class="glyphicon glyphicon-shopping-cart" href="#"></a>
+                            </li>
+                            <li class="navbar-right cart-feature">
+                                    <a runat="server" class="glyphicon glyphicon-heart-empty" href="#"></a>
+                                     
+                            </li>
+                                 <%} %>   
+                            <li class="navbar-right" style="display:flex;">
+                                 <div class="search input-group ">
+                                     
+                                      <input type="search" id="sb" style=" color:white;" placeholder="Search..." class="search-box" />
+                                     <div class="input-group-addon" style="width:10px;color:white;border:none; background-color: transparent">
+                                        <button id="inputbtn" type="button" class="glyphicon glyphicon-search"></button>
+                                      </div>
+                                    </div>
+                                </li>
+                            
+                        </ul>
+                        
+                    </div>
+                 
+                        
+                        
+                        
+                        
+                </div>
+            </div>
+            
+        
+         <div id="ContentonBody" class="container body-content" style="visibility:hidden">
+           <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+            <asp:ScriptManager runat="server">
+                <Scripts>
+                    <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                    <%--Framework Scripts--%>
+                    <asp:ScriptReference Name="MsAjaxBundle" />
+                    <asp:ScriptReference Name="jquery" />
+                    <asp:ScriptReference Name="bootstrap" />
+                    <asp:ScriptReference Name="respond" />
+                    <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                    <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                    <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                    <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                    <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                    <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                    <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                    <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                    <asp:ScriptReference Name="WebFormsBundle" />
+                    <%--Site Scripts--%>
+                </Scripts>
+            </asp:ScriptManager>
+            
+            
+            <!-- Loading screen div that fills the screen everytime the site loads -->
+            <div id = "preLoad" class ="Loading" style="visibility: hidden; height: 0%; width:0px;" >
+                <div class ="Logo">
+                    <asp:Image ID="Image1" CssClass="imagePic" runat="server" ImageUrl="~/Content/Images/Comm.jpg" ImageAlign="Middle" />
+                    <br />
+                    COMMANDER<b class="sign">®</b> 
+                    <div class="loaderFrame">
+                        <div id="loaderRound1" class="loaderRound1"></div>
+                        <div id="loaderRound2" class="loaderRound2"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <script type ="text/javascript">
+                //loading screen script
+                $(document).on("ready",function loaderP() {
+                    
+                    var preload = document.getElementById("preLoad");
+                    var contentBody = document.getElementById("ContentonBody");
+                    preload.style = "height: 100%;visibility:visible;";
+                    var loading = 0;
+                    var id = setInterval(frame, 30);
+
+                    function frame() {
+                        if (loading == 30) {
+                            clearInterval(id);
+                            $(preload).fadeOut("slow");
+                            preload.remove();
+                            contentBody.style = "visibility:visisble;";
+                        }
+                        else {
+                            loading++;
+                        }
+                    }
+                });
+            </script>
+            <script type="text/javascript" >
+                function setActive() {
+                    aObj = document.getElementById('nav-links').getElementsByTagName('a');
+                    for (i = 0; i < aObj.length; i++) {
+                        
+                       
+                        if (document.location.href == aObj[i].href) {
+                           //console.log(aObj[i].href);
+                          // console.log('seperator');
+                          // console.log(document.location.href);
+                           aObj[i].className = 'active';
+                        }
+                    }
+
+                    bObj = document.getElementById('mySidenav').getElementsByTagName('a');
+                    for (i = 1; i < bObj.length; i++) {
+                        
+                        
+                        if (document.location.href == bObj[i].href) {
+                           // console.log('B');
+                            //console.log(bObj[i].href);
+                            //console.log('seperator');
+                            console.log(document.location.href);
+                            bObj[i].className = 'active1';
+                        }
+                    }
+                }
+
+                window.onload = setActive;
+            </script>
+               
+            <script type="text/javascript" >
+                window.onscroll = function () {
+                    myfunction()
+                };
+                var navbar = document.getElementById('mynavbar');
+
+                var sticky = navbar.offsetTop;
+
+                function myfunction() {
+                    if (window.pageYOffset >= sticky) {
+                        document.getElementById("mynavbar").classList.add("stickyNav");
+                        //navbar.classList.add('stickyNav');
+                    }
+                    else {
+                        //navbar.classList.remove('stickyNav');
+                        document.getElementById("mynavbar").classList.remove("stickyNav");
+                    }
+                }
+            </script>
+            
+          
+            <script type="text/javascript">
+                function openNav() {
+                    document.getElementById("mySidenav").style = "visibility:visible; z-index:99";
+                    document.getElementById("navBrand").style = "visibility:hidden;";
+                    document.getElementById("mySidenav").style.width = "250px";
+               //     document.getElementById("main").style.marginLeft = "250px";
+                    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+                    document.getElementById("main").style.backgroundColor = "rgba(0,0,0,0.4)";
+                    document.getElementById("main").className = "blur";
+                    document.getElementById("footer-site").className = "blur";
+                }
+
+                function closeNav() {
+                    window.location.hash = "#main"; //focuses on this div, can move with keyboard
+                    document.getElementById("mySidenav").style = "visibility:hidden;";
+                    document.getElementById("mySidenav").style.width = "0";
+                    document.getElementById("mySidenav").style.height = "0";
+                    document.getElementById("navBrand").style = "visibility:visible;";
+                  //  document.getElementById("main").style.marginLeft= "0";
+                    document.body.style.backgroundColor = "white";
+                    document.getElementById("main").style.backgroundColor = "white";
+                    document.getElementById("main").classList.remove("blur");
+                    document.getElementById("footer-site").classList.remove("blur");
+                }
+            </script>
+         <!--   <script type="text/javascript">
+                const input = document.getElementById("sb");
+                const searchBtn = document.getElementById("btn");
+
+                const expand = () => {
+                    searchBtn.classList.toggle("close");
+                    input.classList.toggle("square");
+                };
+
+                searchBtn.addEventListener("click", expand);
+            </script> -->
+             <section class="content-wrapper main-content clear-fix">
+                   
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />
-        </section>
+            </section>
+            </div>
+            </div>
+            
+            <footer id="footer-site">
+                <hr />
+                <div align="center">
+                    <div id="newsletter">
+                    <h1>Subscribe to our newsletter </h1>
+                    <asp:label runat="server" ID="Label1"></asp:label>
+                        <div class="form-group" >
+                    <asp:textbox   runat="server"  class="form-control " placeholder= "Email Address" ID="tbEmailHome" Height="42px" Width="350px"></asp:textbox>
+                    <asp:Button runat="server" text="Subscribe" ID="btnEmail" Height="42px" Font-Bold="true" Font-Size="Medium" CssClass="btn" />
+
+                        </div>
+                    </div>
+               
+               </div>
+                <p style="text-align:center;">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd.</p>
+            </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+        
         <friendlyUrls:ViewSwitcher runat="server" />
     </div>
     </form>
