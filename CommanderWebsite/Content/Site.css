@@ -137,6 +137,7 @@ body {
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
+    margin-top: 50px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -218,21 +219,20 @@ input[type="select"] {
     float:none;
 }
 @media screen and (max-width: 767px) {
-
-    .navbar ul {
-         display: block;
-     }
-       
-    #nav-links ul li .search {
-        display:block;
-        float:right;
+.cart-feature {
+        float: right;
+        visibility:visible;
     }
+.cart-featured{
+
+}
+  
     .navbar #dropbutton{
         display: block;
     }
 
     .navbar-brand {
-        transform: translateX(-50%);
+        transform: translateX(-57%);
         left: 50%;
         position: absolute;
         text-align:center;
@@ -249,13 +249,14 @@ input[type="select"] {
     input[type="email"],
     input[type="tel"],
     input[type="select"] {
-        max-width: 350px;
+        max-width: 100%;
     }
+ 
 }
 
 
 @media screen and (min-width: 767px) and (max-width: 1000px) {
-
+    
     .search.active,
  .search:hover  {
         width: 120px;
@@ -353,7 +354,7 @@ input[type="select"] {
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+  color:  #808080/*#f1f1f1*/;
 }
 
 .sidenav .closebtn {
@@ -381,8 +382,8 @@ input[type="select"] {
     height: 45px;
     width: 3px;
     box-sizing: border-box;
-    margin: 2px 0px 3px 0px;
-    padding: 5px 0px 0px 2px;
+    margin: 2px 0px -2px 0px;
+    padding: 3px 0px 0px 0px;
     /*border: 3px solid white;
     border-radius: 50px;*/
     transition: all 200ms ease;
@@ -421,7 +422,6 @@ input[type="select"] {
     #inputbtn {
         border:none;
         background: transparent;
-        
     }
 
 .close {
@@ -482,4 +482,80 @@ input[type="select"] {
   -webkit-transform: translate(-100%, -50%);
   -ms-transform: translate(-100%, -50%);
   transform: translate(-100%, -50%);
+}
+
+.row2 {
+    width: 100%;
+}
+
+/* Left column (menu) */
+.left {
+    margin-top:-15px;
+  width: 25%;
+ height: 100%;  /* Full-height: remove this if you want "auto" height */
+ /*width: 160px;  Set the width of the sidebar */
+ 
+  float:left;
+}
+
+/* Left column (menu) */
+.left1 {
+    
+    font-family: "Lato", sans-serif;
+  width: 25%;
+  padding: 15px 0;
+ /*height: 100%;   Full-height: remove this if you want "auto" height */
+ /*width: 160px;  Set the width of the sidebar */
+ 
+  float:left;
+}
+
+.left h2 {
+  padding-left: 8px;
+}
+
+/* Right column (page content) */
+.right {
+    float:left;
+  width: 75%;
+  padding: 15px;
+}
+
+/* Style the search box */
+#mySearch {
+  width: 100%;
+  font-size: 18px;
+  padding: 11px;
+  border: 1px solid #ddd;
+}
+
+/* Style the navigation menu inside the left column */
+#myMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myMenu li a {
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+  display: block
+}
+
+#myMenu li a:hover {
+  background-color: #eee;
+}
+
+.active1{
+   color: white;
+    background-color: #ddd;
+    text-decoration: underline solid;
+}
+
+.blur {
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+	-ms-filter: blur(3px);
+	filter: blur(3px);
 }
