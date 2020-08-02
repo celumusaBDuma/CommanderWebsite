@@ -6,14 +6,14 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - COMMANDER E-Commerce Website</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="Content/Images/Comm.jpg" rel="shortcut icon" type="image/x-icon" />
-      <link rel="stylesheet" href="Scripts/bootswatch/bootstrap.min.css" />
+      <link rel="stylesheet" href="../../Scripts/bootswatch/bootstrap.min.css" />
 
 </head>
 <body>
@@ -95,10 +95,7 @@
                     aObj = document.getElementById('myMenu').getElementsByTagName('a');
                     for (i = 0; i < aObj.length; i++) {
                         if (document.location.href == aObj[i].href) {
-                            console.log('B');
-                            console.log(aObj[i].href);
-                            console.log('seperator');
-                            console.log(document.location.href);
+                            
                             aObj[i].className = 'active1';
                         }
                     }
@@ -106,26 +103,6 @@
 
                 window.onload = setActive;
             </script>
-            <script type="text/javascript" >
-                window.onscroll = function () {
-                    myfunction()
-                };
-                var navbar = document.getElementById('mynavbar');
-
-                var sticky = navbar.offsetTop;
-
-                function myfunction() {
-                    if (window.pageYOffset >= sticky) {
-                        document.getElementById("mynavbar").classList.add("stickyNav");
-                        //navbar.classList.add('stickyNav');
-                    }
-                    else {
-                        //navbar.classList.remove('stickyNav');
-                        document.getElementById("mynavbar").classList.remove("stickyNav");
-                    }
-                }
-            </script>
-            
           
             <script type="text/javascript">
                 function openNav() {
@@ -145,19 +122,7 @@
                     document.body.style.backgroundColor = "white";
                 }
             </script>
-            <script type="text/javascript">
-                const input = document.getElementById("sb");
-                const searchBtn = document.getElementById("btn");
-
-                const expand = () => {
-                    searchBtn.classList.toggle("close");
-                    input.classList.toggle("square");
-                };
-
-                searchBtn.addEventListener("click", expand);
-            </script>
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         
     </form>
 </body>

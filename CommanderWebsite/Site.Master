@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - COMMANDER E-Commerce Website</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -65,7 +65,7 @@
                             
                             <a runat="server" style="height:0px;width:0px; background-color:transparent; outline:none;text-decoration:none;"  class="cart-feature glyphicon glyphicon-heart-empty" href="#"></a>
                             <%} %>
-                            <a runat="server" style="height:0px;width:0px; background-color:transparent; outline:none;text-decoration:none;" class=" cart-feature glyphicon glyphicon-search" href="#" onclick="openNav()"></a>
+                            <a runat="server" style="height:0px;width:0px; background-color:transparent; outline:none;text-decoration:none;" class=" cart-feature glyphicon glyphicon-search" href="javascript:void(0)" onclick="openNav()"></a>
                                      
                             </div>
                          </div>
@@ -110,8 +110,8 @@
                             <li class="navbar-right" style="display:flex;">
                                  <div class="search input-group ">
                                      
-                                      <input type="search" id="sb" style=" color:white;" placeholder="Search..." class="search-box" />
-                                     <div class="input-group-addon" style="width:10px;color:white;border:none; background-color: transparent">
+                                      <input type="search" id="sb" style="color:white;" placeholder="Search..." class="search-box" />
+                                     <div class="input-group-addon" style="width:10px;color:white;border:none; background-color: transparent;">
                                         <button id="inputbtn" type="button" class="glyphicon glyphicon-search"></button>
                                       </div>
                                     </div>
@@ -296,7 +296,7 @@
                     </div>
                
                </div>
-                <p style="text-align:center;">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd.</p>
+                <p style="text-align:center;">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd. CodeBreakers Inc.</p>
             </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         

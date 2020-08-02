@@ -226,7 +226,6 @@
     <Content Include="Scripts\bootswatch\bootswatch.less" />
     <Content Include="Scripts\bootswatch\variables.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Loading.aspx" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\Bootstrap 3.4.1\css\bootstrap-theme.css" />
@@ -317,6 +316,8 @@
     <Content Include="Site.Mobile.Master" />
     <Content Include="Views\Customer\Customer.Master" />
     <Content Include="Views\Admin\Admin.Master" />
+    <Content Include="Views\Customer\Customer.Mobile.Master" />
+    <Content Include="Views\Admin\Admin.Mobile.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -465,13 +466,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Loading.aspx.cs">
-      <DependentUpon>Loading.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Loading.aspx.designer.cs">
-      <DependentUpon>Loading.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CommanderContext.cs" />
     <Compile Include="Models\CommanderEDM.cs" />
@@ -505,6 +499,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Admin.Mobile.Master.cs">
+      <DependentUpon>Admin.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Admin.Mobile.Master.designer.cs">
+      <DependentUpon>Admin.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\CategoriesAdmin.aspx.cs">
       <DependentUpon>CategoriesAdmin.aspx</DependentUpon>
@@ -638,6 +639,13 @@
     </Compile>
     <Compile Include="Views\Customer\SettingsCustomer.aspx.designer.cs">
       <DependentUpon>SettingsCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\Customer.Mobile.Master.cs">
+      <DependentUpon>Customer.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Customer\Customer.Mobile.Master.designer.cs">
+      <DependentUpon>Customer.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Views\Help.aspx.cs">
       <DependentUpon>Help.aspx</DependentUpon>

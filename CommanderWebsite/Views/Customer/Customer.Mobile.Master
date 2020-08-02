@@ -1,22 +1,24 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Customer.master.cs" Inherits="CommanderWebsite.Views.Customer.Customer" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Customer.Mobile.Master.cs" Inherits="CommanderWebsite.Views.Customer.Site1" %>
+<%@ Register Src="~/ViewSwitcher.ascx" TagPrefix="friendlyUrls" TagName="ViewSwitcher" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - COMMANDER E-commerce Website</title>
-
+    <title><%: Page.Title %> - COMMANDER E-Commerce Website</title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="Content/Images/Comm.jpg" rel="shortcut icon" type="image/x-icon" />
       <link rel="stylesheet" href="../../Scripts/bootswatch/bootstrap.min.css" />
-</head>
+
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+    </head>
 <body>
     <form id="form1" runat="server" style="background-color:#bbb;">
+        
         <asp:ScriptManager runat="server">
                 <Scripts>
                     <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -55,16 +57,24 @@
       </div>
   </div>
   <div class="right container-fluid" style="background-color:white;"><div class="row2" >
+      <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+      <section class="content-wrapper main-content clear-fix">
+                   
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
+       
         </asp:ContentPlaceHolder>
+      </section>
       <footer style="background-color:white; float:none; width:100%;">
                 <div align="center">
                  
                
                </div>
                 <p style="text-align:center;">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd.</p>
+          <br />
+          
+        <friendlyUrls:ViewSwitcher runat="server" />
             </footer>
+
   </div>
          </div>
         
@@ -93,7 +103,10 @@
                     aObj = document.getElementById('myMenu').getElementsByTagName('a');
                     for (i = 0; i < aObj.length; i++) {
                         if (document.location.href == aObj[i].href) {
-                            
+                            console.log('B');
+                            console.log(aObj[i].href);
+                            console.log('seperator');
+                            console.log(document.location.href);
                             aObj[i].className = 'active1';
                         }
                     }
@@ -101,7 +114,8 @@
 
                 window.onload = setActive;
             </script>
-
+            
+            
           
             <script type="text/javascript">
                 function openNav() {
@@ -121,7 +135,6 @@
                     document.body.style.backgroundColor = "white";
                 }
             </script>
-       
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         
