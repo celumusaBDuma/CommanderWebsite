@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace CommanderWebsite.Views.Admin
@@ -16,12 +17,23 @@ namespace CommanderWebsite.Views.Admin
                 //    SqlDBConnection sqlcon = new SqlDBConnection();
                 //   DataTable dt = sqlcon.QueryPackagesTable();
                 //       rptrPackages.DataSource = dt;
-                rptrPackages.DataBind();
+             //   rptrPackages.DataBind();
             }
         }
 
         protected void rptrPackages_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
+            if (rptrPackages.Items.Count < 1)
+            {
+                if (e.Item.ItemType == ListItemType.Header)
+                {
+                    HtmlGenericControl noRecordsDiv = (e.Item.FindControl("NoRecords") as HtmlGenericControl);
+                    if (noRecordsDiv != null)
+                    {
+                        noRecordsDiv.Visible = true;
+                    }
+                }
+            }
             RepeaterItem item = e.Item;
             // if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             //{

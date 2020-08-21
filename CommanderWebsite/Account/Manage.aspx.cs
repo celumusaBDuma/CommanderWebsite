@@ -35,6 +35,10 @@ namespace CommanderWebsite.Account
 
         protected void Page_Load()
         {
+            try
+            {
+
+           
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
             HasPhoneNumber = String.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()));
@@ -77,6 +81,10 @@ namespace CommanderWebsite.Account
                         : String.Empty;
                     successMessage.Visible = !String.IsNullOrEmpty(SuccessMessage);
                 }
+            }
+            }
+            catch (Exception ex){
+                Response.Write("alert('Session has expired re-login')");
             }
         }
 

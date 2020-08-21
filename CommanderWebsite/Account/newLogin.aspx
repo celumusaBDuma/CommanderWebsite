@@ -42,57 +42,60 @@
                 </Scripts>
             </asp:ScriptManager>
             
-    <h2 style="text-align:center"><%: Title %>.</h2>
+    
 
-    <div class="container" style="text-align:center;margin-left:100px; margin-right:100px;">
-        <div class="row" >
-            <section id="loginForm">
+    <div class="container thumbnail" style="text-align:center;width:400px; display:flex; margin-top: 25px; margin-bottom: 25px;">
+        <div class="row2">
+            <section id="loginForm" >
+                  
                 <div class="form-horizontal">
-                    <h4>Use a local account to log in.</h4>
-                    <hr />
+                    <img src="../Content/Images/CommanderPic.jpg" alt="" style="width:200px; height:200px"/>
+   
                     <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                         <p class="text-danger">
                             <asp:Literal runat="server" ID="FailureText" />
                         </p>
                     </asp:PlaceHolder>
-                    <div class="form-group">
-                        <asp:Label runat="server" AssociatedControlID="Email" CssClass="control-label">Email</asp:Label>
-                        <div class="">
-                            <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
+                   
+                    <div class="">
+                         <div class="col-md-12">
+                            <asp:TextBox runat="server" style="border-radius:0;border-bottom: 3px solid black; height:50px;font-size:17px;" ID="Email" placeholder="Email" CssClass="form-control" TextMode="Email" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                                 CssClass="text-danger" ErrorMessage="The email field is required." />
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <asp:Label runat="server" AssociatedControlID="Password" CssClass="control-label">Password</asp:Label>
-                        <div class="">
-                            <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
+                    
+                        <div class="col-md-12">
+                            <asp:TextBox runat="server" style="border-radius:0;border-bottom: 3px solid black; height:50px;font-size:17px;" ID="Password" placeholder="Password" TextMode="Password" CssClass="form-control" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="pull-left">
+                    <div class="">
+                        <div style="text-align:left; margin-left: 5px;" >
                             <div class="checkbox">
-                                
-                                <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
                                 <asp:CheckBox runat="server" ID="RememberMe" />
+                                <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
+                                
                             </div>
                         </div>
+                        
                     </div>
-                    <div class="form-group">
+                    <div >
                         <div class="">
-                            <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-default" />
-                        </div>
+                            
+                          <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-default" />
+                        
+                          </div>
                     </div>
                 </div>
-                <p>
-                    <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register as a new user</asp:HyperLink>
-                </p>
-                <p>
+                <p style="text-align: left">
                     <%-- Enable this once you have account confirmation enabled for password reset functionality
-                    <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Forgot your password?</asp:HyperLink>
+                   Forgot your password? <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Click here</asp:HyperLink>
                     --%>
                 </p>
+                <p style="text-align: left">
+                    Don't have an account? <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Click here</asp:HyperLink>
+                </p>
+                
             </section>
         <hr />
             <section id="socialLoginForm">
