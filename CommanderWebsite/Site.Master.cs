@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Security.Principal;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using System.Web.UI.HtmlControls;
 
 namespace CommanderWebsite
 {
@@ -69,12 +67,35 @@ namespace CommanderWebsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["CartCount"] = 0;
+            
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        }
+
+        protected void btnEmail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Net.Mail.MailMessage mm = new System.Net.Mail.MailMessage();
+                mm.From = new System.Net.Mail.MailAddress("Earlshawboss@gmail.com");
+                mm.Subject = "NewsLetter Subcription";
+                mm.To.Add(new System.Net.Mail.MailAddress("Earlshawboss@gmail.com"));
+                mm.Body = "Hi I would like to subscribe to your newsletter, account is " + tbEmailHome.Text;
+                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
+                smtp.EnableSsl = true;
+                smtp.Send(mm);
+                Label1.Text = "Successful! We shall send you our latest offers";
+            }
+            catch (Exception ex)
+            {
+
+                Label1.Text = ex.ToString();
+
+            }
         }
     }
 

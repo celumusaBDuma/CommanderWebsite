@@ -6,6 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type" />
     <title><%: Page.Title %> - COMMANDER E-Commerce Website</title>
 
     <asp:PlaceHolder runat="server">
@@ -14,8 +15,17 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="Content/Images/Comm.jpg" rel="shortcut icon" type="image/x-icon" />
       <link rel="stylesheet" href="Scripts/bootswatch/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/animate.css" />
+    <link rel="stylesheet" href="Content/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript">
+        onClickDropdown();
 
-
+        function onClickDropdown() {
+            $('.dropdown-menu').toggleClass('show');
+        }
+    </script>
 </head>
 <body>
     <form runat="server">
@@ -41,7 +51,7 @@
                                             <a runat="server" href="~/Account/Login">Log In</a>
                                     </AnonymousTemplate>
                                     <LoggedInTemplate>
-                                            <a runat="server" href="~/Account/Manage" title="Manage your account">Manage Account</a>
+                                            <a runat="server" href="~/Account/Manage" title="Manage your account">My Account</a>
                                     
                                             <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                     </LoggedInTemplate>
@@ -61,11 +71,18 @@
                         <a id="navBrand" class="navbar-brand" runat="server" href="~/"><b class="sign0">COMMANDER</b><b class="sign1">®</b></a>
                         <div id="cdd" class="cart-featured" style=" visibility:hidden; background-color:none; outline:none;text-decoration:none; height: 42px;" >
                                 <%if (Context.User.Identity.IsAuthenticated == true) { %>
-                            <a runat="server" style="height:0px;width:0px;  background-color:transparent; outline:none;text-decoration:none;"  class=" cart-feature glyphicon glyphicon-shopping-cart" href="#"></a>
+                                    <a runat="server" style="height:0px;width:0px;  background-color:transparent; outline:none;text-decoration:none;" 
+                                         class=" cart-feature glyphicon glyphicon-shopping-cart" href="~/Views/Cart">
+                                        <%if (!Session["CartCount"].Equals(0)){%>
+                                               :<%=(Session["CartCount"])%>
+                                        <%} %> 
+                                    </a>
                             
-                            <a runat="server" style="height:0px;width:0px; background-color:transparent; outline:none;text-decoration:none;"  class="cart-feature glyphicon glyphicon-heart-empty" href="#"></a>
-                            <%} %>
-                            <a runat="server" style="height:0px;width:0px; background-color:transparent; outline:none;text-decoration:none;" class=" cart-feature glyphicon glyphicon-search" href="javascript:void(0)" onclick="openNav()"></a>
+                                    <a runat="server" style="height:0px;width:0px; background-color:transparent; outline:none;text-decoration:none;"  
+                                        class="cart-feature glyphicon glyphicon-heart-empty" href="#"></a>
+                                <%} %>
+                            <a runat="server" style="height:0px;width:0px; background-color:transparent; outline:none;text-decoration:none;" 
+                                class=" cart-feature glyphicon glyphicon-search" href="javascript:void(0)" onclick="openNav()"></a>
                                      
                             </div>
                          </div>
@@ -76,13 +93,26 @@
                             <li><a runat="server" href="~/Views/Brands">Brands</a></li>
                             <li><a runat="server" href="~/Views/Offers">Offers</a></li>
                             <li><a runat="server" href="~/Views/Sale">Sale</a></li>
-                            <li class="navbar-right">
+                            <li class="navbar-right dropdown">
                                 <asp:LoginView runat="server" ViewStateMode="Disabled">
                                     <AnonymousTemplate>
                                             <a runat="server" href="~/Account/Register">Sign Up</a>
                                     </AnonymousTemplate>
                                     <LoggedInTemplate>
-                                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                        
+                                        <button type="button" style="background-color: transparent; height: 100%; border:none; margin-top:5px;" class="btn btn-default dropdown-toggle" onclick="onClickDropdown()" data-toggle="dropdown">
+                                            <asp:Image CssClass="img-circle" ID="Image4" runat="server" 
+                                        ImageAlign="Middle" BorderColor="#CCCCCC" BorderStyle="Solid" Height="35" Width="35" 
+                                        ImageUrl= "~/Content/Images/UserAvatar0.png" class="img-circle img-responsive"/> <b class="caret"></b></button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                <li style="width: 100%"><a runat="server">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                                <li style="width: 100%"><a href="/Account/Manage" >Account Settings</a></li>
+                                                <li style="width: 100%">
+                                                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                                    </li> 
+
+                                                </ul>
+
                                     </LoggedInTemplate>
                                 </asp:LoginView>
                             </li>
@@ -91,16 +121,18 @@
                                     <AnonymousTemplate>
                                             <a runat="server" href="~/Account/Login">Log In</a>
                                     </AnonymousTemplate>
-                                    <LoggedInTemplate>
-                                            <a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a>
-                                    </LoggedInTemplate>
                                 </asp:LoginView>
-                            </li>
+                            </li> 
+                            
                             <% if (Context.User.Identity.IsAuthenticated == true ) {
                                     
                                      %>
-                            <li class="navbar-right cart-feature">
-                                    <a runat="server" class="glyphicon glyphicon-shopping-cart" href="#"></a>
+                           <li class="navbar-right cart-feature">
+                                    <a runat="server" class="glyphicon glyphicon-shopping-cart" href="~/Views/Cart">
+                                        <%if (!Session["CartCount"].Equals(0)){%>
+                                               :<%=(Session["CartCount"])%>
+                                        <%} %>
+                                    </a>
                             </li>
                             <li class="navbar-right cart-feature">
                                     <a runat="server" class="glyphicon glyphicon-heart-empty" href="#"></a>
@@ -157,7 +189,7 @@
                 <div class ="Logo">
                     <asp:Image ID="Image1" CssClass="imagePic" runat="server" ImageUrl="~/Content/Images/Comm.jpg" ImageAlign="Middle" />
                     <br />
-                    COMMANDER<b class="sign">®</b> 
+                    COMMANDER<b class="sign">?</b> 
                     <div class="loaderFrame">
                         <div id="loaderRound1" class="loaderRound1"></div>
                         <div id="loaderRound2" class="loaderRound2"></div>
@@ -229,13 +261,13 @@
                 var sticky = navbar.offsetTop;
 
                 function myfunction() {
-                    if (window.pageYOffset >= sticky) {
-                        document.getElementById("mynavbar").classList.add("stickyNav");
+                    if (window.pageYOffset > sticky) {
+                       // document.getElementById("mynavbar").style = "background-color: transparent";
                         //navbar.classList.add('stickyNav');
                     }
-                    else {
+                    else  {
                         //navbar.classList.remove('stickyNav');
-                        document.getElementById("mynavbar").classList.remove("stickyNav");
+                     //   document.getElementById("mynavbar").style = "background-color: black";
                     }
                 }
             </script>
@@ -266,6 +298,9 @@
                     document.getElementById("footer-site").classList.remove("blur");
                 }
             </script>
+
+           
+
          <!--   <script type="text/javascript">
                 const input = document.getElementById("sb");
                 const searchBtn = document.getElementById("btn");
@@ -276,13 +311,14 @@
                 };
 
                 searchBtn.addEventListener("click", expand);
-            </script> -->
+            </script> --> 
+            <div id="errorDiv1" class="text-danger"></div>
             <asp:ContentPlaceHolder ID="MainContent" runat="server"> 
             </asp:ContentPlaceHolder>
             </div>
             </div>
             
-            <footer id="footer-site">
+            <footer id="footer-site" class="footer-site">
                 <hr />
                 <div align="center">
                     <div id="newsletter">
@@ -290,15 +326,18 @@
                     <asp:label runat="server" ID="Label1"></asp:label>
                         <div class="form-group" >
                     <asp:textbox   runat="server"  class="form-control " placeholder= "Email Address" ID="tbEmailHome" Height="42px" Width="350px"></asp:textbox>
-                    <asp:Button runat="server" text="Subscribe" ID="btnEmail" Height="42px" Font-Bold="true" Font-Size="Medium" CssClass="btn" />
+                    <asp:Button runat="server" style="background-color:black; color:white;" text="Subscribe" ID="btnEmail" Height="42px" Font-Bold="true" Font-Size="Medium" CssClass="btn " OnClick="btnEmail_Click"  />
 
                         </div>
                     </div>
                
                </div>
-                <p style="text-align:center;">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd. CodeBreakers Inc.</p>
+                <p style="text-align:center; color:black;">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd. CodeBreakers Inc.</p>
             </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="Scripts/owl.carousel.min.js"></script>
+        <script src="Scripts/Bootstrap 3.4.1/js/bootstrap.min.js"></script>
+        <script src="Scripts/popper.min.js"></script>
         
     </form>
 </body>

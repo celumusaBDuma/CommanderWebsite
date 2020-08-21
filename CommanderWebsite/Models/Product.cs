@@ -15,6 +15,7 @@ namespace CommanderWebsite.Models
             Orders = new HashSet<Order>();
             Wishlists = new HashSet<Wishlist>();
             Wishlists1 = new HashSet<Wishlist>();
+            Carts = new HashSet<Cart>();
         }
 
         [Key]
@@ -53,5 +54,8 @@ namespace CommanderWebsite.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wishlist> Wishlists1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Carts { get; set; }
     }
 }

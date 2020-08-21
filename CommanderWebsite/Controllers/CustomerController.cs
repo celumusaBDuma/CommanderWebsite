@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CommanderWebsite.Models
 {
-    public class CommanderContext : CommanderEDM
+    public class CustomerController : CommanderEDM
     {
 
         public static void AddCustomer(string firstName, string lastName, string email, string passWord)

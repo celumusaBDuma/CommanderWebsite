@@ -1,4 +1,4 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Mobile.master.cs" Inherits="CommanderWebsite.Site_Mobile" %>
+ï»¿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Mobile.master.cs" Inherits="CommanderWebsite.Site_Mobile" %>
 <%@ Register Src="~/ViewSwitcher.ascx" TagPrefix="friendlyUrls" TagName="ViewSwitcher" %>
 
 <!DOCTYPE html>
@@ -6,6 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type" />
     <title><%: Page.Title %> - COMMANDER</title>
 
     <asp:PlaceHolder runat="server">
@@ -14,7 +15,17 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="Content/Images/Comm.jpg" rel="shortcut icon" type="image/x-icon" />
       <link rel="stylesheet" href="Scripts/bootswatch/bootstrap.min.css" />
+     <link rel="stylesheet" href="Content/animate.css" />
+    <link rel="stylesheet" href="Content/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript">
+        onClickDropdown();
 
+        function onClickDropdown() {
+            $('.dropdown-menu').toggleClass('show');
+        }
+    </script>
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 </head>
 <body>
@@ -60,12 +71,16 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a id="navBrand" class="navbar-brand" runat="server" href="~/"><b class="sign0">COMMANDER</b><b class="sign1">®</b></a>
+                        <a id="navBrand" class="navbar-brand" runat="server" href="~/"><b class="sign0">COMMANDER</b><b class="sign1">Â®</b></a>
                         <div id="cdd" class="cart-featured" style=" visibility:hidden; background-color:none; outline:none;text-decoration:none; height: 42px;" >
                                 <%if (Context.User.Identity.IsAuthenticated == true) { %>
-                            <a runat="server" style="height:0px;width:0px;  background-color:transparent; outline:none;text-decoration:none;"  class=" cart-feature glyphicon glyphicon-shopping-cart" href="#"></a>
+                            <a runat="server" style="height:0px;width:0px;  background-color:transparent; outline:none;text-decoration:none;"  class=" cart-feature glyphicon glyphicon-shopping-cart" href="~/Views/Cart">
+                                <%if (!Session["CartCount"].Equals(0)){%>
+                                               :<%=(Session["CartCount"])%>
+                                        <%} %>
+                            </a>
                             
-                            <a runat="server" style="height:0px;width:0px; background-color:transparent; outline:none;text-decoration:none;"  class="cart-feature glyphicon glyphicon-heart-empty" href="#"></a>
+                            <a runat="server" style="height:0px;width:0px; background-color:transparent; outline:none;text-decoration:none;"  class="cart-feature glyphicon glyphicon-heart-empty" href="~/Views/Wishlist"></a>
                             <%} %>
                             <a runat="server" style="height:0px;width:0px; background-color:transparent; outline:none;text-decoration:none;" class=" cart-feature glyphicon glyphicon-search" href="#" onclick="openNav()"></a>
                                      
@@ -102,10 +117,14 @@
                                     
                                      %>
                             <li class="navbar-right cart-feature">
-                                    <a runat="server" class="glyphicon glyphicon-shopping-cart" href="#"></a>
+                                    <a runat="server" class="glyphicon glyphicon-shopping-cart" href="~/Views/Cart">
+                                        <%if (!Session["CartCount"].Equals(0)){%>
+                                               :<%=(Session["CartCount"])%>
+                                        <%} %>
+                                    </a>
                             </li>
                             <li class="navbar-right cart-feature">
-                                    <a runat="server" class="glyphicon glyphicon-heart-empty" href="#"></a>
+                                    <a runat="server" class="glyphicon glyphicon-heart-empty" href="~/Views/Wishlist"></a>
                                      
                             </li>
                                  <%} %>   
@@ -160,7 +179,7 @@
                 <div class ="Logo">
                     <asp:Image ID="Image1" CssClass="imagePic" runat="server" ImageUrl="~/Content/Images/Comm.jpg" ImageAlign="Middle" />
                     <br />
-                    COMMANDER<b class="sign">®</b> 
+                    COMMANDER<b class="sign">Â®</b> 
                     <div class="loaderFrame">
                         <div id="loaderRound1" class="loaderRound1"></div>
                         <div id="loaderRound2" class="loaderRound2"></div>
@@ -304,7 +323,8 @@
                 <p style="text-align:center;">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd.</p>
             </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   
+         <script src="Scripts/owl.carousel.min.js"></script>
+        <script src="Scripts/Bootstrap 3.4.1/js/bootstrap.min.js"></script>
         
         <friendlyUrls:ViewSwitcher runat="server" />
     </div>

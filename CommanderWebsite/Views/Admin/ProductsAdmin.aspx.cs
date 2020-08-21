@@ -11,6 +11,43 @@ namespace CommanderWebsite.Views.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                //    SqlDBConnection sqlcon = new SqlDBConnection();
+                //   DataTable dt = sqlcon.QueryPackagesTable();
+                //       rptrPackages.DataSource = dt;
+                rptrPackages.DataBind();
+            }
+        }
+
+        protected void rptrPackages_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            RepeaterItem item = e.Item;
+            // if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            //{
+
+            //         Label lbl = (Label)e.Item.FindControl("Label1");
+            //          string a = lbl.Text;
+            //            Session["val"] = a;
+
+            //   UniqueDrivingSchoolWebsite.SqlDBConnection sqlcon = new UniqueDrivingSchoolWebsite.SqlDBConnection();
+            //              Label lbl2 = (Label)e.Item.FindControl("Label1");
+            //                string b = (string)Session["val"];
+            // System.Data.DataTable dataT = sqlcon.QueryPackagesTableID(int.Parse(b));
+            //  if (dataT.Rows[0]["PackagePicture"] != DBNull.Value)
+            // {
+            //       byte[] imageData = (byte[])dataT.Rows[0]["PackagePicture"];
+            //      string img = Convert.ToBase64String(imageData, 0, imageData.Length);
+            //      Image imagew = (Image)e.Item.FindControl("imgs");
+            //     imagew.ImageUrl = "data:image/png;base64," + img;
+
+            // }
+            //   else
+            //  {
+            //           Image imagew = (Image)e.Item.FindControl("imgs");
+            //         imagew.ImageUrl = "Resources/noImage.png";
+            //  }
+
 
         }
     }

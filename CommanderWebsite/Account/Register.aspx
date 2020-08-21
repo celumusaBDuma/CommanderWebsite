@@ -5,7 +5,7 @@
     <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>
-
+    <div id="error-div" class="text-danger"> </div>
     <div class="form-horizontal">
         <h4>Create a new account</h4>
         <hr />

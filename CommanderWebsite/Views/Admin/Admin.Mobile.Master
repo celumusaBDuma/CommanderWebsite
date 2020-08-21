@@ -15,6 +15,17 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="Content/Images/Comm.jpg" rel="shortcut icon" type="image/x-icon" />
       <link rel="stylesheet" href="../../Scripts/bootswatch/bootstrap.min.css" />
+     <link rel="stylesheet" href="Content/animate.css" />
+    <link rel="stylesheet" href="Content/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript">
+        onClickDropdown();
+
+        function onClickDropdown() {
+            $('.dropdown-menu').toggleClass('show');
+        }
+    </script>
 
 </head>
 <body>
