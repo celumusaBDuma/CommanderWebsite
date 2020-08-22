@@ -20,7 +20,7 @@
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 </head>
 <body>
-    <form id="form1" runat="server"  style= "background-image: url('http://localhost:52652/Content/Images/HeftyGorgeousItalianbrownbear-size_restricted.gif'); background-size:cover; background-repeat: no-repeat; background-attachment: fixed; width: 100%; ">
+    <form id="form1" runat="server">
          <asp:ScriptManager runat="server">
                 <Scripts>
                     <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -42,9 +42,9 @@
                 </Scripts>
             </asp:ScriptManager>
             
-    <div class="container-fluid" style="margin: 0px; background-position: center center; padding-top: 70px; padding-bottom: 25px; padding-left: 15px; padding-right: 15px;">
+    
 
-    <div class="container thumbnail" style="text-align:center;width:400px; display:flex;  ">
+    <div class="container thumbnail" style="text-align:center;width:400px; display:flex; margin-top: 25px; margin-bottom: 25px;">
         <div class="row2">
             <section id="loginForm" >
                   
@@ -58,7 +58,6 @@
                     </asp:PlaceHolder>
                    
                     <div class="">
-                        <hr />
                          <div class="col-md-12">
                             <asp:TextBox runat="server" style="border-radius:0;border-bottom: 3px solid black; height:50px;font-size:17px;" ID="Email" placeholder="Email" CssClass="form-control" TextMode="Email" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
@@ -103,8 +102,6 @@
                 <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
             </section>
         </div>
-    </div>
-
     </div>
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
          <script src="../../Scripts/owl.carousel.min.js"></script>
