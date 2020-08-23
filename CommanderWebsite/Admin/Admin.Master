@@ -1,0 +1,183 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="CommanderWebsite.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - COMMANDER E-Commerce Website</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/Content/Images/Comm.jpg" rel="shortcut icon" type="image/x-icon" />
+      <link rel="stylesheet" href="~/Scripts/bootswatch/bootstrap.min.css" />
+     <link rel="stylesheet" href="~/Content/animate.css" />
+    <link rel="stylesheet" href="~/Content/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript">
+        onClickDropdown();
+
+        function onClickDropdown() {
+            $('.dropdown-menu').toggleClass('show');
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager runat="server">
+                <Scripts>
+                    <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                    <%--Framework Scripts--%>
+                    <asp:ScriptReference Name="MsAjaxBundle" />
+                    <asp:ScriptReference Name="jquery" />
+                    <asp:ScriptReference Name="bootstrap" />
+                    <asp:ScriptReference Name="respond" />
+                    <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                    <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                    <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                    <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                    <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                    <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                    <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                    <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                    <asp:ScriptReference Name="WebFormsBundle" />
+                    <%--Site Scripts--%>
+                </Scripts>
+            </asp:ScriptManager>
+     
+               
+  <div id="left1" class="left1 container-fluid" style="background-color:#ddd; display:flex;">
+    <div id="leftside" class="left" style="position:fixed;height:100%;background-color:#ddd">
+      <h2>Menu</h2>
+        <div class="input-group ">
+                <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a Category" />
+                <div class="input-group-addon" style="border-radius:0; background-color:white; ">
+                <button id="inputbtn2" type="button" class=" glyphicon glyphicon-search" style="color:black; background-color:transparent;border:none"></button>
+                </div>
+            </div>
+    <ul id="myMenu">
+      <li><a href="DashboardAdmin">Dashboard</a></li>
+      <li><a href="ProductsAdmin">Products</a></li>
+      <li><a href="CategoriesAdmin">Categories</a></li>
+      <li><a href="DiscountsAdmin">Discounts</a></li>
+      <li><a href="RewardsAdmin">Rewards</a></li>
+      <li><a href="HelpAdmin">Help</a></li>
+      <li><a href="ProfileSettingsAdmin">Settings</a></li>
+      
+    </ul>
+      </div>
+  </div>
+  <div id="right" class="right" style="background-color:transparent;">
+      
+        <div id="centerDiv" class="centerDiv" style="width:100%; background-color:rgba(29, 27, 27, 0.78);top:0; position:sticky;">
+            <div class="pull-left" style="width :75%;">
+                        <a id="newbtn" class="btn btn-default"  onclick="openNav()" href="javascript:void(0)" style="background-color:transparent;margin-top:-1px; border:none; color:white; border-radius:0; margin-left: 5px">
+                            <img src="~/Content/Images/menu-icon-f74b94a86745329ff48fd8a5f2a6783134e60da42990518733b2e43a17c84101.png" style="background-color: transparent" width="30" height="25" />
+                        </a>
+                        <a id="navBrand1" class="navBrand1" runat="server" href="~/" style="color: white; font-size:15px; text-align:right;left:50%;"><b style="text-align:right">COMMANDER</b><b >®</b></a>
+                       </div> <div style="width :25%;float:left">
+            <ul class="navbar-right pull-right" style="list-style:none;">
+            <li class="dropdown">
+                                <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                   <LoggedInTemplate>
+                                        
+                                        <button type="button" style="background-color: transparent; height: 100%; border:none; margin-top:-5px;" class="btn btn-default dropdown-toggle" onclick="onClickDropdown()" data-toggle="dropdown">
+                                            <asp:Image CssClass="img-circle" ID="Image4" runat="server" 
+                                        ImageAlign="Middle" BorderColor="#CCCCCC" BorderStyle="Solid" Height="35" Width="35" 
+                                        ImageUrl= "~/Content/Images/UserAvatar0.png" class="img-circle img-responsive"/> <b class="caret"></b></button>
+                                                <ul id="dpmenu" class="dropdown-menu" role="menu">
+                                                <li style="width: 100%"><a runat="server">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                                <li style="width: 100%"><a href="/Account/Manage" >Account Settings</a></li>
+                                                <li style="width: 100%">
+                                                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                                    </li> 
+
+                                                </ul>
+
+                                    </LoggedInTemplate>
+                                </asp:LoginView>
+                            </li>
+                                                                                        </ul></div></div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+      
+    <footer style="background-color:white; float:none; width:100%;">
+                <div align="center">
+                 
+               
+               </div>
+                <p style="text-align:center;">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd. CodeBreakers Inc.</p>
+            </footer>
+ </div>
+        
+
+        <script>
+        function myFunction() {
+          var input, filter, ul, li, a, i;
+          input = document.getElementById("mySearch");
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myMenu");
+          li = ul.getElementsByTagName("li");
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
+        }
+        </script>
+
+
+    <script type="text/javascript" >
+                function setActive() {
+                    aObj = document.getElementById('myMenu').getElementsByTagName('a');
+                    for (i = 0; i < aObj.length; i++) {
+                        if (document.location.href == aObj[i].href) {
+                            
+                            aObj[i].className = 'active1';
+                        }
+                    }
+                }
+
+                window.onload = setActive;
+            </script>
+          
+            <script type="text/javascript">
+                function openNav() {
+                    if ( document.getElementById("left1").title.includes("Close")){
+                        document.getElementById("left1").style = "width:25%;background-color:#ddd;";
+                        document.getElementById("leftside").style = "width:25%;background-color:#ddd;position:fixed;height:100%;";
+                        document.getElementById("right").style = "width:75%;";
+                        document.getElementById("centerDiv").style = "width:100%; background-color:rgba(29, 27, 27, 0.78);top:0; position:sticky;";
+                        document.getElementById("left1").title = "Open";
+                        document.getElementById("mySearch").style = "width:100%";
+                    }
+                    else 
+                    {
+                        closeNav();
+                    }
+                    
+                }
+
+                function closeNav() {
+                    document.getElementById("left1").style = "width:5%;background-color:#ddd;";
+                    document.getElementById("leftside").style = "width:5%;background-color:#ddd;position:fixed;height:100%;";
+                    document.getElementById("right").style = "width:95%;";
+                    document.getElementById("centerDiv").style = "width:100%; background-color:rgba(29, 27, 27, 0.78);top:0; position:sticky;";
+                    document.getElementById("left1").title = "Close";
+                    document.getElementById("mySearch").style = "width:1px";
+
+                }
+            </script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+    </form>
+</body>
+</html>

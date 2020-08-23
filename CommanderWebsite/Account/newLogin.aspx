@@ -44,7 +44,7 @@
             
     <div class="container-fluid" style="margin: 0px; background-position: center center; padding-top: 70px; padding-bottom: 25px; padding-left: 15px; padding-right: 15px;">
 
-    <div class="container thumbnail" style="text-align:center;width:400px; display:flex;  ">
+    <div class="container thumbnail" style="text-align:center;width:400px;  padding-bottom: 20px ">
         <div class="row2">
             <section id="loginForm" >
                   
@@ -58,7 +58,6 @@
                     </asp:PlaceHolder>
                    
                     <div class="">
-                        <hr />
                          <div class="col-md-12">
                             <asp:TextBox runat="server" style="border-radius:0;border-bottom: 3px solid black; height:50px;font-size:17px;" ID="Email" placeholder="Email" CssClass="form-control" TextMode="Email" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
@@ -71,7 +70,7 @@
                         </div>
                     </div>
                     <div class="">
-                        <div style="text-align:left; margin-left: 5px;" >
+                        <div style="text-align:left; margin-left: 10px;" >
                             <div class="checkbox">
                                 <asp:CheckBox runat="server" ID="RememberMe" />
                                 <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
@@ -96,20 +95,28 @@
                 <p style="text-align: left">
                     Don't have an account? <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Click here</asp:HyperLink>
                 </p>
-                
+                <hr />
+                <p style="text-align:center;margin-top:-30px;"><b style="background-color:white">OR</b></p>
+                <div>
+                 <a id="google-signin-button" href="#" class="btn btn-danger btn-lg" title="Google"><i class="fa fa-google"></i></a>
+                 <a href="#" style="visibility: hidden" class="btn btn-info btn-lg" title="Twitter"><i class="fa fa-twitter"></i></a>
+                 <a id="fb-signin-button" href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a>
+               
+                </div>
             </section>
-        <hr />
+     <!--   <hr />
             <section id="socialLoginForm">
                 <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
             </section>
+            -->
         </div>
     </div>
 
     </div>
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-         <script src="../../Scripts/owl.carousel.min.js"></script>
-        <script src="../../Scripts/Bootstrap 3.4.1/js/bootstrap.min.js"></script>
-        <script src="../../Scripts/popper.min.js"></script>
+         <script src="~/Scripts/owl.carousel.min.js"></script>
+        <script src="~/Scripts/Bootstrap 3.4.1/js/bootstrap.min.js"></script>
+        <script src="~/Scripts/popper.min.js"></script>
     </form>
 </body>
 </html>

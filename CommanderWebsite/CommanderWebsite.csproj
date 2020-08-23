@@ -350,24 +350,24 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Views\Admin\CategoriesAdmin.aspx" />
-    <Content Include="Views\Admin\CreateProduct.aspx" />
-    <Content Include="Views\Admin\DashboardAdmin.aspx" />
-    <Content Include="Views\Admin\DiscountsAdmin.aspx" />
-    <Content Include="Views\Admin\HelpAdmin.aspx" />
-    <Content Include="Views\Admin\ProductsAdmin.aspx" />
-    <Content Include="Views\Admin\ProfileSettingsAdmin.aspx" />
-    <Content Include="Views\Admin\RewardsAdmin.aspx" />
-    <Content Include="Views\Admin\SettingsAdmin.aspx" />
+    <Content Include="Admin\CategoriesAdmin.aspx" />
+    <Content Include="Admin\CreateProduct.aspx" />
+    <Content Include="Admin\DashboardAdmin.aspx" />
+    <Content Include="Admin\DiscountsAdmin.aspx" />
+    <Content Include="Admin\HelpAdmin.aspx" />
+    <Content Include="Admin\ProductsAdmin.aspx" />
+    <Content Include="Admin\ProfileSettingsAdmin.aspx" />
+    <Content Include="Admin\RewardsAdmin.aspx" />
+    <Content Include="Admin\SettingsAdmin.aspx" />
     <Content Include="Views\Brands.aspx" />
     <Content Include="Views\Cart.aspx" />
-    <Content Include="Views\Customer\DashboardCustomer.aspx" />
-    <Content Include="Views\Customer\HelpCustomer.aspx" />
-    <Content Include="Views\Customer\Orders.aspx" />
-    <Content Include="Views\Customer\ProfileSettingsCustomer.aspx" />
-    <Content Include="Views\Customer\Returns.aspx" />
-    <Content Include="Views\Customer\Rewards.aspx" />
-    <Content Include="Views\Customer\SettingsCustomer.aspx" />
+    <Content Include="Customer\DashboardCustomer.aspx" />
+    <Content Include="Customer\HelpCustomer.aspx" />
+    <Content Include="Customer\Orders.aspx" />
+    <Content Include="Customer\ProfileSettingsCustomer.aspx" />
+    <Content Include="Customer\Returns.aspx" />
+    <Content Include="Customer\Rewards.aspx" />
+    <Content Include="Customer\SettingsCustomer.aspx" />
     <Content Include="Views\Help.aspx" />
     <Content Include="Views\Men.aspx" />
     <Content Include="Views\Offers.aspx" />
@@ -385,10 +385,10 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
-    <Content Include="Views\Customer\Customer.Master" />
-    <Content Include="Views\Admin\Admin.Master" />
-    <Content Include="Views\Customer\Customer.Mobile.Master" />
-    <Content Include="Views\Admin\Admin.Mobile.Master" />
+    <Content Include="Customer\Customer.Master" />
+    <Content Include="Admin\Admin.Master" />
+    <Content Include="Customer\Customer.Mobile.Master" />
+    <Content Include="Admin\Admin.Mobile.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -577,74 +577,74 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\Admin.Mobile.Master.cs">
+    <Compile Include="Admin\Admin.Mobile.Master.cs">
       <DependentUpon>Admin.Mobile.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\Admin.Mobile.Master.designer.cs">
+    <Compile Include="Admin\Admin.Mobile.Master.designer.cs">
       <DependentUpon>Admin.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\CategoriesAdmin.aspx.cs">
+    <Compile Include="Admin\CategoriesAdmin.aspx.cs">
       <DependentUpon>CategoriesAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\CategoriesAdmin.aspx.designer.cs">
+    <Compile Include="Admin\CategoriesAdmin.aspx.designer.cs">
       <DependentUpon>CategoriesAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\CreateProduct.aspx.cs">
+    <Compile Include="Admin\CreateProduct.aspx.cs">
       <DependentUpon>CreateProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\CreateProduct.aspx.designer.cs">
+    <Compile Include="Admin\CreateProduct.aspx.designer.cs">
       <DependentUpon>CreateProduct.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\DashboardAdmin.aspx.cs">
+    <Compile Include="Admin\DashboardAdmin.aspx.cs">
       <DependentUpon>DashboardAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\DashboardAdmin.aspx.designer.cs">
+    <Compile Include="Admin\DashboardAdmin.aspx.designer.cs">
       <DependentUpon>DashboardAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\DiscountsAdmin.aspx.cs">
+    <Compile Include="Admin\DiscountsAdmin.aspx.cs">
       <DependentUpon>DiscountsAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\DiscountsAdmin.aspx.designer.cs">
+    <Compile Include="Admin\DiscountsAdmin.aspx.designer.cs">
       <DependentUpon>DiscountsAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\HelpAdmin.aspx.cs">
+    <Compile Include="Admin\HelpAdmin.aspx.cs">
       <DependentUpon>HelpAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\HelpAdmin.aspx.designer.cs">
+    <Compile Include="Admin\HelpAdmin.aspx.designer.cs">
       <DependentUpon>HelpAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\ProductsAdmin.aspx.cs">
+    <Compile Include="Admin\ProductsAdmin.aspx.cs">
       <DependentUpon>ProductsAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\ProductsAdmin.aspx.designer.cs">
+    <Compile Include="Admin\ProductsAdmin.aspx.designer.cs">
       <DependentUpon>ProductsAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\ProfileSettingsAdmin.aspx.cs">
+    <Compile Include="Admin\ProfileSettingsAdmin.aspx.cs">
       <DependentUpon>ProfileSettingsAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\ProfileSettingsAdmin.aspx.designer.cs">
+    <Compile Include="Admin\ProfileSettingsAdmin.aspx.designer.cs">
       <DependentUpon>ProfileSettingsAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\RewardsAdmin.aspx.cs">
+    <Compile Include="Admin\RewardsAdmin.aspx.cs">
       <DependentUpon>RewardsAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\RewardsAdmin.aspx.designer.cs">
+    <Compile Include="Admin\RewardsAdmin.aspx.designer.cs">
       <DependentUpon>RewardsAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\SettingsAdmin.aspx.cs">
+    <Compile Include="Admin\SettingsAdmin.aspx.cs">
       <DependentUpon>SettingsAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\SettingsAdmin.aspx.designer.cs">
+    <Compile Include="Admin\SettingsAdmin.aspx.designer.cs">
       <DependentUpon>SettingsAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Brands.aspx.cs">
@@ -661,74 +661,74 @@
     <Compile Include="Views\Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\Customer.Master.cs">
+    <Compile Include="Customer\Customer.Master.cs">
       <DependentUpon>Customer.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Customer\Customer.Master.designer.cs">
+    <Compile Include="Customer\Customer.Master.designer.cs">
       <DependentUpon>Customer.Master</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\DashboardCustomer.aspx.cs">
+    <Compile Include="Customer\DashboardCustomer.aspx.cs">
       <DependentUpon>DashboardCustomer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Customer\DashboardCustomer.aspx.designer.cs">
+    <Compile Include="Customer\DashboardCustomer.aspx.designer.cs">
       <DependentUpon>DashboardCustomer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\HelpCustomer.aspx.cs">
+    <Compile Include="Customer\HelpCustomer.aspx.cs">
       <DependentUpon>HelpCustomer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Customer\HelpCustomer.aspx.designer.cs">
+    <Compile Include="Customer\HelpCustomer.aspx.designer.cs">
       <DependentUpon>HelpCustomer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\Orders.aspx.cs">
+    <Compile Include="Customer\Orders.aspx.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Customer\Orders.aspx.designer.cs">
+    <Compile Include="Customer\Orders.aspx.designer.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\Admin.Master.cs">
+    <Compile Include="Admin\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\Admin.Master.designer.cs">
+    <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\ProfileSettingsCustomer.aspx.cs">
+    <Compile Include="Customer\ProfileSettingsCustomer.aspx.cs">
       <DependentUpon>ProfileSettingsCustomer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Customer\ProfileSettingsCustomer.aspx.designer.cs">
+    <Compile Include="Customer\ProfileSettingsCustomer.aspx.designer.cs">
       <DependentUpon>ProfileSettingsCustomer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\Returns.aspx.cs">
+    <Compile Include="Customer\Returns.aspx.cs">
       <DependentUpon>Returns.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Customer\Returns.aspx.designer.cs">
+    <Compile Include="Customer\Returns.aspx.designer.cs">
       <DependentUpon>Returns.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\Rewards.aspx.cs">
+    <Compile Include="Customer\Rewards.aspx.cs">
       <DependentUpon>Rewards.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Customer\Rewards.aspx.designer.cs">
+    <Compile Include="Customer\Rewards.aspx.designer.cs">
       <DependentUpon>Rewards.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\SettingsCustomer.aspx.cs">
+    <Compile Include="Customer\SettingsCustomer.aspx.cs">
       <DependentUpon>SettingsCustomer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Customer\SettingsCustomer.aspx.designer.cs">
+    <Compile Include="Customer\SettingsCustomer.aspx.designer.cs">
       <DependentUpon>SettingsCustomer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\Customer.Mobile.Master.cs">
+    <Compile Include="Customer\Customer.Mobile.Master.cs">
       <DependentUpon>Customer.Mobile.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Customer\Customer.Mobile.Master.designer.cs">
+    <Compile Include="Customer\Customer.Mobile.Master.designer.cs">
       <DependentUpon>Customer.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Views\Help.aspx.cs">
