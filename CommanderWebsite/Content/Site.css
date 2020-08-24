@@ -1,19 +1,31 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
-html,body {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    font-family: "Lato", sans-serif;
+ody {
+      font-family: "Lato", sans-serif;
     transition: background-color .5s;
-     height: 100%;
-      margin: 0;
+   
 }
-#btnEmail {
+html {
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+
+
+#bt#bbtnEmail {
     border-radius: 0;
     margin-top: 5px;
 }
-.footer-site{
-    background-color:black;
+.footer-site {
+    background-color:darkgrey;
 }
+#tbEmaaa
+}
+#tbEmailHfootEmaa
+}
+#tbEmailH    margin-top: 5px;
+}
+
 #tbEmailHome {
     width:100%;
     border-radius:0;

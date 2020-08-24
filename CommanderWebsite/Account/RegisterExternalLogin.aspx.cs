@@ -33,6 +33,7 @@ namespace CommanderWebsite.Account
             ProviderName = IdentityHelper.GetProviderNameFromRequest(Request);
             if (String.IsNullOrEmpty(ProviderName))
             {
+
                 RedirectOnFail();
                 return;
             }
@@ -41,6 +42,7 @@ namespace CommanderWebsite.Account
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
                 var loginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo();
+              
                 if (loginInfo == null)
                 {
                     RedirectOnFail();

@@ -28,7 +28,7 @@
     </script>
 </head>
 <body>
-    <form runat="server">
+    <form runat="server" style="height:100%; width:100%;">
         <div id="mySidenav" class="sidenav" style="visibility:hidden; height:0px; width:0px;">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
           
@@ -329,10 +329,17 @@
                     <asp:Button runat="server" style="background-color:black; color:white;" text="Subscribe" ID="btnEmail" Height="42px" Font-Bold="true" Font-Size="Medium" CssClass="btn " OnClick="btnEmail_Click"  />
 
                         </div>
+                        <p style=" text-align:center"><a class="fa fa-facebook" href="#"></a>
+                              <a class="fa fa-whatsapp" href="#"></a>
+                              <a class="fa fa-twitter" href="#"></a>
+                              <a class="fa fa-instagram" href="#"></a>
+                              <a class="fa fa-google" href="#"></a>
+                              <a class="fa fa-youtube" href="#"></a>
+                          </p>
                     </div>
                
                </div>
-                <p style="text-align:center; color:black;">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd. CodeBreakers Inc.</p>
+               <div style="text-align:center;"><b style="text-align:center; color:black;width:100%">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd. CodeBreakers Inc.</b></div>
             </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
          <script src="Scripts/owl.carousel.min.js"></script>

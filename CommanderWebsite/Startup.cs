@@ -1,6 +1,12 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
+
+
+
+
+
+
 [assembly: OwinStartupAttribute(typeof(CommanderWebsite.Startup))]
 namespace CommanderWebsite
 {
@@ -8,5 +14,6 @@ namespace CommanderWebsite
         public void Configuration(IAppBuilder app) {
             ConfigureAuth(app);
         }
+
     }
 }

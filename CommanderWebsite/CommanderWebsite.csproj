@@ -17,7 +17,7 @@
     <AssemblyName>CommanderWebsite</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44361</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -239,7 +239,7 @@
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\ManageLogins.aspx" />
     <Content Include="Account\ManagePassword.aspx" />
-    <Content Include="Account\NewLogin.aspx" />
+    <Content Include="Account\OldLogin.aspx" />
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
@@ -247,6 +247,15 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Admin\CategoriesAdmin.aspx" />
+    <Content Include="Admin\CreateProduct.aspx" />
+    <Content Include="Admin\DashboardAdmin.aspx" />
+    <Content Include="Admin\DiscountsAdmin.aspx" />
+    <Content Include="Admin\HelpAdmin.aspx" />
+    <Content Include="Admin\ProductsAdmin.aspx" />
+    <Content Include="Admin\ProfileSettingsAdmin.aspx" />
+    <Content Include="Admin\RewardsAdmin.aspx" />
+    <Content Include="Admin\SettingsAdmin.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\backendstyle.css" />
@@ -266,6 +275,13 @@
     <Content Include="Content\Images\UserAvatar2.png" />
     <Content Include="Content\owl.carousel.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Customer\DashboardCustomer.aspx" />
+    <Content Include="Customer\HelpCustomer.aspx" />
+    <Content Include="Customer\Orders.aspx" />
+    <Content Include="Customer\ProfileSettingsCustomer.aspx" />
+    <Content Include="Customer\Returns.aspx" />
+    <Content Include="Customer\Rewards.aspx" />
+    <Content Include="Customer\SettingsCustomer.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\fonts\glyphicons-halflings-regular.woff" />
@@ -290,6 +306,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="LoginHandler.ashx" />
+    <Content Include="Customer\Customer.Master" />
+    <Content Include="Customer\Customer.Mobile.Master" />
+    <Content Include="Admin\Admin.Master" />
+    <Content Include="Admin\Admin.Mobile.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -350,24 +370,8 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Admin\CategoriesAdmin.aspx" />
-    <Content Include="Admin\CreateProduct.aspx" />
-    <Content Include="Admin\DashboardAdmin.aspx" />
-    <Content Include="Admin\DiscountsAdmin.aspx" />
-    <Content Include="Admin\HelpAdmin.aspx" />
-    <Content Include="Admin\ProductsAdmin.aspx" />
-    <Content Include="Admin\ProfileSettingsAdmin.aspx" />
-    <Content Include="Admin\RewardsAdmin.aspx" />
-    <Content Include="Admin\SettingsAdmin.aspx" />
     <Content Include="Views\Brands.aspx" />
     <Content Include="Views\Cart.aspx" />
-    <Content Include="Customer\DashboardCustomer.aspx" />
-    <Content Include="Customer\HelpCustomer.aspx" />
-    <Content Include="Customer\Orders.aspx" />
-    <Content Include="Customer\ProfileSettingsCustomer.aspx" />
-    <Content Include="Customer\Returns.aspx" />
-    <Content Include="Customer\Rewards.aspx" />
-    <Content Include="Customer\SettingsCustomer.aspx" />
     <Content Include="Views\Help.aspx" />
     <Content Include="Views\Men.aspx" />
     <Content Include="Views\Offers.aspx" />
@@ -385,10 +389,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
-    <Content Include="Customer\Customer.Master" />
-    <Content Include="Admin\Admin.Master" />
-    <Content Include="Customer\Customer.Mobile.Master" />
-    <Content Include="Admin\Admin.Mobile.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -453,12 +453,12 @@
     <Compile Include="Account\ManagePassword.aspx.designer.cs">
       <DependentUpon>ManagePassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\NewLogin.aspx.cs">
-      <DependentUpon>NewLogin.aspx</DependentUpon>
+    <Compile Include="Account\OldLogin.aspx.cs">
+      <DependentUpon>OldLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\NewLogin.aspx.designer.cs">
-      <DependentUpon>NewLogin.aspx</DependentUpon>
+    <Compile Include="Account\OldLogin.aspx.designer.cs">
+      <DependentUpon>OldLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\OpenAuthProviders.ascx.cs">
       <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
@@ -509,73 +509,12 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\SocialLoginController.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="LoginHandler.ashx.cs">
-      <DependentUpon>LoginHandler.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Cart.cs" />
-    <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Controllers\CustomerController.cs" />
-    <Compile Include="Models\CommanderEDM.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\Delivery.cs" />
-    <Compile Include="Models\Discount.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Payment.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Wishlist.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.designer.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Startup.cs" />
-    <Compile Include="ViewSwitcher.ascx.cs">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewSwitcher.ascx.designer.cs">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
     <Compile Include="Admin\Admin.Mobile.Master.cs">
       <DependentUpon>Admin.Mobile.Master</DependentUpon>
@@ -647,26 +586,38 @@
     <Compile Include="Admin\SettingsAdmin.aspx.designer.cs">
       <DependentUpon>SettingsAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Brands.aspx.cs">
-      <DependentUpon>Brands.aspx</DependentUpon>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Brands.aspx.designer.cs">
-      <DependentUpon>Brands.aspx</DependentUpon>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cart.aspx.cs">
-      <DependentUpon>Cart.aspx</DependentUpon>
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Cart.aspx.designer.cs">
-      <DependentUpon>Cart.aspx</DependentUpon>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\SocialLoginController.cs" />
     <Compile Include="Customer\Customer.Master.cs">
       <DependentUpon>Customer.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Customer\Customer.Master.designer.cs">
       <DependentUpon>Customer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Customer.Mobile.Master.cs">
+      <DependentUpon>Customer.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Customer.Mobile.Master.designer.cs">
+      <DependentUpon>Customer.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Customer\DashboardCustomer.aspx.cs">
       <DependentUpon>DashboardCustomer.aspx</DependentUpon>
@@ -688,13 +639,6 @@
     </Compile>
     <Compile Include="Customer\Orders.aspx.designer.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Admin.Master.cs">
-      <DependentUpon>Admin.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Admin.Master.designer.cs">
-      <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
     <Compile Include="Customer\ProfileSettingsCustomer.aspx.cs">
       <DependentUpon>ProfileSettingsCustomer.aspx</DependentUpon>
@@ -724,12 +668,68 @@
     <Compile Include="Customer\SettingsCustomer.aspx.designer.cs">
       <DependentUpon>SettingsCustomer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\Customer.Mobile.Master.cs">
-      <DependentUpon>Customer.Mobile.Master</DependentUpon>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\Customer.Mobile.Master.designer.cs">
-      <DependentUpon>Customer.Mobile.Master</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LoginHandler.ashx.cs">
+      <DependentUpon>LoginHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Models\CommanderEDM.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Delivery.cs" />
+    <Compile Include="Models\Discount.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Wishlist.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Brands.aspx.cs">
+      <DependentUpon>Brands.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Brands.aspx.designer.cs">
+      <DependentUpon>Brands.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Help.aspx.cs">
       <DependentUpon>Help.aspx</DependentUpon>
@@ -805,7 +805,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52652</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52652/</IISUrl>
+          <IISUrl>https://localhost:44361/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -815,18 +815,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
-  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
-    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

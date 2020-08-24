@@ -49,7 +49,7 @@ namespace CommanderWebsite
             if (!IsValidFacebookAccessToken(token))
             {
 
-                context.Response.Redirect("default.aspx?err=Invalid Access Token");
+                context.Response.Redirect("Default.aspx?err=Invalid Access Token");
                 return;
 
             }
@@ -72,7 +72,7 @@ namespace CommanderWebsite
             if (!IsValidGoogleAccessToken(token))
             {
 
-                context.Response.Redirect("default.aspx?err=Invalid Access Token");
+                context.Response.Redirect("Default.aspx?err=Invalid Access Token");
                 return;
 
             }
@@ -124,7 +124,7 @@ namespace CommanderWebsite
                 var loginType = context.Request["logintype"];
 
                 //Set The variables in session or pass as parameters
-                context.Response.Redirect("Register.aspx");
+                context.Response.Redirect("Account/Login.aspx");
 
             }
 

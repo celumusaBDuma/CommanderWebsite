@@ -6,13 +6,15 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
+using Microsoft.Owin.Security.Facebook;
 using Owin;
 using CommanderWebsite.Models;
+using Microsoft.Owin.Security.OAuth;
 
 namespace CommanderWebsite
 {
     public partial class Startup {
-
+       
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301883
         public void ConfigureAuth(IAppBuilder app)
         {
@@ -55,15 +57,19 @@ namespace CommanderWebsite
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+            appId: "295912151710166",
+            appSecret: "9432fae5b8bd3bce0da72d983c0d75b0");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            var google = new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "914207907949-d7191nr99a5m5rfjrotbo9h8gnnc1hc0.apps.googleusercontent.com",
+                ClientSecret = "sg1JGBff3qmESsoDlL-9F5hJ",
+            };
+            google.Scope.Add("email");
+            app.UseGoogleAuthentication(google);
+            
+         
         }
     }
 }

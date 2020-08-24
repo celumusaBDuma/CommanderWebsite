@@ -18,7 +18,8 @@ var GoogleClient = {
    
         gapi.load('auth2', function () {
    
-            GoogleClient.auth2 = gapi.auth2.init({
+            GoogleClient.auth2 =
+                gapi.auth2.init({
                 client_id: googleConfig.client_id
             });
 

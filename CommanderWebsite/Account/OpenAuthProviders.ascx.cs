@@ -39,5 +39,7 @@ namespace CommanderWebsite.Account
         {
             return Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes().Select(t => t.AuthenticationType);
         }
+
+
     }
 }

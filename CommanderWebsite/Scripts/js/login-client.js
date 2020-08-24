@@ -6,7 +6,7 @@ var LoginClient = {
      dologout: function() {
          //Login Page
          alert("CHange in login-client.js to redirect login page")
-        // window.location = "index.html";
+         window.location = "Default.aspx";
      },
      doCredentialsLogin: function () {
 

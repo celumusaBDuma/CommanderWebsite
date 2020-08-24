@@ -1,11 +1,11 @@
 ﻿var Config= {
     google: {
 
-        client_id: '801208965060-j277bba8jea631oe410uq04bg93b22gi.apps.googleusercontent.com'
+        client_id: '914207907949-d7191nr99a5m5rfjrotbo9h8gnnc1hc0.apps.googleusercontent.com'
     },
     facebook: {
 
-        appId: '220671985187788'
+        appId: '295912151710166'
     }
 }
 
