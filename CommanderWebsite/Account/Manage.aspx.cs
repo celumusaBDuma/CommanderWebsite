@@ -84,8 +84,8 @@ namespace CommanderWebsite.Account
             }
             }
             catch (Exception ex){
-               
-                Response.Write("alert('Session has expired re-login')");
+
+                var a = ex;
             }
         }
 

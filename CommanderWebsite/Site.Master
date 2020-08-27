@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CommanderWebsite.SiteMaster" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CommanderWebsite.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -68,7 +68,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a id="navBrand" class="navbar-brand" runat="server" href="~/"><b class="sign0">COMMANDER</b><b class="sign1">®</b></a>
+                        <a id="navBrand" class="navbar-brand" runat="server" href="~/"><b class="sign0">COMMANDER</b><b class="sign1">&reg;</b></a>
                         <div id="cdd" class="cart-featured" style=" visibility:hidden; background-color:none; outline:none;text-decoration:none; height: 42px;" >
                                 <%if (Context.User.Identity.IsAuthenticated == true) { %>
                                     <a runat="server" style="height:0px;width:0px;  background-color:transparent; outline:none;text-decoration:none;" 
@@ -101,9 +101,9 @@
                                     <LoggedInTemplate>
                                         
                                         <button type="button" style="background-color: transparent; height: 100%; border:none; margin-top:5px;" class="btn btn-default dropdown-toggle" onclick="onClickDropdown()" data-toggle="dropdown">
-                                            <asp:Image CssClass="img-circle" ID="Image4" runat="server" 
+                                            <asp:Image CssClass="img-circle img-responsive" ID="Image4" runat="server" 
                                         ImageAlign="Middle" BorderColor="#CCCCCC" BorderStyle="Solid" Height="35" Width="35" 
-                                        ImageUrl= "~/Content/Images/UserAvatar0.png" class="img-circle img-responsive"/> <b class="caret"></b></button>
+                                        ImageUrl= "~/Content/Images/UserAvatar0.png" /> </button><b class="caret"></b>
                                                 <ul class="dropdown-menu" role="menu">
                                                 <li style="width: 100%"><a runat="server">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                                 <li style="width: 100%"><a href="/Account/Manage" >Account Settings</a></li>
@@ -144,7 +144,7 @@
                                      
                                       <input type="search" id="sb" style="color:white;" placeholder="Search..." class="search-box" />
                                      <div class="input-group-addon" style="width:10px;color:white;border:none; background-color: transparent;">
-                                        <button id="inputbtn" type="button" class="glyphicon glyphicon-search"></button>
+                                        <button id="inputbtn" type="button" class="glyphicon glyphicon-search" style="color:white;"></button>
                                       </div>
                                     </div>
                                 </li>
@@ -189,7 +189,7 @@
                 <div class ="Logo">
                     <asp:Image ID="Image1" CssClass="imagePic" runat="server" ImageUrl="~/Content/Images/Comm.jpg" ImageAlign="Middle" />
                     <br />
-                    COMMANDER<b class="sign">®</b> 
+                    COMMANDER<b class="sign">&reg;</b> 
                     <div class="loaderFrame">
                         <div id="loaderRound1" class="loaderRound1"></div>
                         <div id="loaderRound2" class="loaderRound2"></div>
@@ -324,9 +324,15 @@
                     <div id="newsletter">
                     <h1>Subscribe to our newsletter </h1>
                     <asp:label runat="server" ID="Label1"></asp:label>
-                        <div class="form-group" >
-                    <asp:textbox   runat="server"  class="form-control " placeholder= "Email Address" ID="tbEmailHome" Height="42px" Width="350px"></asp:textbox>
-                    <asp:Button runat="server" style="background-color:white; color:black; margin-top:5px;border-radius:0" text="Subscribe" ID="btnEmail" Height="42px" Font-Bold="true" Font-Size="Medium" CssClass="btn " OnClick="btnEmail_Click"  />
+                        <br />
+                        <div class="" style="text-align:center; width:100%; display:flex; justify-content:center">
+                          
+                                 
+                          
+                                    <asp:textbox runat="server" align="center" class="form-control" placeholder= "Email Address" ID="tbEmailHome" Height="42px" Width="350px"></asp:textbox>
+                                     
+                    </div><div  style="text-align:center"> 
+                    <asp:Button runat="server" style="background-color:white; color:black; margin-top:5px;border-radius:0; text-align:center" text="Subscribe" ID="btnEmail" Height="42px" Font-Bold="true" Font-Size="Medium" CssClass="btn " OnClick="btnEmail_Click"  />
 
                         </div>
                         <p style=" text-align:center"><a class="fa fa-facebook" href="#"></a>
@@ -341,9 +347,9 @@
                </div>
                
                 <div style="text-align:center;width:100%; background-color:#333;border-top:1px outset;color: white; ">
-                    <b style="width:100%">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd. CodeBreakers Inc.</b>
+                    <b style="width:100%;">&copy;<%:  DateTime.Now.Year %> - Commander Group (Pty) Ltd. CodeBreakers Inc.</b>
                     <br />
-                    <b style="width:100%"><a href="PrivacyCookies">Privacy & cookies</a><span> | </span><a href="TermsOfUse">Terms of use</a><span> | </span><a href="About">About us</a><span> | </span><a href="Contact">Contact us</a></b>
+                    <b style="width:100%;"><a href="PrivacyCookies">Privacy & cookies</a><span> | </span><a href="TermsOfUse">Terms of use</a><span> | </span><a href="About">About us</a><span> | </span><a href="Contact">Contact us</a></b>
 
                 </div>
             </footer>

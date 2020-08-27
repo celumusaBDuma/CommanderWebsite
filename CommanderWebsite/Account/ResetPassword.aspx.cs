@@ -33,6 +33,7 @@ namespace CommanderWebsite.Account
                 var result = manager.ResetPassword(user.Id, code, Password.Text);
                 if (result.Succeeded)
                 {
+                    CustomerController.resetPass(Email.Text, Password.Text);
                     Response.Redirect("~/Account/ResetPasswordConfirmation");
                     return;
                 }

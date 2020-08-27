@@ -86,10 +86,10 @@
                           </div>
                     </div>
                
-                <p style="text-align: left">
-                    <%-- Enable this once you have account confirmation enabled for password reset functionality
+                <p style="text-align: left;margin-left: 15px;">
+                    <%-- Enable this once you have account confirmation enabled for password reset functionality --%>
                    Forgot your password? <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Click here</asp:HyperLink>
-                    --%>
+                   
                 </p>
                 <p style="text-align: left;margin-left: 15px;">
                     Don't have an account? <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Click here</asp:HyperLink>

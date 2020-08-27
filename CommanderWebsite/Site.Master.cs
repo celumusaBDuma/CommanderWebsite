@@ -5,6 +5,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using System.Web.UI.HtmlControls;
+using CommanderWebsite.Controllers;
+using System.Net.Configuration;
+using System.Configuration;
 
 namespace CommanderWebsite
 {
@@ -80,18 +83,15 @@ namespace CommanderWebsite
         {
             try
             {
+                var smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
                 System.Net.Mail.MailMessage mm = new System.Net.Mail.MailMessage();
-                mm.From = new System.Net.Mail.MailAddress("Earlshawboss@gmail.com");
+                mm.From = new System.Net.Mail.MailAddress(smtpSection.Network.UserName);
                 mm.Subject = "NewsLetter Subcription";
-                mm.To.Add(new System.Net.Mail.MailAddress("Earlshawboss@gmail.com"));
+                mm.To.Add(new System.Net.Mail.MailAddress(tbEmailHome.Text));
                 mm.Body = "Hi I would like to subscribe to your newsletter, account is " + tbEmailHome.Text;
-                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
-                smtp.Host = "http://smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.EnableSsl = true;
-                smtp.Send(mm);
-                Label1.Text = "Successful! We shall send you our latest offers";
-            }
+                EmailController.sendEmail(mm.To.ToString(), mm.Subject, mm.Body);
+
+                }
             catch (Exception ex)
             {
 

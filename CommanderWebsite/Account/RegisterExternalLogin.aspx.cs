@@ -96,7 +96,7 @@ namespace CommanderWebsite.Account
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
             var user = new ApplicationUser() { UserName = email.Text, Email = email.Text };
-            IdentityResult result = manager.Create(user);
+            IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {
                 var loginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo();
@@ -108,6 +108,7 @@ namespace CommanderWebsite.Account
                 result = manager.AddLogin(user.Id, loginInfo.Login);
                 if (result.Succeeded)
                 {
+                    CustomerController.AddCustomer(email.Text, Password.Text);
                     signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

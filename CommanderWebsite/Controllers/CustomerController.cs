@@ -25,6 +25,38 @@ namespace CommanderWebsite.Models
             }
         }
 
+        public static void AddCustomer(string email, string passWord)
+        {
+            using (var context = new CommanderEDM())
+            {
+                var newCustomer = new Customer()
+                {
+                    Email = email,
+                    Password = passWord
+
+                };
+                context.Customers.Add(newCustomer);
+                context.SaveChanges();
+            }
+        }
+        public static void resetPass(string email, string pass)
+        {
+            CommanderEDM db = new CommanderEDM();
+            var user = db.Customers.Single(c => c.Email == email);
+            user.Password = pass;
+            db.SaveChanges();
+        }
+
+        public static string findByEmail(string Email)
+        {
+            CommanderEDM db = new CommanderEDM();
+            var userRow = db.Customers.SingleOrDefault(c => c.Email == Email);
+            var user = "";
+            if (userRow.Email != "") {
+               user = userRow.Email;
+             }
+            return user;
+        }
         /*   
          *   Update method
          *     private static void ChangeCustomer()

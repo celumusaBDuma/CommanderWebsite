@@ -52,6 +52,7 @@
                         <asp:Literal runat="server" ID="ErrorMessage" />
                     </p>
                     <div id="error-div" class="text-danger"> </div>
+                    <asp:PlaceHolder runat="server" ID="regForm">
                     <div class="form-horizontal" style="text-align:left">
                         <h4 style="text-align:center">Create a new account</h4>
                         <hr />
@@ -106,6 +107,12 @@
                             <div style="text-align:center"><a href="Login">Back to Login</a><span> | </span><a href="../Default">Home</a></div>
                         </div>
                     </div>
+                    </asp:PlaceHolder>
+                    <asp:PlaceHolder runat="server" ID="ConfirmEmail" Visible="false">
+                <p class="text-info" style="text-align:center;">
+                    Please check your email to confirm your account before logging in.
+                </p>
+            </asp:PlaceHolder>
                 </div>
             </div>
         </div>

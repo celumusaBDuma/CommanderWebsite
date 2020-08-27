@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using CommanderWebsite.Models;
 
 namespace CommanderWebsite.Account
 {
@@ -60,6 +61,7 @@ namespace CommanderWebsite.Account
                 {
                     var user = manager.FindById(User.Identity.GetUserId());
                     signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+                    CustomerController.resetPass(User.Identity.Name.ToString(), NewPassword.Text);
                     Response.Redirect("~/Account/Manage?m=ChangePwdSuccess");
                 }
                 else
@@ -78,6 +80,7 @@ namespace CommanderWebsite.Account
                 IdentityResult result = manager.AddPassword(User.Identity.GetUserId(), password.Text);
                 if (result.Succeeded)
                 {
+                    CustomerController.resetPass(User.Identity.Name.ToString(), NewPassword.Text);
                     Response.Redirect("~/Account/Manage?m=SetPwdSuccess");
                 }
                 else
