@@ -74,8 +74,7 @@ namespace CommanderWebsite.Models
         public List<Cart> GetCartItems()
         {
             ShoppingCartId = GetCartId();
-            return _db.Carts.Where(
-            c => c.CartId == ShoppingCartId).ToList();
+            return _db.Carts.Where(c => c.CartId == ShoppingCartId).ToList();
         }
     }
 }

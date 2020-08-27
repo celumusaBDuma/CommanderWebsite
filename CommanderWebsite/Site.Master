@@ -28,7 +28,7 @@
     </script>
 </head>
 <body>
-    <form runat="server" style="height:100%; width:100%;">
+    <form runat="server" style="min-height: 1024px;width:100%;">
         <div id="mySidenav" class="sidenav" style="visibility:hidden; height:0px; width:0px;">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
           
@@ -160,7 +160,7 @@
                 </div>
             </div>
             
-        <div id="ContentonBody" class="container body-content" style="visibility:hidden">
+        <div id="ContentonBody" class="container body-content" style="visibility:hidden;">
            
             <asp:ScriptManager runat="server">
                 <Scripts>
@@ -189,7 +189,7 @@
                 <div class ="Logo">
                     <asp:Image ID="Image1" CssClass="imagePic" runat="server" ImageUrl="~/Content/Images/Comm.jpg" ImageAlign="Middle" />
                     <br />
-                    COMMANDER<b class="sign">?</b> 
+                    COMMANDER<b class="sign">®</b> 
                     <div class="loaderFrame">
                         <div id="loaderRound1" class="loaderRound1"></div>
                         <div id="loaderRound2" class="loaderRound2"></div>
@@ -320,13 +320,13 @@
             
             <footer id="footer-site" class="footer-site">
                 <hr />
-                <div align="center">
+                <div style="text-align:center">
                     <div id="newsletter">
                     <h1>Subscribe to our newsletter </h1>
                     <asp:label runat="server" ID="Label1"></asp:label>
                         <div class="form-group" >
                     <asp:textbox   runat="server"  class="form-control " placeholder= "Email Address" ID="tbEmailHome" Height="42px" Width="350px"></asp:textbox>
-                    <asp:Button runat="server" style="background-color:black; color:white;" text="Subscribe" ID="btnEmail" Height="42px" Font-Bold="true" Font-Size="Medium" CssClass="btn " OnClick="btnEmail_Click"  />
+                    <asp:Button runat="server" style="background-color:white; color:black; margin-top:5px;border-radius:0" text="Subscribe" ID="btnEmail" Height="42px" Font-Bold="true" Font-Size="Medium" CssClass="btn " OnClick="btnEmail_Click"  />
 
                         </div>
                         <p style=" text-align:center"><a class="fa fa-facebook" href="#"></a>
@@ -339,7 +339,13 @@
                     </div>
                
                </div>
-               <div style="text-align:center;"><b style="text-align:center; color:black;width:100%">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd. CodeBreakers Inc.</b></div>
+               
+                <div style="text-align:center;width:100%; background-color:#333;border-top:1px outset;color: white; ">
+                    <b style="width:100%">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd. CodeBreakers Inc.</b>
+                    <br />
+                    <b style="width:100%"><a href="PrivacyCookies">Privacy & cookies</a><span> | </span><a href="TermsOfUse">Terms of use</a><span> | </span><a href="About">About us</a><span> | </span><a href="Contact">Contact us</a></b>
+
+                </div>
             </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
          <script src="Scripts/owl.carousel.min.js"></script>

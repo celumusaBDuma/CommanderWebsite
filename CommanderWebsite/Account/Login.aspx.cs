@@ -18,7 +18,6 @@ namespace CommanderWebsite.Account
             {
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
             }
-            Response.Write(" "+ Context.GetOwinContext().Authentication.GetExternalLoginInfo() + "");
         }
 
         protected void LogIn(object sender, EventArgs e)
@@ -31,8 +30,15 @@ namespace CommanderWebsite.Account
 
                 // This doen't count login failures towards account lockout
                 // To enable password failures to trigger lockout, change to shouldLockout: true
-                var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
-
+                int lockOut = 0;
+                SignInStatus result = new SignInStatus();
+                if (lockOut <= 5) { 
+                    result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
+                }
+                else
+                {
+                    result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: true);
+                }
                 switch (result)
                 {
                     case SignInStatus.Success:
@@ -51,6 +57,7 @@ namespace CommanderWebsite.Account
                     default:
                         FailureText.Text = "Invalid login attempt";
                         ErrorMessage.Visible = true;
+                        lockOut++;
                         break;
                 }
             }

@@ -86,6 +86,8 @@ namespace CommanderWebsite
                 mm.To.Add(new System.Net.Mail.MailAddress("Earlshawboss@gmail.com"));
                 mm.Body = "Hi I would like to subscribe to your newsletter, account is " + tbEmailHome.Text;
                 System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
+                smtp.Host = "http://smtp.gmail.com";
+                smtp.Port = 587;
                 smtp.EnableSsl = true;
                 smtp.Send(mm);
                 Label1.Text = "Successful! We shall send you our latest offers";

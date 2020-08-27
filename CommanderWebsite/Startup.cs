@@ -1,12 +1,5 @@
 ﻿using Microsoft.Owin;
 using Owin;
-
-
-
-
-
-
-
 [assembly: OwinStartupAttribute(typeof(CommanderWebsite.Startup))]
 namespace CommanderWebsite
 {

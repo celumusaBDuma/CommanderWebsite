@@ -1,4 +1,4 @@
-<%@ Page Title="Login" Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CommanderWebsite.Account.Login" %>
+<%@ Page Title="Login" Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CommanderWebsite.Account.Login" Async="true" %>
 
 <!DOCTYPE html>
 
@@ -70,30 +70,18 @@
                         </div>
                     </div>
                     <div class="">
-                        <div style="text-align:left; margin-left: 10px;" >
+                        <div style="text-align:left; margin-left: 15px;" >
                             <div class="checkbox">
                                 <asp:CheckBox runat="server" ID="RememberMe" />
                                 <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
                                 
                             </div>
                         </div>
-                       <div class="social-btn text-center">
-                <a id="fb-signin-button" href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a>
-                <a href="#" style="visibility: hidden" class="btn btn-info btn-lg" title="Twitter"><i class="fa fa-twitter"></i></a>
-                <a id="google-signin-button" href="#" class="btn btn-danger btn-lg" title="Google"><i class="fa fa-google"></i></a>
-            </div>
-                     <input type="hidden"  id="logintype" name="logintype" />
-            <input type="hidden" id="email" name="email" />
-            <input type="hidden" id="imageurl" name="imageurl" />
-            <input type="hidden" id="name" name="name" />
-            <input type="hidden" id="firstname" name="firstname" />
-            <input type="hidden" id="lastname" name="lastname" />
-            <input type="hidden" id="authtoken" name="authtoken" />
                 </div>
                     <div >
                         <div class="">
-                            
-                          <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-default" />
+                            <br />
+                          <asp:Button runat="server" OnClick="LogIn" Text="Log in" style="border: 2px solid black;color:black; font-weight:bold;background-color:white" CssClass="btn btn-default" />
                         
                           </div>
                     </div>
@@ -103,20 +91,24 @@
                    Forgot your password? <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Click here</asp:HyperLink>
                     --%>
                 </p>
-                <p style="text-align: left">
+                <p style="text-align: left;margin-left: 15px;">
                     Don't have an account? <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Click here</asp:HyperLink>
                 </p>
                 <hr />
                 <p style="text-align:center;margin-top:-30px;"><b style="background-color:white">OR</b></p>
-           
+           </div>
             </section>
 
         </div>
             <section id="socialLoginForm">
                 <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
             </section>
-            
+            <div style="text-align:center;margin-top:5px;">
+             <a href="../Default">Back to Home</a>
+
+            </div>
         </div>
+        
     </div>
 
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
