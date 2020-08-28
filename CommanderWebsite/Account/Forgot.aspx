@@ -53,10 +53,10 @@
                     </p>
                     <div id="error-div" class="text-danger"> </div>
                     
-                      <div class="row">
-                            <div class="col-md-8">
+                      <div class="row" style="text-align:center;">
+                            <div class="">
                                 <asp:PlaceHolder id="loginForm" runat="server">
-                                    <div class="form-horizontal">
+                                    <div class="form-horizontal" style="text-align:center;">
                                         <h4>Forgot your password?</h4>
                                         <hr />
                                         <asp:PlaceHolder runat="server" ID="PlaceHolder1" Visible="false">
@@ -64,16 +64,16 @@
                                                 <asp:Literal runat="server" ID="FailureText" />
                                             </p>
                                         </asp:PlaceHolder>
-                                        <div class="form-group">
-                                            <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
-                                            <div class="col-md-10">
+                                        <div class="form-group" style="text-align:left; padding-left: 16px; padding-right: 16px;">
+                                            <asp:Label runat="server" AssociatedControlID="Email" CssClass="control-label">Email</asp:Label>
+                                            <div class="">
                                                 <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
                                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                                                     CssClass="text-danger" ErrorMessage="The email field is required." />
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-offset-2 col-md-10">
+                                            <div class="">
                                                 <asp:Button runat="server" OnClick="Forgot" Text="Email Link" style="border: 2px solid black;color:black; font-weight:bold;background-color:white" CssClass="btn btn-default" />
                                             </div>
                                         </div>

@@ -53,7 +53,7 @@
                     </p>
                     <div id="error-div" class="text-danger"> </div>
                     
-                    <hgroup>
+                    <hgroup style="text-align:center;">
                         <h1>Locked out.</h1>
                         <h2 class="text-danger">This account has been locked out, please try again later.</h2>
                     </hgroup>

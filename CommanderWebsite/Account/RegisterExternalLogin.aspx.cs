@@ -109,15 +109,17 @@ namespace CommanderWebsite.Account
                 if (result.Succeeded)
                 {
                     CustomerController.AddCustomer(email.Text, Password.Text);
-                    signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+                  
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     var code = manager.GenerateEmailConfirmationToken(user.Id);
                     // Send this link via email: 
                     string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
                     manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-
-                    // IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                    RegExtLog.Visible = false;
+                    ConfirmEmail.Visible = true;
+                    //signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+                   // IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                     return;
                 }
             }

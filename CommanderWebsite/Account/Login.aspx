@@ -85,7 +85,7 @@
                         
                           </div>
                     </div>
-               
+               <br />
                 <p style="text-align: left;margin-left: 15px;">
                     <%-- Enable this once you have account confirmation enabled for password reset functionality --%>
                    Forgot your password? <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Click here</asp:HyperLink>

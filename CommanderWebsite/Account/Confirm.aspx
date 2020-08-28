@@ -53,7 +53,7 @@
                     </p>
                     <div id="error-div" class="text-danger"> </div>
                     
-                    <div class="form-horizontal" style="text-align:left">     
+                    <div class="form-horizontal" style="text-align:center;">     
                         <!-- Enter content here -->
                             <div>
                                 <asp:PlaceHolder runat="server" ID="successPanel" ViewStateMode="Disabled" Visible="true">

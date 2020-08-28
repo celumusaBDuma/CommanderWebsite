@@ -47,23 +47,22 @@
                 <div class="row2" style="padding-left:15px;padding-right:15px;">
                      <img src="../Content/Images/CommanderPic.jpg" alt="" style="width:200px; height:200px"/>
    
-                    <h2><%: Title %></h2>
                     <p class="text-danger">
                         <asp:Literal runat="server" ID="ErrorMessage" />
                     </p>
                     <div id="error-div" class="text-danger"> </div>
                     
-                    h3>Register with your <%: ProviderName %> account</h3>
-
-    <asp:PlaceHolder runat="server">
-        <div class="form-horizontal">
-            <h4>Association Form</h4>
+                  
+    <asp:PlaceHolder ID="RegExtLog" runat="server">
+            
             <hr />
             <asp:ValidationSummary runat="server" ShowModelStateErrors="true" CssClass="text-danger" />
             <p class="text-info">
                 You've authenticated with <strong><%: ProviderName %></strong>. Please enter an email below for the current site
-                and click the Log in button.
+                and click the Sign Up button.
             </p>
+        <div class="form-horizontal" style="text-align:left">
+            
 
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="email" CssClass=" control-label">Email</asp:Label>
@@ -93,12 +92,17 @@
                             </div>
                         </div>
             <div class="form-group">
-                <div class="">
-                    <asp:Button runat="server" Text="Log in" style="border: 2px solid black;color:black; font-weight:bold;background-color:white" CssClass="btn btn-default" OnClick="LogIn_Click" />
+                <div class="" style="text-align:center">
+                    <asp:Button runat="server" Text="Sign Up" style="border: 2px solid black;color:black; font-weight:bold;background-color:white" CssClass="btn btn-default" OnClick="LogIn_Click" />
                 </div>
             </div>
         </div>
     </asp:PlaceHolder>
+                    <asp:PlaceHolder runat="server" ID="ConfirmEmail" Visible="false">
+                        <div style="text-align:center">
+                            <p class="text-success">Email sent, please check your inbox to confirm your account</p>
+                        </div>
+                    </asp:PlaceHolder>
                     
                 </div>
             </div>

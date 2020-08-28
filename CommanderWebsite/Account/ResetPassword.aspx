@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <asp:Label runat="server" AssociatedControlID="Password" CssClass="control-label">Password</asp:Label>
+                            <asp:Label runat="server" AssociatedControlID="Password" CssClass="control-label">New Password</asp:Label>
                             <div class="">
                                 <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <asp:Label runat="server" AssociatedControlID="ConfirmPassword" CssClass="control-label">Confirm password</asp:Label>
+                            <asp:Label runat="server" AssociatedControlID="ConfirmPassword" CssClass="control-label">Confirm New Password</asp:Label>
                             <div class="">
                                 <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" CssClass="form-control" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmPassword"

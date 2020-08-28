@@ -42,8 +42,10 @@ namespace CommanderWebsite.Models
         public static void resetPass(string email, string pass)
         {
             CommanderEDM db = new CommanderEDM();
-            var user = db.Customers.Single(c => c.Email == email);
-            user.Password = pass;
+            var user = db.Customers.SingleOrDefault(c => c.Email == email);
+            if (user.Password != null) {
+                 user.Password = pass;
+            }
             db.SaveChanges();
         }
 
