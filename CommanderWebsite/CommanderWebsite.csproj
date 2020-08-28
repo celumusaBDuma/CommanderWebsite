@@ -322,7 +322,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="LoginHandler.ashx" />
     <Content Include="Customer\Customer.Master" />
     <Content Include="Customer\Customer.Mobile.Master" />
     <Content Include="Admin\Admin.Master" />
@@ -739,9 +738,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="LoginHandler.ashx.cs">
-      <DependentUpon>LoginHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Controllers\CartController.cs" />
