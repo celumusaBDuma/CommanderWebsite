@@ -9,7 +9,7 @@ using SendGrid.Helpers.Mail;
 
 namespace CommanderWebsite.Account
 {
-    public partial class ForgotPassword : Page
+    public partial class ForgotPasswordOld : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

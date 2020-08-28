@@ -8,7 +8,7 @@ using CommanderWebsite.Models;
 
 namespace CommanderWebsite.Account
 {
-    public partial class RegisterExternalLogin : System.Web.UI.Page
+    public partial class RegisterExternalLoginOld : System.Web.UI.Page
     {
         protected string ProviderName
         {
@@ -42,7 +42,7 @@ namespace CommanderWebsite.Account
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
                 var loginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo();
-
+              
                 if (loginInfo == null)
                 {
                     RedirectOnFail();
@@ -80,8 +80,8 @@ namespace CommanderWebsite.Account
                     email.Text = loginInfo.Email;
                 }
             }
-        }
-
+        }        
+        
         protected void LogIn_Click(object sender, EventArgs e)
         {
             CreateAndLoginUser();
@@ -112,9 +112,9 @@ namespace CommanderWebsite.Account
                     signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    var code = manager.GenerateEmailConfirmationToken(user.Id);
+                     var code = manager.GenerateEmailConfirmationToken(user.Id);
                     // Send this link via email: 
-                    string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
+                    string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id,Request);
                     manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
                     // IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
@@ -124,9 +124,9 @@ namespace CommanderWebsite.Account
             AddErrors(result);
         }
 
-        private void AddErrors(IdentityResult result)
+        private void AddErrors(IdentityResult result) 
         {
-            foreach (var error in result.Errors)
+            foreach (var error in result.Errors) 
             {
                 ModelState.AddModelError("", error);
             }

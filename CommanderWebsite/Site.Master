@@ -14,7 +14,7 @@
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="Content/Images/Comm.jpg" rel="shortcut icon" type="image/x-icon" />
-      <link rel="stylesheet" href="Scripts/bootswatch/bootstrap.min.css" />
+    <link rel="stylesheet" href="Scripts/bootswatch/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/animate.css" />
     <link rel="stylesheet" href="Content/owl.carousel.min.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
