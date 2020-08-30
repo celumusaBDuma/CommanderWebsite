@@ -2,27 +2,26 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
    <div class="body-def">   
-       <div class="container-fluid" style="margin-left:-15px; margin-right: -15px; padding-left: -15px; padding-right: -15px">
+       <div class="w3-display-container container-fluid">
            <div class="row" >
-  <div class="mySlides w3-animate-fading element-animated" style=" background-size:100% 100%; width:100%; background-image: url('Content/Images/Comm.jpg'); background-repeat: no-repeat;">
-      <div class="w3-card" style="text-align:center; vertical-align:central"><div class="col-md-4 w3-card" style="padding: 15px 15px 0px 0px; margin-top: 100px; margin-left: 50px;"><div class="card thumbnail">
-      <h3>Follow Us</h3>
-      <p style=" text-align:center"><a class="fa fa-facebook" href="#"></a>
-          <a class="fa fa-whatsapp" href="#"></a>
-          <a class="fa fa-twitter" href="#"></a>
-          <a class="fa fa-instagram" href="#"></a>
-          <a class="fa fa-google" href="#"></a>
-          <a class="fa fa-youtube" href="#"></a>
-      </p>
-    </div></div></div>
-  </div>
-  <img class="mySlides w3-animate-fading element-animated" src="Content/Images/download.jfif" style="width:100%">
-  <img class="mySlides w3-animate-fading element-animated" src="Content/Images/Af0sF2OS5S5gatqrKzVP_Silhoutte (1).jpg" style="width:100%;">
+                  <div class="mySlides w3-animate-left element-animated" style=" background-size:100% 100%; width:100%; background-image: url('Content/Images/CommanderBlack.jpg'); background-repeat: no-repeat;">
+      
+                  </div>
+                  <div class="mySlides w3-animate-left element-animated" style=" background-size:100% 100%; width:100%; background-image:url('Content/Images/ShortHandsomeLamprey-size_restricted.gif'); background-repeat: no-repeat;">
+                      <div class="w3-display-bottommiddle w3-container w3-padding-16 w3-black">
+                    <b>Not For The Faint Hearted </b>
+                  </div>
+     
+                  </div>
+                  <div class="mySlides w3-animate-left element-animated" style=" background-size:100% 100%; width:100%; background-image: url('Content/Images/sale-text_7ef8864a-6623-4866-81a8-a9ba5a295573_2048x.gif'); background-repeat: no-repeat;">
+      
+                  </div>
 
+           </div>
 
-  <button class="w3-button w3-black w3-display-left" type="button" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="w3-button w3-black w3-display-right" type="button" onclick="plusDivs(1)">&#10095;</button>
-</div></div>
+  <button class="w3-button w3-black w3-display-left" style="margin-left:-15px;" type="button" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" type="button" style="margin-right:-15px;" onclick="plusDivs(1)">&#10095;</button>
+</div>
 
 <script type="text/javascript">
 var slideIndex = 1;

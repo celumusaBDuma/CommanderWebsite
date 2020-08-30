@@ -13,8 +13,8 @@
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/Content/Images/Comm.jpg" rel="shortcut icon" type="image/x-icon" />
-      <link rel="stylesheet" href="~/Scripts/bootswatch/bootstrap.min.css" />
-     <link rel="stylesheet" href="~/Content/animate.css" />
+    <link rel="stylesheet" href="~/Scripts/bootswatch/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/animate.css" />
     <link rel="stylesheet" href="~/Content/owl.carousel.min.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -48,35 +48,40 @@
                     <%--Site Scripts--%>
                 </Scripts>
             </asp:ScriptManager>
-     
-               
-  <div id="left1" class="left1 container-fluid" style="background-color:#ddd; display:flex;">
-    <div id="leftside" class="left" style="position:fixed;height:100%;background-color:#ddd">
-      <h2>Menu</h2>
-        <div class="input-group ">
-                <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a Category" />
-                <div class="input-group-addon" style="border-radius:0; background-color:white; ">
-                <button id="inputbtn2" type="button" class=" glyphicon glyphicon-search" style="color:black; background-color:transparent;border:none"></button>
+        <div id="mySidenav" class="sidenav" style="visibility:hidden; height:0px; width:0px;">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
+          
+            <div class="input-group">
+                <input type="text" id="mySearchbtn" onkeyup="myFunction()" placeholder="Search.." title="Type in a Category" />
+                <div class="input-group-addon" style="color:white;border: none; background-color: transparent">
+                <button id="inputbtn3" type="button" class="btn glyphicon glyphicon-search" style="color:white; border-radius: 0px;border:none; height:auto; background-color: transparent;margin-top:-2px"></button>
                 </div>
             </div>
-    <ul id="myMenu">
-      <li><a href="DashboardAdmin">Dashboard</a></li>
-      <li><a href="ProductsAdmin">Products</a></li>
-      <li><a href="CategoriesAdmin">Categories</a></li>
-      <li><a href="DiscountsAdmin">Discounts</a></li>
-      <li><a href="RewardsAdmin">Rewards</a></li>
-      <li><a href="HelpAdmin">Help</a></li>
-      <li><a href="ProfileSettingsAdmin">Settings</a></li>
-      
-    </ul>
-      </div>
-  </div>
-  <div id="right" class="right" style="background-color:transparent;">
-      
-        <div id="centerDiv" class="centerDiv" style="width:100%; background-color:rgba(29, 27, 27, 0.78);top:0; position:sticky;">
+          <a href="DashboardAdmin">Dashboard</a>
+          <a href="ProductsAdmin">Products</a>
+          <a href="CategoriesAdmin">Categories</a>
+          <a href="DiscountsAdmin">Discounts</a>
+          <a href="RewardsAdmin">Rewards</a>
+          <a href="HelpAdmin">Help</a>
+          <a href="ProfileSettingsAdmin">Settings</a>
+          
+            <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                    <AnonymousTemplate>
+                                        <a runat="server" href="~/About">About us</a>
+                                            <a runat="server" href="~/Account/Login">Log In</a>
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+                                            <a runat="server" href="~/Account/Manage" title="Manage your account">My Account</a>
+                                    
+                                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    </LoggedInTemplate>
+                </asp:LoginView>
+        </div>
+        <div id="main">
+     <div id="centerDiv" class="centerDiv" style="width:100%; background-color:#333;top:0; position:fixed;z-index:999;">
             <div class="pull-left" style="width :75%;">
                         <a id="newbtn" class="btn btn-default"  onclick="openNav()" href="javascript:void(0)" style="background-color:transparent;margin-top:-1px; border:none; color:white; border-radius:0; margin-left: 5px">
-                            <img src="~/Content/Images/menu-icon-f74b94a86745329ff48fd8a5f2a6783134e60da42990518733b2e43a17c84101.png" style="background-color: transparent" width="30" height="25" />
+                            <img src="../Content/Images/menu-icon-f74b94a86745329ff48fd8a5f2a6783134e60da42990518733b2e43a17c84101.png" style="background-color: transparent" width="30" height="25" />
                         </a>
                         <a id="navBrand1" class="navBrand1" runat="server" href="~/" style="color: white; font-size:15px; text-align:right;left:50%;"><b style="text-align:right">COMMANDER</b><b >®</b></a>
                        </div> <div style="width :25%;float:left">
@@ -102,6 +107,31 @@
                                 </asp:LoginView>
                             </li>
                                                                                         </ul></div></div>
+               
+  <div id="left1" class="left1 container-fluid" style="background-color:#ddd; display:flex;">
+    <div id="leftside" class="left" style="position:fixed;height:100%;background-color:#ddd;max-width:200px;">
+      <h2 style="margin-top:-1px;">Menu</h2>
+        <div class="input-group ">
+                <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a Category" />
+                <div class="input-group-addon" style="border-radius:0; background-color:white; ">
+                <button id="inputbtn2" type="button" class=" glyphicon glyphicon-search" style="color:black; background-color:transparent;border:none"></button>
+                </div>
+            </div>
+    <ul id="myMenu">
+      <li><a href="DashboardAdmin">Dashboard</a></li>
+      <li><a href="ProductsAdmin">Products</a></li>
+      <li><a href="CategoriesAdmin">Categories</a></li>
+      <li><a href="DiscountsAdmin">Discounts</a></li>
+      <li><a href="RewardsAdmin">Rewards</a></li>
+      <li><a href="HelpAdmin">Help</a></li>
+      <li><a href="ProfileSettingsAdmin">Settings</a></li>
+      
+    </ul>
+      </div>
+  </div>
+  <div id="right" class="right" style="background-color:white;margin-top:50px;margin-left:15px;">
+      
+        
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
@@ -111,10 +141,10 @@
                  
                
                </div>
-                <p style="text-align:center;">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd. CodeBreakers Inc.</p>
+                <div style="text-align:center;">&copy; <%: DateTime.Now.Year %> - Commander Group (Pty) Ltd. CodeBreakers Inc.</div>
             </footer>
  </div>
-        
+        </div>
 
         <script>
         function myFunction() {
@@ -151,29 +181,23 @@
           
             <script type="text/javascript">
                 function openNav() {
-                    if ( document.getElementById("left1").title.includes("Close")){
-                        document.getElementById("left1").style = "width:25%;background-color:#ddd;";
-                        document.getElementById("leftside").style = "width:25%;background-color:#ddd;position:fixed;height:100%;";
-                        document.getElementById("right").style = "width:75%;";
-                        document.getElementById("centerDiv").style = "width:100%; background-color:rgba(29, 27, 27, 0.78);top:0; position:sticky;";
-                        document.getElementById("left1").title = "Open";
-                        document.getElementById("mySearch").style = "width:100%";
-                    }
-                    else 
-                    {
-                        closeNav();
-                    }
-                    
+                    document.getElementById("mySidenav").style = "visibility:visible; z-index:999";
+                    document.getElementById("mySidenav").style.width = "250px";
+               //     document.getElementById("main").style.marginLeft = "250px";
+                    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+                    document.getElementById("main").style.backgroundColor = "rgba(0,0,0,0.4)";
+                    document.getElementById("main").className = "blur";
                 }
 
                 function closeNav() {
-                    document.getElementById("left1").style = "width:5%;background-color:#ddd;";
-                    document.getElementById("leftside").style = "width:5%;background-color:#ddd;position:fixed;height:100%;";
-                    document.getElementById("right").style = "width:95%;";
-                    document.getElementById("centerDiv").style = "width:100%; background-color:rgba(29, 27, 27, 0.78);top:0; position:sticky;";
-                    document.getElementById("left1").title = "Close";
-                    document.getElementById("mySearch").style = "width:1px";
-
+                    window.location.hash = "#main"; //focuses on this div, can move with keyboard
+                    document.getElementById("mySidenav").style = "visibility:hidden;";
+                    document.getElementById("mySidenav").style.width = "0";
+                    document.getElementById("mySidenav").style.height = "0";
+                  //  document.getElementById("main").style.marginLeft= "0";
+                    document.body.style.backgroundColor = "white";
+                    document.getElementById("main").style.backgroundColor = "white";
+                    document.getElementById("main").classList.remove("blur");
                 }
             </script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

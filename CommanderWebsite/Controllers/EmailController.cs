@@ -17,7 +17,7 @@ namespace CommanderWebsite.Controllers
         public static Task sendEmail(string destination, string subject, string body)
         {
             
-            var smtp = new SmtpClient();
+              var smtp = new SmtpClient();
               var mail = new MailMessage();
               var smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
               string username = smtpSection.Network.UserName;

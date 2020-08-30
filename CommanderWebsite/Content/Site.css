@@ -529,7 +529,7 @@ input[type="select"] {
 /* Left column (menu) */
 .left {
     margin-top:-15px;
-  width: 25%;
+  width: 16%;
  height: 100%;  /* Full-height: remove this if you want "auto" height */
  /*width: 160px;  Set the width of the sidebar */
  
@@ -540,7 +540,7 @@ input[type="select"] {
 .left1 {
     
     font-family: "Lato", sans-serif;
-  width: 25%;
+  width: 16%;
   padding: 15px 0;
  /*height: 100%;   Full-height: remove this if you want "auto" height */
  /*width: 160px;  Set the width of the sidebar */
@@ -555,8 +555,21 @@ input[type="select"] {
 /* Right column (page content) */
 .right {
     float:left;
-  width: 75%;
+  width: 80%;
 }
+
+@media screen and (max-width: 1000px) {
+  .left , .left1 {
+      width:0%;
+      height:0%;
+      display:none;
+  }
+  .right {
+      width: 100%;
+
+  }
+}
+
 
 /* Style the search box */
 #mySearch {
@@ -566,6 +579,13 @@ input[type="select"] {
   border: 1px solid #ddd;
 }
 
+/* Style the search box */
+#mySearchbtn {
+  width: 100%;
+  font-size: 18px;
+  padding: 11px;
+  border: 1px solid #ddd;
+}
 /* Style the navigation menu inside the left column */
 #myMenu {
   list-style-type: none;
@@ -597,7 +617,7 @@ input[type="select"] {
 	filter: blur(3px);
 }
 
-.mySlides {display:none;}
+.mySlides {display:none;height:500px;}
 .img {
   width: 100%;
   height: 100%;
@@ -606,8 +626,8 @@ input[type="select"] {
 .slider{height:400px;}
                .slider li{height: 400px;}
                #widget-block{margin-top:400px;}
-
-             /*  .footer {
+ /*
+              .footer-site {
                     position: fixed;
                     left: 0;
                     bottom: 0;
@@ -1110,5 +1130,5 @@ body {
     width:100%;
     height:50px;
     color: black;
-    margin-top: -15px;
+    margin-top: 0px;
 }

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CommanderWebsite.Views.Admin
+namespace CommanderWebsite.Admin
 {
     public partial class CreateProduct : System.Web.UI.Page
     {

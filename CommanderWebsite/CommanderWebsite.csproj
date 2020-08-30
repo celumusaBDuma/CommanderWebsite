@@ -264,6 +264,7 @@
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Admin\AddProducts.aspx" />
     <Content Include="Admin\CategoriesAdmin.aspx" />
     <Content Include="Admin\CreateProduct.aspx" />
     <Content Include="Admin\DashboardAdmin.aspx" />
@@ -286,10 +287,13 @@
     <Content Include="Content\Images\download.jfif" />
     <Content Include="Content\Images\icons8-menu-48.png" />
     <Content Include="Content\Images\menu-icon-f74b94a86745329ff48fd8a5f2a6783134e60da42990518733b2e43a17c84101.png" />
+    <Content Include="Content\Images\sale-text_7ef8864a-6623-4866-81a8-a9ba5a295573_2048x.gif" />
+    <Content Include="Content\Images\ShortHandsomeLamprey-size_restricted.gif" />
     <Content Include="Content\Images\UserAvatar.png" />
     <Content Include="Content\Images\UserAvatar0.png" />
     <Content Include="Content\Images\UserAvatar1.png" />
     <Content Include="Content\Images\UserAvatar2.png" />
+    <Content Include="Content\Images\CommanderBlack.jpg" />
     <Content Include="Content\owl.carousel.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Customer\DashboardCustomer.aspx" />
@@ -569,6 +573,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddProducts.aspx.cs">
+      <DependentUpon>AddProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddProducts.aspx.designer.cs">
+      <DependentUpon>AddProducts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -664,6 +675,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\SocialLoginController.cs" />
     <Compile Include="Customer\Customer.Master.cs">
