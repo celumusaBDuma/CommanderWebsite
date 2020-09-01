@@ -37,12 +37,13 @@ namespace CommanderWebsite.Models
 
         public decimal? Price { get; set; }
 
-        [Column(TypeName = "image")]
-        public byte[] Picture { get; set; }
+        public string Picture { get; set; }
 
         public int? Admin_ID { get; set; }
 
         public int? Category_ID { get; set; }
+
+        public virtual Admin Admin { get; set; } 
 
         public virtual Category Category { get; set; }
 
@@ -57,5 +58,7 @@ namespace CommanderWebsite.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }
+
+
     }
 }

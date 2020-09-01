@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using CommanderWebsite.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,7 +70,24 @@ namespace CommanderWebsite.Customer
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //if(Context.User.Identity.IsAuthenticated == false)
+           // {
+           //     Response.Redirect("~/Account/Login");
+           // }
+            CommanderEDM db = new CommanderEDM();
+            var userRow = CustomerController.FindByEmail(Context.User.Identity.Name);
+           // if(userRow == null) 
+          // {
+           //     Response.Redirect("~/");
+           // }
+            if (userRow.Picture != null || userRow != null)
+            {
+                byte[] imageData = (byte[])userRow.Picture;
+                string img = Convert.ToBase64String(imageData, 0, imageData.Length);
+                Image imagesomet = (Image)cdLoginView.FindControl("Image4");
+                imagesomet.ImageUrl = "data:image/png;base64," + img;
+            }
+           
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

@@ -60,7 +60,7 @@ namespace CommanderWebsite.Account
                 if (result.Succeeded)
                 {
                     var user = manager.FindById(User.Identity.GetUserId());
-                    signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+                    signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                     CustomerController.resetPass(User.Identity.Name.ToString(), NewPassword.Text);
                     Response.Redirect("~/Account/Manage?m=ChangePwdSuccess");
                 }

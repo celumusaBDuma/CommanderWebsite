@@ -57,13 +57,12 @@
                 <button id="inputbtn3" type="button" class="btn glyphicon glyphicon-search" style="color:white; border-radius: 0px;border:none; height:auto; background-color: transparent;margin-top:-2px"></button>
                 </div>
             </div>
-          <a href="DashboardAdmin">Dashboard</a>
-          <a href="ProductsAdmin">Products</a>
-          <a href="CategoriesAdmin">Categories</a>
-          <a href="DiscountsAdmin">Discounts</a>
-          <a href="RewardsAdmin">Rewards</a>
-          <a href="HelpAdmin">Help</a>
-          <a href="ProfileSettingsAdmin">Settings</a>
+          <a href="DashboardCustomer">Dashboard</a>
+          <a href="Orders">Orders</a>
+          <a href="Returns">Returns</a>
+          <a href="Rewards">Rewards</a>
+          <a href="HelpCustomer">Help</a>
+          <a href="ProfileSettingsCustomer">Settings</a>
           
             <asp:LoginView runat="server" ViewStateMode="Disabled">
                                     <AnonymousTemplate>
@@ -87,7 +86,7 @@
                        </div> <div style="width :25%;float:left">
             <ul class="navbar-right pull-right" style="list-style:none;">
             <li class="dropdown">
-                                <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                <asp:LoginView id="cdLoginView" runat="server" ViewStateMode="Disabled">
                                    <LoggedInTemplate>
                                         
                                         <button type="button" style="background-color: transparent; height: 100%; border:none; margin-top:-5px;" class="btn btn-default dropdown-toggle" onclick="onClickDropdown()" data-toggle="dropdown">
@@ -123,7 +122,7 @@
       <li><a href="Returns">Returns</a></li>
       <li><a href="Rewards">Rewards</a></li>
       <li><a href="HelpCustomer">Help</a></li>
-      <li><a href="SettingsCustomer">Settings</a></li>
+      <li><a href="ProfileSettingsCustomer">Settings</a></li>
       
     </ul>
       </div>
@@ -202,6 +201,9 @@
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         
+        <link href="../Scripts/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+
+        <script src="../Scripts/jquery-ui.min.js"></script>
     </form>
 </body>
 </html>

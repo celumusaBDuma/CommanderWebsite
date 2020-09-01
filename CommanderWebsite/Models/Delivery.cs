@@ -28,6 +28,8 @@ namespace CommanderWebsite.Models
 
         public int? Delivered { get; set; }
 
+        public virtual Admin Admin { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
 

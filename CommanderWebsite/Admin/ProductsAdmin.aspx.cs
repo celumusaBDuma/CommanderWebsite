@@ -1,5 +1,9 @@
-﻿using System;
+﻿using CommanderWebsite.Controllers;
+using CommanderWebsite.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,10 +18,14 @@ namespace CommanderWebsite.Admin
         {
             if (!IsPostBack)
             {
+                CommanderEDM db = new CommanderEDM();
+                var ds = ProductsController.GetProducts();
+                listViewProducts.DataSource = ds;
+                listViewProducts.DataBind();
                 //   SqlDBConnection sqlcon = new SqlDBConnection();
                 //   DataTable dt = sqlcon.QueryPackagesTable();
                 //       rptrPackages.DataSource = dt;
-             //   rptrPackages.DataBind();
+                //   rptrPackages.DataBind();
             }
         }
 
@@ -34,35 +42,37 @@ namespace CommanderWebsite.Admin
                     }
                 }
             }
-            ListViewDataItem item = (ListViewDataItem) e.Item;
-            // if (e.Item.ItemType.Equals(ListItemType.Item) || e.Item.ItemType.Equals(ListItemType.AlternatingItem))
-            //{
+            ListViewDataItem item = (ListViewDataItem)e.Item;
+            if (e.Item.ItemType.Equals(ListItemType.Item) || e.Item.ItemType.Equals(ListItemType.AlternatingItem))
+            {
 
-            //         Label lbl = (Label)e.Item.FindControl("Label1");
-            //          string a = lbl.Text;
-            //            Session["val"] = a;
+                Label lbl = (Label)e.Item.FindControl("Label1");
+                string a = lbl.Text;
+                Session["val"] = a;
 
-            //   UniqueDrivingSchoolWebsite.SqlDBConnection sqlcon = new UniqueDrivingSchoolWebsite.SqlDBConnection();
-            //              Label lbl2 = (Label)e.Item.FindControl("Label1");
-            //                string b = (string)Session["val"];
-            // System.Data.DataTable dataT = sqlcon.QueryPackagesTableID(int.Parse(b));
-            //  if (dataT.Rows[0]["PackagePicture"] != DBNull.Value)
-            // {
-            //       byte[] imageData = (byte[])dataT.Rows[0]["PackagePicture"];
-            //      string img = Convert.ToBase64String(imageData, 0, imageData.Length);
-            //      Image imagew = (Image)e.Item.FindControl("imgs");
-            //     imagew.ImageUrl = "data:image/png;base64," + img;
 
-            // }
-            //   else
-            //  {
-            //           Image imagew = (Image)e.Item.FindControl("imgs");
-            //         imagew.ImageUrl = "Resources/noImage.png";
-            //  }
+                Label lbl2 = (Label)e.Item.FindControl("Label1");
+                string b = (string)Session["val"];
+              /*  var dataT = ProductsController.getByID(int.Parse(b));
+                if (dataT.Picture != null)
+                {
+                  
+                    byte[] imageData = (byte[])dataT.Picture;
+                    string img = Convert.ToBase64String(imageData, 0, imageData.Length);
+                    Image imagew = (Image)e.Item.FindControl("imgs");
+                    imagew.ImageUrl = "data:image/png;base64," + img;
+
+                }
+                else
+                {
+                    Image imagew = (Image)e.Item.FindControl("imgs");
+                    imagew.ImageUrl = "Content/Images/noImage.png";
+                }
+                */
+
+            }
 
 
         }
-
-        
     }
 }

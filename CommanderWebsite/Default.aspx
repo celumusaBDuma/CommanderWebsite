@@ -1,7 +1,7 @@
 <%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CommanderWebsite._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-   <div class="body-def">   
+    <div class="body-def">   
        <div class="w3-display-container container-fluid">
            <div class="row" >
                   <div class="mySlides w3-animate-left element-animated" style=" background-size:100% 100%; width:100%; background-image: url('Content/Images/CommanderBlack.jpg'); background-repeat: no-repeat;">

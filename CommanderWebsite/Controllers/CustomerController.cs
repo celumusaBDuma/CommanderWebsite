@@ -43,9 +43,8 @@ namespace CommanderWebsite.Models
         {
             CommanderEDM db = new CommanderEDM();
             var user = db.Customers.SingleOrDefault(c => c.Email == email);
-            if (user.Password != null) {
-                 user.Password = pass;
-            }
+            user.Password = pass;
+            
             db.SaveChanges();
         }
 
@@ -59,35 +58,66 @@ namespace CommanderWebsite.Models
              }
             return user;
         }
-        /*   
-         *   Update method
-         *     private static void ChangeCustomer()
-             {
 
-                 using (var context = new CommanderEDM())
+        public static Customer FindByEmail(string email)
+        {
+            CommanderEDM db = new CommanderEDM();
+            var userRow = db.Customers.SingleOrDefault(c => c.Email == email);
+            return userRow;
+        }
+
+        public static void UpdateCustomer(string firstName, string lastName, string dob, string gender, string cellphone, string address, string email)
+        {
+            CommanderEDM db = new CommanderEDM();
+            var customer = db.Customers.SingleOrDefault(c => c.Email == email);
+            customer.Firstname = firstName;
+            customer.Lastname = lastName;
+            customer.DOB = DateTime.Parse(dob);
+            customer.Gender = gender;
+            customer.Cellphone = cellphone;
+            customer.Address = address;    
+            customer.Email = email;
+                
+            db.SaveChanges();
+        }
+
+        public static void updatePic(string email, byte[] pic)
+        {
+            CommanderEDM db = new CommanderEDM();
+            var userRow = db.Customers.SingleOrDefault(c => c.Email == email);
+            userRow.Picture = pic;
+            db.SaveChanges();
+
+        }
+            /*   
+             *   Update method
+             *     private static void ChangeCustomer()
                  {
 
-                     var customer = (from d in context.Customers
-                                    where d.Firstname == "Ali"
-                                    select d).Single();
-                     customer.Lastname = "Aslam";
-                     context.SaveChanges();
+                     using (var context = new CommanderEDM())
+                     {
 
+                         var customer = (from d in context.Customers
+                                        where d.Firstname == "Ali"
+                                        select d).Single();
+                         customer.Lastname = "Aslam";
+                         context.SaveChanges();
+
+                     }
                  }
-             }
 
 
-          //Delete method beware of foreign keys 
-          private static void DeleteCustomer() {
+              //Delete method beware of foreign keys 
+              private static void DeleteCustomer() {
 
-        using (var context = new CommanderEDM()) {
-           var deleteCust = (from d in context.Customers where d.Firstname == "Ali" select d).Single();
-           context.Students.Remove(deleteCust);
-           context.SaveChanges();
+            using (var context = new CommanderEDM()) {
+               var deleteCust = (from d in context.Customers where d.Firstname == "Ali" select d).Single();
+               context.Students.Remove(deleteCust);
+               context.SaveChanges();
+            }
+         }
+             */
+
         }
-     }
-         */
-
-    }
 }
       

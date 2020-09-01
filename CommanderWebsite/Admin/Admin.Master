@@ -87,7 +87,7 @@
                        </div> <div style="width :25%;float:left">
             <ul class="navbar-right pull-right" style="list-style:none;">
             <li class="dropdown">
-                                <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                <asp:LoginView id="cdLoginView" runat="server" ViewStateMode="Disabled">
                                    <LoggedInTemplate>
                                         
                                         <button type="button" style="background-color: transparent; height: 100%; border:none; margin-top:-5px;" class="btn btn-default dropdown-toggle" onclick="onClickDropdown()" data-toggle="dropdown">

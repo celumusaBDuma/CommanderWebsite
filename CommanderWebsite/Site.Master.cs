@@ -5,9 +5,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using System.Web.UI.HtmlControls;
-using CommanderWebsite.Controllers;
 using System.Net.Configuration;
 using System.Configuration;
+using CommanderWebsite.Models;
+using CommanderWebsite.Controllers;
 
 namespace CommanderWebsite
 {
@@ -71,7 +72,35 @@ namespace CommanderWebsite
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["CartCount"] = 0;
-            
+            CommanderEDM db = new CommanderEDM();
+            var userRow = AdminController.FindByEmailAdmin(Context.User.Identity.GetUserName());
+            if (userRow != null)
+            {
+
+                if (userRow.Picture != null)
+                {
+                    byte[] imageData = (byte[])userRow.Picture;
+                    string img = Convert.ToBase64String(imageData, 0, imageData.Length);
+                    Image imagesomet = (Image)LoginViewHome.FindControl("Image4");
+                    imagesomet.ImageUrl = "data:image/png;base64," + img;
+                }
+
+            }
+            else
+            {
+                var userRow1 = CustomerController.FindByEmail(Context.User.Identity.GetUserName());
+                if (userRow1 != null)
+                {
+                    if (userRow1.Picture != null)
+                    {
+                        byte[] imageData = (byte[])userRow1.Picture;
+                        string img = Convert.ToBase64String(imageData, 0, imageData.Length);
+                        Image imagesomet = (Image)LoginViewHome.FindControl("Image4");
+                        imagesomet.ImageUrl = "data:image/png;base64," + img;
+                    }
+                }
+            }
+
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

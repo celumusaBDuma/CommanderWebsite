@@ -21,9 +21,42 @@ namespace CommanderWebsite.Models
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Wishlist> Wishlists { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
+        public virtual DbSet<Admin> Admins { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.Firstname)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.Lastname)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.AdminType)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.ThemeColor)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.Email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.Cellphone)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.Username)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.Password)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Category>()
                 .Property(e => e.Type)
                 .IsUnicode(false);
@@ -133,6 +166,7 @@ namespace CommanderWebsite.Models
                 .HasMany(e => e.Wishlists1)
                 .WithOptional(e => e.Product1)
                 .HasForeignKey(e => e.Product_ID);
+
         }
     }
 }

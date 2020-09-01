@@ -94,7 +94,7 @@
                             <li><a runat="server" href="~/Views/Offers">Offers</a></li>
                             <li><a runat="server" href="~/Views/Sale">Sale</a></li>
                             <li class="navbar-right dropdown">
-                                <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                <asp:LoginView ID="LoginViewHome" runat="server" ViewStateMode="Disabled">
                                     <AnonymousTemplate>
                                             <a runat="server" href="~/Account/Register">Sign Up</a>
                                     </AnonymousTemplate>
