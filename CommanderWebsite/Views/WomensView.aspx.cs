@@ -11,12 +11,12 @@ using System.Web.UI.WebControls;
 
 namespace CommanderWebsite.Views
 {
-    public partial class MensView : System.Web.UI.Page
+    public partial class WomensView : System.Web.UI.Page
     {
         DataTable myCart = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             myCart = (DataTable)Session["cart"];
 
             if (!IsPostBack)
@@ -27,35 +27,35 @@ namespace CommanderWebsite.Views
 
                     CommanderEDM db = new CommanderEDM();
                     var d = ProductsController.getByID(id);
-               
-                    
-            string query = "select * from product where Product_ID=" +id;
-            String mycon = "Data Source=143.128.146.30;Initial Catalog = hon01;User ID=hon01;Password=s2q24";
-            SqlConnection con = new SqlConnection(mycon);
-            con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = query;
-            cmd.Connection = con;
-            cmd.ExecuteNonQuery();
 
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            
-            rptrImages2.DataSource = ds;
+
+                    string query = "select * from product where Product_ID=" + id;
+                    String mycon = "Data Source=143.128.146.30;Initial Catalog = hon01;User ID=hon01;Password=s2q24";
+                    SqlConnection con = new SqlConnection(mycon);
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandText = query;
+                    cmd.Connection = con;
+                    cmd.ExecuteNonQuery();
+
+                    SqlDataAdapter da = new SqlDataAdapter(query, con);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+
+                    rptrImages2.DataSource = ds;
                     rptrImages2.DataBind();
-                   
+
                     if (d.Picture != null)
                     {
-                    //    byte[] imageData = (byte[])d.Picture;
-                     //   string img = Convert.ToBase64String(imageData, 0, imageData.Length);
+                        //    byte[] imageData = (byte[])d.Picture;
+                        //   string img = Convert.ToBase64String(imageData, 0, imageData.Length);
                         im.ImageUrl = d.Picture;
 
                     }
-  //                  else
-    //                {
-      //                 /// im.ImageUrl = "Resources/noImage.png";
-        //            }
+                    //                  else
+                    //                {
+                    //                 /// im.ImageUrl = "Resources/noImage.png";
+                    //            }
 
 
                 }
@@ -74,9 +74,9 @@ namespace CommanderWebsite.Views
         {
             try
             {
-                if (myCart.Rows.Count <= 1)
+                if (myCart.Rows.Count < 1)
                 {
-                    int id = int.Parse(Request.QueryString["Product_ID"]);
+                    int id = int.Parse(Request.QueryString["PackageID"]);
 
 
                     CommanderEDM db = new CommanderEDM();

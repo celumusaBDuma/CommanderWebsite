@@ -9,6 +9,7 @@ using System.Net.Configuration;
 using System.Configuration;
 using CommanderWebsite.Models;
 using CommanderWebsite.Controllers;
+using System.Data;
 
 namespace CommanderWebsite
 {
@@ -69,9 +70,27 @@ namespace CommanderWebsite
             }
         }
 
+        DataTable myCart = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["CartCount"] = 0;
+
+            
+
+            if (!IsPostBack)
+            {
+                Session["CartCount"] = myCart.Rows.Count;
+                myCart = (DataTable)Session["cart"];
+            }
+            else
+            {
+
+            }
+
+            
+
+            Repeater rptrs = (Repeater)Page.Master.FindControl("rptr");
+            rptr.DataSource = myCart;
+            rptr.DataBind();
             CommanderEDM db = new CommanderEDM();
             var userRow = AdminController.FindByEmailAdmin(Context.User.Identity.GetUserName());
             if (userRow != null)
@@ -83,8 +102,10 @@ namespace CommanderWebsite
                     string img = Convert.ToBase64String(imageData, 0, imageData.Length);
                     Image imagesomet = (Image)LoginViewHome.FindControl("Image4");
                     imagesomet.ImageUrl = "data:image/png;base64," + img;
+                    LinkButton S = (LinkButton)LoginViewHome.FindControl("a");
+                   // S.Text = "black";
                 }
-
+                
             }
             else
             {

@@ -13,5 +13,16 @@ namespace CommanderWebsite.Views
         {
 
         }
+
+        // The return type can be changed to IEnumerable, however to support
+        // paging and sorting, the following parameters must be added:
+        //     int maximumRows
+        //     int startRowIndex
+        //     out int totalRowCount
+        //     string sortByExpression
+        public IQueryable<CommanderWebsite.Models.Cart> CartList_GetData()
+        {
+            return null;
+        }
     }
 }

@@ -14,12 +14,12 @@ namespace CommanderWebsite
 
         public static DataTable makeCart(DataTable myCart)
         {
-            myCart.Columns.Add("PackageID");
-            myCart.Columns.Add("PackageName");
-            myCart.Columns.Add("PackageType");
-            myCart.Columns.Add("PackageSize");
-            myCart.Columns.Add("PackageCount");
-            myCart.Columns.Add("PackageCost");
+            myCart.Columns.Add("Product_ID");
+            myCart.Columns.Add("Name");
+            myCart.Columns.Add("Type");
+            myCart.Columns.Add("Size");
+            myCart.Columns.Add("Quantity");
+            myCart.Columns.Add("Price");
             cart = myCart;
             return myCart;
         }
@@ -28,7 +28,7 @@ namespace CommanderWebsite
         {
             for (int i = 0; i < myCart.Rows.Count; i++)
             {
-                int s = (int)myCart.Rows[i]["PackageID"];
+                int s = (int)myCart.Rows[i]["Product_ID"];
                 if (s == CheckID)
                 {
                     return i;
@@ -37,19 +37,19 @@ namespace CommanderWebsite
             return 0;
         }
 
-        public static DataTable NewRowCart(DataTable myCart, int ID, string name, string type, int count, decimal? cost)
+        public static DataTable NewRowCart(DataTable myCart, int ID)
         {
             CommanderEDM db = new CommanderEDM();
             DataTable datat = new DataTable();
             var d = ProductsController.getByID(ID);
             cart = myCart;
             DataRow Cartrow = cart.NewRow();
-            Cartrow["PackageID"] = d.Product_ID;
-            Cartrow["PackageName"] = d.Name;
-            Cartrow["PackageType"] = d.Type;
-            Cartrow["PackageSize"] = d.size;
-            Cartrow["PackageCount"] = d.Quantity;
-            Cartrow["PackageCost"] = d.Price;
+            Cartrow["Product_ID"] = d.Product_ID;
+            Cartrow["Name"] = d.Name;
+            Cartrow["Type"] = d.Type;
+            Cartrow["Size"] = d.size;
+            Cartrow["Quantity"] = d.Quantity;
+            Cartrow["Price"] = d.Price;
             cart.Rows.Add(Cartrow);
             return cart;
         }

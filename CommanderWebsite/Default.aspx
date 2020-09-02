@@ -84,10 +84,26 @@ function carousel() {
       <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
     </div>
     <div class="card thumbnail">
-      <h3>Popular Posts</h3>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
+      <div class="w3-display-container container-fluid">
+           <div class="row" >
+                  <div class="mySlides w3-animate-left element-animated" style=" background-size:100% 100%; width:100%; background-image: url('Content/Images/CommanderBlack.jpg'); background-repeat: no-repeat;">
+      
+                  </div>
+                  <div class="mySlides w3-animate-left element-animated" style=" background-size:100% 100%; width:100%; background-image:url('Content/Images/ShortHandsomeLamprey-size_restricted.gif'); background-repeat: no-repeat;">
+                      <div class="w3-display-bottommiddle w3-container w3-padding-16 w3-black">
+                    <b>Not For The Faint Hearted </b>
+                  </div>
+     
+                  </div>
+                  <div class="mySlides w3-animate-left element-animated" style=" background-size:100% 100%; width:100%; background-image: url('Content/Images/sale-text_7ef8864a-6623-4866-81a8-a9ba5a295573_2048x.gif'); background-repeat: no-repeat;">
+      
+                  </div>
+
+           </div>
+
+  <button class="w3-button w3-black w3-display-left" style="margin-left:-15px;" type="button" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" type="button" style="margin-right:-15px;" onclick="plusDivs(1)">&#10095;</button>
+</div>
     </div>
     <div class="card thumbnail">
       <h3>Follow Us</h3>

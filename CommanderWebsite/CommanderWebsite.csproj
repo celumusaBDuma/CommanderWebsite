@@ -403,15 +403,17 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Brands.aspx" />
     <Content Include="Views\Cart.aspx" />
-    <Content Include="Views\CartView.aspx" />
     <Content Include="Views\Help.aspx" />
     <Content Include="Views\Men.aspx" />
     <Content Include="Views\MensView.aspx" />
     <Content Include="Views\Offers.aspx" />
     <Content Include="Views\Sale.aspx" />
     <Content Include="Views\Search.aspx" />
+    <Content Include="Views\ViewCart.aspx" />
+    <Content Include="Views\ViewCartEmpty.aspx" />
     <Content Include="Views\Wishlist.aspx" />
     <Content Include="Views\Women.aspx" />
+    <Content Include="Views\WomensView.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -781,13 +783,6 @@
     <Compile Include="Views\Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\CartView.aspx.cs">
-      <DependentUpon>CartView.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\CartView.aspx.designer.cs">
-      <DependentUpon>CartView.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\Help.aspx.cs">
       <DependentUpon>Help.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -830,6 +825,20 @@
     <Compile Include="Views\Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewCart.aspx.cs">
+      <DependentUpon>ViewCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewCart.aspx.designer.cs">
+      <DependentUpon>ViewCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewCartEmpty.aspx.cs">
+      <DependentUpon>ViewCartEmpty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewCartEmpty.aspx.designer.cs">
+      <DependentUpon>ViewCartEmpty.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -843,6 +852,13 @@
     </Compile>
     <Compile Include="Views\Women.aspx.designer.cs">
       <DependentUpon>Women.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WomensView.aspx.cs">
+      <DependentUpon>WomensView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\WomensView.aspx.designer.cs">
+      <DependentUpon>WomensView.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

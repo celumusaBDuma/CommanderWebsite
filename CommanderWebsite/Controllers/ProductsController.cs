@@ -22,12 +22,13 @@ namespace CommanderWebsite.Controllers
             return prod;
         }
 
-      /* public static byte[] getByImg(int img)
-        {
-            var _db = new CommanderEDM();
-            var full = _db.Products.SingleOrDefault(c => c.Product_ID == img).Picture;
+        
+        /* public static byte[] getByImg(int img)
+          {
+              var _db = new CommanderEDM();
+              var full = _db.Products.SingleOrDefault(c => c.Product_ID == img).Picture;
 
-            return full;
-        } */
+              return full;
+          } */
     }
 }

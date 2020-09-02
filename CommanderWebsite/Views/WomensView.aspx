@@ -1,6 +1,6 @@
-﻿<%@ Page Title="Mens" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MensView.aspx.cs" Inherits="CommanderWebsite.Views.MensView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WomensView.aspx.cs" Inherits="CommanderWebsite.Views.WomensView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-      <div align="center"  style=" width: 100%">
+    <div align="center"  style=" width: 100%">
     <div class="container" style="padding-top:50px; ">
         <div align="center" style="width: 100%">
             <div  style="float: left; width: 35%; height: 357px;">

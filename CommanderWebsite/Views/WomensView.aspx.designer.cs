@@ -10,42 +10,42 @@
 namespace CommanderWebsite.Views {
     
     
-    public partial class CartView {
+    public partial class WomensView {
         
         /// <summary>
-        /// rprtCart control.
+        /// im control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rprtCart;
+        protected global::System.Web.UI.WebControls.Image im;
         
         /// <summary>
-        /// rem control.
+        /// rptrImages2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button rem;
+        protected global::System.Web.UI.WebControls.Repeater rptrImages2;
         
         /// <summary>
-        /// btnCheckout control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCheckout;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// idf control.
+        /// Image5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label idf;
+        protected global::System.Web.UI.WebControls.Image Image5;
     }
 }

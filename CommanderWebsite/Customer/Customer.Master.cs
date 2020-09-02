@@ -80,7 +80,7 @@ namespace CommanderWebsite.Customer
           // {
            //     Response.Redirect("~/");
            // }
-            if (userRow.Picture != null || userRow != null)
+          //  if (userRow.Picture != null || userRow != null)
             {
                 byte[] imageData = (byte[])userRow.Picture;
                 string img = Convert.ToBase64String(imageData, 0, imageData.Length);

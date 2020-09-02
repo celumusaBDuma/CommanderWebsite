@@ -10,6 +10,6 @@
 namespace CommanderWebsite.Views {
     
     
-    public partial class Cart {
+    public partial class ViewCartEmpty {
     }
 }

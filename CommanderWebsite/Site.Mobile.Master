@@ -117,14 +117,14 @@
                                     
                                      %>
                             <li class="navbar-right cart-feature">
-                                    <a runat="server" class="glyphicon glyphicon-shopping-cart" href="~/Views/Cart">
+                                    <a runat="server" class="glyphicon glyphicon-shopping-cart">
                                         <%if (!Session["CartCount"].Equals(0)){%>
                                                :<%=(Session["CartCount"])%>
                                         <%} %>
                                     </a>
                             </li>
                             <li class="navbar-right cart-feature">
-                                    <a runat="server" class="glyphicon glyphicon-heart-empty" href="~/Views/Wishlist"></a>
+                                    <a runat="server" class="glyphicon glyphicon-heart-empty" ></a>
                                      
                             </li>
                                  <%} %>   
