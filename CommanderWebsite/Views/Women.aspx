@@ -12,7 +12,7 @@
                     <ItemTemplate> 
                     <div class="col-md-3 col-md-4" style="display:flex;padding:15px; text-align:center;">
             
-                        <a style="text-decoration:none;" href="WomensView.aspx?ProductID=<%#Eval("Product_ID") %>">
+                        <a style="text-decoration:none;" href="WomensView.aspx?Product_ID=<%#Eval("Product_ID") %>">
                         <div class="card thumbnail" style="height:400px;width:300px; margin-bottom:10px">
                             <div style="text-align:center; width: 100%;padding-bottom:-15px;">
                                

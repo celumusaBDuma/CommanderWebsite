@@ -415,6 +415,7 @@
     <Content Include="Views\Offers.aspx" />
     <Content Include="Views\Sale.aspx" />
     <Content Include="Views\Search.aspx" />
+    <Content Include="Views\SearchView.aspx" />
     <Content Include="Views\ViewCart.aspx" />
     <Content Include="Views\ViewCartEmpty.aspx" />
     <Content Include="Views\Wishlist.aspx" />
@@ -826,6 +827,13 @@
     </Compile>
     <Compile Include="Views\Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchView.aspx.cs">
+      <DependentUpon>SearchView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SearchView.aspx.designer.cs">
+      <DependentUpon>SearchView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewCart.aspx.cs">
       <DependentUpon>ViewCart.aspx</DependentUpon>
