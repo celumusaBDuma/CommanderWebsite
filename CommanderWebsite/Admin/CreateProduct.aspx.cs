@@ -13,7 +13,7 @@ namespace CommanderWebsite.Admin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (FileUpload1.HasFile)
+           /* if (FileUpload1.HasFile)
             {
                 string str = FileUpload1.FileName;
                 FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Content/Images/"+ DropDownList1.SelectedItem.Text +"/"+ str));
@@ -36,7 +36,8 @@ namespace CommanderWebsite.Admin
             {
                 Label2.Text = "Oops... !";
                 Label2.ForeColor = System.Drawing.Color.Red;
-            }
+            } */
         }
+       
     }
 }

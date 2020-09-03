@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="Products" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ProductsAdmin.aspx.cs" Inherits="CommanderWebsite.Admin.ProductsAdmin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="background-color:lightgrey; height:50px; width:100%; border-bottom-left-radius:10px; border-bottom-right-radius: 10px;">
+    <div style="background-color:lightgrey; height:50px;margin-top:20px; width:100%; border-bottom-left-radius:10px; border-bottom-right-radius: 10px;">
         <h1 style="text-align: center;">Products</h1>
     </div>
- <div style="width:100%; height:40px; position:sticky;"><button class="btn btn-default pull-right">Create</button></div>   
+ <div style="width:100%; height:40px; position:sticky;">
+     <asp:Button ID="Button1" runat="server" class="btn btn-default pull-right" Text="ADD" OnClick="Button1_Click" /></div>   
  <div style="text-align:center;min-height:1024px;" class="container-fluid">
     <div  class="row2" style="text-align:center">
                                
@@ -20,7 +21,7 @@
                         <a style="text-decoration:none;" href="ProductView.aspx?ProductID=<%#Eval("Product_ID") %>">
                         <div class="card thumbnail" style="height:400px;width:300px; margin-bottom:10px">
                             <div style="text-align:center; width: 100%;padding-bottom:-15px;">
-                              <asp:Image ID="imgs" ImageUrl='<%#Eval("Picture")%>' Width="100%" Height="300px"  ImageAlign="Middle" runat="server"></asp:Image>
+                              <asp:Image ID="imgs" ImageUrl=' <%# "~/FullImage.ashx?ImID="+ Eval("Product_ID") %>' Width="100%" Height="300px"  ImageAlign="Middle" runat="server"></asp:Image>
                                 <div class= "caption" style="margin-top:-10px;width:100%">
                                 <h3><%#Eval("Name") %></h3>
                                 <h2 style=" font-weight: normal; font-size:x-large;">R <%#Eval("Price")%></h2>

@@ -23,39 +23,24 @@ namespace CommanderWebsite.Views
             {
                 try
                 {
-                    int id = int.Parse(Request.QueryString["ProductID"]);
+                    int id = int.Parse(Request.QueryString["Product_ID"]);
 
                     CommanderEDM db = new CommanderEDM();
-                    var d = ProductsController.getByID(id);
-
-
-                    string query = "select * from product where Product_ID=" + id;
-                    String mycon = "Data Source=143.128.146.30;Initial Catalog = hon01;User ID=hon01;Password=s2q24";
-                    SqlConnection con = new SqlConnection(mycon);
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.CommandText = query;
-                    cmd.Connection = con;
-                    cmd.ExecuteNonQuery();
-
-                    SqlDataAdapter da = new SqlDataAdapter(query, con);
-                    DataSet ds = new DataSet();
-                    da.Fill(ds);
-
-                    rptrImages2.DataSource = ds;
+                    var d1 = ProductsController.getByID1(id);
+                    var d = ProductsController.getByID2(id);
+                    rptrImages2.DataSource = d1;
                     rptrImages2.DataBind();
-
                     if (d.Picture != null)
                     {
-                        //    byte[] imageData = (byte[])d.Picture;
-                        //   string img = Convert.ToBase64String(imageData, 0, imageData.Length);
-                        im.ImageUrl = d.Picture;
+                            byte[] imageData = (byte[])d.Picture;
+                            string img = Convert.ToBase64String(imageData, 0, imageData.Length);
+                            im.ImageUrl = "data:image/png;base64," + d.Picture;
 
                     }
-                    //                  else
-                    //                {
-                    //                 /// im.ImageUrl = "Resources/noImage.png";
-                    //            }
+                                     else
+                                   {
+                    im.ImageUrl = "~/Content/Images/noImage.png";
+                         }
 
 
                 }
@@ -76,11 +61,11 @@ namespace CommanderWebsite.Views
             {
                 if (myCart.Rows.Count < 1)
                 {
-                    int id = int.Parse(Request.QueryString["PackageID"]);
+                    int id = int.Parse(Request.QueryString["Product_ID"]);
 
 
                     CommanderEDM db = new CommanderEDM();
-                    var d = ProductsController.getByID(id);
+                    var d = ProductsController.getByID2(id);
                     DropDownList df = (DropDownList)Page.Master.FindControl("dl");
                     myCart = ShoppingCart.NewRowCart((DataTable)Session["cart"], d.Product_ID);
 
@@ -89,6 +74,7 @@ namespace CommanderWebsite.Views
                     Repeater rp = (Repeater)Page.Master.FindControl("rptr");
                     rp.DataSource = (DataTable)Session["cart"];
                     rp.DataBind();
+                   
                 }
                 else
                 {

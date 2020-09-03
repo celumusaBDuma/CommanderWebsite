@@ -22,13 +22,10 @@ namespace CommanderWebsite.Admin
                 var ds = ProductsController.GetProducts();
                 listViewProducts.DataSource = ds;
                 listViewProducts.DataBind();
-                //   SqlDBConnection sqlcon = new SqlDBConnection();
-                //   DataTable dt = sqlcon.QueryPackagesTable();
-                //       rptrPackages.DataSource = dt;
-                //   rptrPackages.DataBind();
+                
             }
         }
-
+        
         protected void listViewProducts_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
             if (listViewProducts.Items.Count < 1)
@@ -53,7 +50,7 @@ namespace CommanderWebsite.Admin
 
                 Label lbl2 = (Label)e.Item.FindControl("Label1");
                 string b = (string)Session["val"];
-              /*  var dataT = ProductsController.getByID(int.Parse(b));
+                var dataT = ProductsController.getByID2(int.Parse(b));
                 if (dataT.Picture != null)
                 {
                   
@@ -66,13 +63,18 @@ namespace CommanderWebsite.Admin
                 else
                 {
                     Image imagew = (Image)e.Item.FindControl("imgs");
-                    imagew.ImageUrl = "Content/Images/noImage.png";
+                    imagew.ImageUrl = "~/Content/Images/noImage.png";
                 }
-                */
+                
 
             }
 
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Admin/AddProducts.aspx");
         }
     }
 }

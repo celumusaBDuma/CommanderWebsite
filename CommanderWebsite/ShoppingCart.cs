@@ -41,7 +41,7 @@ namespace CommanderWebsite
         {
             CommanderEDM db = new CommanderEDM();
             DataTable datat = new DataTable();
-            var d = ProductsController.getByID(ID);
+            var d = ProductsController.getByID2(ID);
             cart = myCart;
             DataRow Cartrow = cart.NewRow();
             Cartrow["Product_ID"] = d.Product_ID;

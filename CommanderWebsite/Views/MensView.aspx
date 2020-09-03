@@ -15,7 +15,7 @@
                         
                             <div class="item active">
                             
-                                 <asp:Image ID="im" ImageUrl="~/Content/Images/noImage.png"  Width="100%" Height="500px"
+                                 <asp:Image ID="im"  Width="100%" Height="500px"
                                      runat="server" ImageAlign="Middle" CssClass="img-responsive"></asp:Image>
                                 <div class="carousel-caption"></div>
                             </div>

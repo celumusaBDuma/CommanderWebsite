@@ -37,7 +37,7 @@ namespace CommanderWebsite.Models
 
         public decimal? Price { get; set; }
 
-        public string Picture { get; set; }
+        public byte[] Picture { get; set; }
 
         public int? Admin_ID { get; set; }
 

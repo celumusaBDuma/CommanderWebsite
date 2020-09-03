@@ -9,8 +9,15 @@ namespace CommanderWebsite.Controllers
     public class CategoryController
     {
         
+        public static int getCatById(string type)
+        {
+            CommanderEDM db = new CommanderEDM();
+            var cat = db.Categories.SingleOrDefault(c => c.Type == type).Category_ID;
+       
+            return cat;
+        }
 
-        public  static List<int> getCategoryList()
+        public static List<int> getCategoryList()
         {
             CommanderEDM db = new CommanderEDM();
             var cap = 0;

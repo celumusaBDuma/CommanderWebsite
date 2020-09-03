@@ -1,12 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="ViewCartEmpty.aspx.cs" Inherits="CommanderWebsite.Views.ViewCartEmpty" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<div class="top">
-           <img src="Resources/212751248e6f6591846481281fe045dc.jpg" style="width: 100%; height: 160px" />
-       
-       </div>
-<div class="container">
+
+<div class="container" style="min-height:1024px;">
 <br />
     <br />
     <br />

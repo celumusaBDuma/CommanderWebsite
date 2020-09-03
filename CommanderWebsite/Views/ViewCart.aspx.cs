@@ -17,10 +17,11 @@ namespace CommanderWebsite.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             
-                myCart = (DataTable)Session["cart"];
                 
                     try
                     {
+                        myCart = (DataTable)Session["cart"];
+                
                         CommanderEDM db = new CommanderEDM();
                         DataTable dt = myCart;
                         rprtCart.DataSource = dt;
@@ -29,12 +30,12 @@ namespace CommanderWebsite.Views
                         if (myCart.Rows.Count != 0)
                         {
                             int f = int.Parse(myCart.Rows[0]["Product_ID"].ToString());
-                             var dataT = ProductsController.getByID(f);
+                             var dataT = ProductsController.getByID2(f);
                             if (dataT.Picture != null)
                             {
-                                //byte[] imageData = (byte[])dataT.Rows[0]["PackagePicture"];
-                                //string img = Convert.ToBase64String(imageData, 0, imageData.Length);
-                                imsdf.ImageUrl = dataT.Picture;
+                                byte[] imageData = (byte[])dataT.Picture;
+                                string img = Convert.ToBase64String(imageData, 0, imageData.Length);
+                                imsdf.ImageUrl = "data:image/png;base64," + img;
 
                             }
                             else
@@ -44,7 +45,7 @@ namespace CommanderWebsite.Views
                         }
                         else
                         {
-                            Response.Redirect("~/ViewCartEmpty.aspx", false);
+                            Response.Redirect("~/Views/ViewCartEmpty.aspx", false);
                         }
                         
                     }
@@ -59,7 +60,7 @@ namespace CommanderWebsite.Views
 
         protected void btnCheckout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/CheckOut.aspx", false);
+            Response.Redirect("~/Views/CheckOut.aspx", false);
         }
 
         protected void rem_Click(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace CommanderWebsite.Views
             ShoppingCart.makeCart(dt);
             Session["cart"] = dt;
             Session["CartCount"] = 0;
-            Response.Redirect("/ViewCartEmpty.aspx",false);
+            Response.Redirect("~/Views/ViewCartEmpty.aspx",false);
         }
 
 

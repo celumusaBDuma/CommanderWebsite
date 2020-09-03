@@ -71,19 +71,40 @@ namespace CommanderWebsite
         }
 
         DataTable myCart = new DataTable();
+
+        protected void Search_Click(object sender, EventArgs e)
+        {
+            var s = sb2.Value; ;
+            Response.Redirect("~/Views/Search.aspx?s=" + s.ToString());
+        }
+        protected void Search_Click()
+        {
+            var s = sb2.Value; ;
+            Response.Redirect("~/Views/Search.aspx?s=" + s.ToString());
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
             
 
             if (!IsPostBack)
             {
+                var s = Request.Form["sb2"];
+                if(s != null)
+                {
+                    Response.Redirect("~/Views/Search.aspx?s=" + s.ToString());
+                }
+                
+              
+                myCart = ShoppingCart.makeCart(myCart);
+                Session["cart"] = myCart;
                 Session["CartCount"] = myCart.Rows.Count;
-                myCart = (DataTable)Session["cart"];
             }
             else
             {
-
+                myCart = (DataTable)Session["cart"];
+                Session["CartCount"] = myCart.Rows.Count;
             }
 
             

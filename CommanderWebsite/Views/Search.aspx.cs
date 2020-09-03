@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CommanderWebsite.Controllers;
+using CommanderWebsite.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,44 +16,58 @@ namespace CommanderWebsite.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             Label1.Visible = false;
+            var s = Request.QueryString["s"];
+            if (s == null || s == "")
+            {
+               Label1.Text = "No Results shown";
+                Label1.Visible = true;
+              
+            }
+            else{
+                rep_bind(s);
+                    if (listViewProducts.Items.Count != 0)
+                    {
+                        TextBox1.Text = s;
+                        Label1.Visible = false;
+
+                }
+
+                    else
+                    {
+                        
+                        Label1.Text = "No Results shown";
+                    Label1.Visible = true;
+                    }
+                
+            }
+            
+           
+        }
+        private void rep_bind(string s)
+        {
+            if(s!= null) {
+                CommanderEDM ds = new CommanderEDM();
+                var prod = ProductsController.getSearchProd(TextBox1.Text);
+                listViewProducts.DataSource = prod;
+                listViewProducts.DataBind();
+            }
         }
         private void rep_bind()
         {
 
-            string query = "select * from product where Name like'%" + TextBox1.Text + "%'";
-            String mycon = "Data Source=143.128.146.30;Initial Catalog = hon01;User ID=hon01;Password=s2q24";
-            SqlConnection con = new SqlConnection(mycon);
-            con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = query;
-            cmd.Connection = con;
-            cmd.ExecuteNonQuery();
-
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            listViewProducts.DataSource = ds;
+            CommanderEDM ds = new CommanderEDM();
+            var prod = ProductsController.getSearchProd(TextBox1.Text);
+            listViewProducts.DataSource = prod;
             listViewProducts.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string query = "select * from product where Name like'%" + TextBox1.Text + "%'";
-            String mycon = "Data Source=143.128.146.30;Initial Catalog = hon01;User ID=hon01;Password=s2q24";
-            SqlConnection con = new SqlConnection(mycon);
-            con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = query;
-            cmd.Connection = con;
-            cmd.ExecuteNonQuery();
+            CommanderEDM ds = new CommanderEDM();
+            var prod = ProductsController.getSearchProd(TextBox1.Text);
 
-            SqlDataReader dr;
-            dr = cmd.ExecuteReader();
-
-            if (dr.HasRows)
+            if (prod != null)
             {
-                dr.Read();
-
                 rep_bind();
                 listViewProducts.Visible = true;
 
