@@ -33,7 +33,7 @@
                         <a style="text-decoration:none;" href="ProductView.aspx?ProductID=<%#Eval("Product_ID") %>">
                         <div class="card thumbnail" style="height:400px;width:300px; margin-bottom:10px">
                             <div style="text-align:center; width: 100%;padding-bottom:-15px;">
-                              <asp:Image ID="imgs" ImageUrl="~/Content/Images/noImage.png" Width="100%" Height="300px"  ImageAlign="Middle" runat="server"></asp:Image>
+                              <asp:Image ID="imgs" ImageUrl=' <%# "~/FullImage.ashx?ImID="+ Eval("Product_ID") %>' Width="100%" Height="300px"  ImageAlign="Middle" runat="server"></asp:Image>
                                 <div class= "caption" style="margin-top:-10px;width:100%">
                                 <h3><%#Eval("Name") %></h3>
                                 <h2 style=" font-weight: normal; font-size:x-large;">R <%#Eval("Price")%></h2>
