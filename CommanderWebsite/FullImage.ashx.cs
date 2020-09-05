@@ -15,7 +15,7 @@ namespace CommanderWebsite
 
         public void ProcessRequest(HttpContext context)
         {
-
+            try { 
             string imageid = context.Request.QueryString["ImID"];
 
             if (imageid == null || imageid == "")
@@ -29,6 +29,7 @@ namespace CommanderWebsite
             }
 
             CommanderEDM _db = new CommanderEDM();
+            
             var prodimg = ProductsController.getByImg(int.Parse(imageid));
   //          context.Response.ContentType = "image/png";
 //context.Response.BinaryWrite((Byte[])prodimg);
@@ -44,7 +45,11 @@ namespace CommanderWebsite
             context.Response.OutputStream.Write(imageData, 0, imageData.Length);
             context.Response.Flush();
             context.Response.End();
-            
+            }
+            catch (Exception)
+            {
+                context.Response.Write("alert('failed to load images properly, please reload page');");
+            }
 
         }
 

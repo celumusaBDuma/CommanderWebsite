@@ -13,11 +13,9 @@ namespace CommanderWebsite.Views
 {
     public partial class WomensView : System.Web.UI.Page
     {
-        DataTable myCart = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            myCart = (DataTable)Session["cart"];
+           
 
             if (!IsPostBack)
             {
@@ -34,7 +32,7 @@ namespace CommanderWebsite.Views
                     {
                             byte[] imageData = (byte[])d.Picture;
                             string img = Convert.ToBase64String(imageData, 0, imageData.Length);
-                            im.ImageUrl = "data:image/png;base64," + d.Picture;
+                            im.ImageUrl = "data:image/png;base64," + img;
 
                     }
                                      else
@@ -59,27 +57,22 @@ namespace CommanderWebsite.Views
         {
             try
             {
-                if (myCart.Rows.Count < 1)
-                {
+                
                     int id = int.Parse(Request.QueryString["Product_ID"]);
 
 
                     CommanderEDM db = new CommanderEDM();
                     var d = ProductsController.getByID2(id);
                     DropDownList df = (DropDownList)Page.Master.FindControl("dl");
-                    myCart = ShoppingCart.NewRowCart((DataTable)Session["cart"], d.Product_ID);
-
-                    Session["cart"] = myCart;
-                    Session["CartCount"] = myCart.Rows.Count;
+                    DropDownList df1 = (DropDownList)rptrImages2.Items[0].FindControl("DropDownList1");
+                    CartController.AddToCart(id, int.Parse(df1.SelectedValue), d.Name, d.Price);
+                    var myCart = CartController.GetCartItems();
+                    HttpContext.Current.Session["CartCount"] = myCart.Count;
                     Repeater rp = (Repeater)Page.Master.FindControl("rptr");
-                    rp.DataSource = (DataTable)Session["cart"];
+                    rp.DataSource = myCart;
                     rp.DataBind();
-                   
-                }
-                else
-                {
-                    Label1.Text = "Only one item allowed on the cart";
-                }
+
+
 
             }
             catch (Exception ex)

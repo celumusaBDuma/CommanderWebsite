@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WomensView.aspx.cs" Inherits="CommanderWebsite.Views.WomensView" %>
+﻿<%@ Page Title="View Womens" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WomensView.aspx.cs" Inherits="CommanderWebsite.Views.WomensView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div align="center"  style=" width: 100%">
+    <div align="center"  style=" width: 100%; min-height:1024px;">
     <div class="container" style="padding-top:50px; ">
         <div align="center" style="width: 100%">
             <div  style="float: left; width: 35%; height: 357px;">
@@ -26,6 +26,7 @@
                 </div>
                 <br />
                 <br />
+            
                 <div style="float: left; width: 50%; margin-left: 70px;">
                  <asp:repeater ID="rptrImages2" runat="server">
                             <ItemTemplate>
@@ -40,7 +41,19 @@
                     <p style="font-size: x-large">Description</p>
                     <p style="font-size: x-large"><%#Eval("Description")%></p>
                     <hr />
-
+                     <p style="font-size: x-large">Quantity: <asp:DropDownList ID="DropDownList1" runat="server">
+                        <asp:ListItem>1</asp:ListItem>
+                        <asp:ListItem>2</asp:ListItem>
+                        <asp:ListItem>3</asp:ListItem>
+                        <asp:ListItem>4</asp:ListItem>
+                        <asp:ListItem>5</asp:ListItem>
+                        <asp:ListItem>6</asp:ListItem>
+                        <asp:ListItem>7</asp:ListItem>
+                        <asp:ListItem>8</asp:ListItem>
+                        <asp:ListItem>9</asp:ListItem>
+                        <asp:ListItem>10</asp:ListItem>
+                    </asp:DropDownList></p>
+                    <hr />
                 </div>
                 <asp:Label runat="server" id="llb" Text=""></asp:Label>
                 <div>

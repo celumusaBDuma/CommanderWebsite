@@ -13,6 +13,19 @@
                   </div>
      
                   </div>
+                  <div class="mySlides w3-animate-left element-animated" style=" background-size:100% 100%; width:100%; background-image: url('Content/Images/Screenshot (289).png'); background-repeat: no-repeat;">
+      
+                  </div>
+                  <div class="mySlides w3-animate-left element-animated" style=" background-size:100% 100%; width:100%; background-repeat: no-repeat; background-color: #000000;">
+                        <div class="w3-display-middle w3-container w3-padding-16 w3-black">
+                    <b style="font-size:xx-large">Get it! <br />
+                        Don't overthink, <br /> just buy </b>
+                            <br />
+                          <b style="text-align:center">  Shop now</b>
+                            <br />
+                            <asp:Button ID="Button1" runat="server" CssClass="btn btn-default" style="background-color:transparent;border: 3px solid white;color:white" Text="Men" /> &nbsp; <asp:Button ID="Button2" CssClass="btn btn-default" style="background-color:transparent;border: 3px solid white;color:white" runat="server" Text="Women" />
+                  </div>
+                  </div>
                   <div class="mySlides w3-animate-left element-animated" style=" background-size:100% 100%; width:100%; background-image: url('Content/Images/sale-text_7ef8864a-6623-4866-81a8-a9ba5a295573_2048x.gif'); background-repeat: no-repeat;">
       
                   </div>

@@ -20,16 +20,18 @@ namespace CommanderWebsite.Views
                 
                     try
                     {
-                        myCart = (DataTable)Session["cart"];
-                
-                        CommanderEDM db = new CommanderEDM();
-                        DataTable dt = myCart;
-                        rprtCart.DataSource = dt;
+               
+
+                CommanderEDM db = new CommanderEDM();
+                var myCart = CartController.GetCartItems();
+                HttpContext.Current.Session["CartCount"] = myCart.Count;
+                        rprtCart.DataSource = myCart;
                         rprtCart.DataBind();
                 
-                        if (myCart.Rows.Count != 0)
+                        if (myCart.Count != 0)
                         {
-                            int f = int.Parse(myCart.Rows[0]["Product_ID"].ToString());
+                            var ed = myCart.Select(c => c.Product_ID);
+                            int f = int.Parse(ed.ToString());
                              var dataT = ProductsController.getByID2(f);
                             if (dataT.Picture != null)
                             {

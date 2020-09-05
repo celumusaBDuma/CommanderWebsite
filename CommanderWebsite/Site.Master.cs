@@ -70,8 +70,7 @@ namespace CommanderWebsite
             }
         }
 
-        DataTable myCart = new DataTable();
-
+        
         protected void Search_Click(object sender, EventArgs e)
         {
             var s = sb2.Value; ;
@@ -85,9 +84,9 @@ namespace CommanderWebsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            try { 
             
-            
-
+                
             if (!IsPostBack)
             {
                 var s = Request.Form["sb2"];
@@ -95,23 +94,22 @@ namespace CommanderWebsite
                 {
                     Response.Redirect("~/Views/Search.aspx?s=" + s.ToString());
                 }
-                
-              
-                myCart = ShoppingCart.makeCart(myCart);
-                Session["cart"] = myCart;
-                Session["CartCount"] = myCart.Rows.Count;
+                    var myCart = CartController.GetCartItems();
+                    HttpContext.Current.Session["CartCount"] = myCart.Count;
+                    Repeater rp = (Repeater)Page.Master.FindControl("rptr");
+                    rp.DataSource = myCart;
+                    rp.DataBind();
             }
             else
             {
-                myCart = (DataTable)Session["cart"];
-                Session["CartCount"] = myCart.Rows.Count;
+                Session["CartCount"] = 0;
             }
+             //   var myCart = CartController.GetCartItems();
+               // HttpContext.Current.Session["CartCount"] = myCart.Count;
 
-            
-
-            Repeater rptrs = (Repeater)Page.Master.FindControl("rptr");
-            rptr.DataSource = myCart;
-            rptr.DataBind();
+                //Repeater rptrs = (Repeater)Page.Master.FindControl("rptr");
+            //rptr.DataSource = myCart;
+            //rptr.DataBind();
             CommanderEDM db = new CommanderEDM();
             var userRow = AdminController.FindByEmailAdmin(Context.User.Identity.GetUserName());
             if (userRow != null)
@@ -123,8 +121,7 @@ namespace CommanderWebsite
                     string img = Convert.ToBase64String(imageData, 0, imageData.Length);
                     Image imagesomet = (Image)LoginViewHome.FindControl("Image4");
                     imagesomet.ImageUrl = "data:image/png;base64," + img;
-                    LinkButton S = (LinkButton)LoginViewHome.FindControl("a");
-                   // S.Text = "black";
+                    
                 }
                 
             }
@@ -142,7 +139,11 @@ namespace CommanderWebsite
                     }
                 }
             }
-
+        }
+            catch(Exception ex)
+            {
+                Response.Write("alert('an error occured: " + ex + "');");
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

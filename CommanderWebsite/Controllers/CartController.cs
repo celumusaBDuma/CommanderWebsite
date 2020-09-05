@@ -7,18 +7,19 @@ namespace CommanderWebsite.Models
 {
     public class CartController : IDisposable
     {
-        public string ShoppingCartId { get; set; }
+        public static string ShoppingCartId { get; set; }
 
-        private CommanderEDM _db = new CommanderEDM();
+        private static CommanderEDM _db = new CommanderEDM();
+       
+        public static string CartSessionKey = "CartId";
 
-        public const string CartSessionKey = "CartId";
-
-        public void AddToCart(int id)
+        public static void AddToCart(int id, int Qty, string name, decimal? price)
         {
+           
             // Retrieve the product from the database.
             ShoppingCartId = GetCartId();
             var cartItem = _db.Carts.SingleOrDefault(
-            c => c.CartId == ShoppingCartId
+            c => c.cartId == ShoppingCartId
             && c.Product_ID == id);
             if (cartItem == null)
             {
@@ -26,11 +27,13 @@ namespace CommanderWebsite.Models
                 cartItem = new Cart
                 {
                     Cart_ID = Guid.NewGuid().ToString(),
-                    CartId = ShoppingCartId,
+                    cartId = ShoppingCartId,
                     Customer_ID = int.Parse((from c in _db.Customers where c.Email == ShoppingCartId select c.Customer_ID).SingleOrDefault().ToString()),
-                    Quantity = 1,
+                    Quantity = Qty,
                     DateCreated = DateTime.Now,
-                    Product_ID = id                    
+                    Product_ID = id,
+                    Name = name,
+                    Price = price     
                 };
                 _db.Carts.Add(cartItem);
             }
@@ -39,6 +42,7 @@ namespace CommanderWebsite.Models
                 // If the item does exist in the cart,
                 // then add one to the quantity.
                 cartItem.Quantity++;
+                cartItem.Price += price;
             }
             _db.SaveChanges();
         }
@@ -52,7 +56,7 @@ namespace CommanderWebsite.Models
             }
         }
 
-        public string GetCartId()
+        public static string GetCartId()
         {
             if (HttpContext.Current.Session[CartSessionKey] == null)
             {
@@ -71,10 +75,10 @@ namespace CommanderWebsite.Models
             return HttpContext.Current.Session[CartSessionKey].ToString();
         }
 
-        public List<Cart> GetCartItems()
+        public static List<Cart> GetCartItems()
         {
             ShoppingCartId = GetCartId();
-            return _db.Carts.Where(c => c.CartId == ShoppingCartId).ToList();
+            return _db.Carts.Where(c => c.cartId == ShoppingCartId).ToList();
         }
     }
 }

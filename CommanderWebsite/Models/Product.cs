@@ -43,6 +43,8 @@ namespace CommanderWebsite.Models
 
         public int? Category_ID { get; set; }
 
+        public int? Brand_ID { get; set; }
+
         public virtual Admin Admin { get; set; } 
 
         public virtual Category Category { get; set; }

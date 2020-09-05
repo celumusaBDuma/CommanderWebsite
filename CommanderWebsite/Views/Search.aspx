@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Search" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="CommanderWebsite.Views.Search" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div style="margin-top:10px; width:100%"> 
+    <div style="margin-top:10px; width:100%; justify-content:center"> 
     <table style="text-align:center;">
             <tr>
                 <td class="style3" style="color: #800000; font-size: large;">

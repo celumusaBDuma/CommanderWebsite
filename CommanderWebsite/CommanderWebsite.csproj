@@ -295,6 +295,7 @@
     <Content Include="Content\Images\menu-icon-f74b94a86745329ff48fd8a5f2a6783134e60da42990518733b2e43a17c84101.png" />
     <Content Include="Content\Images\noImage.png" />
     <Content Include="Content\Images\sale-text_7ef8864a-6623-4866-81a8-a9ba5a295573_2048x.gif" />
+    <Content Include="Content\Images\Screenshot %28289%29.png" />
     <Content Include="Content\Images\ShortHandsomeLamprey-size_restricted.gif" />
     <Content Include="Content\Images\timetable.png" />
     <Content Include="Content\Images\UserAvatar.png" />
@@ -717,8 +718,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin.cs" />
-    <Compile Include="Models\Cart.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Models\CommanderEDM.cs" />
@@ -726,6 +727,7 @@
     <Compile Include="Models\Delivery.cs" />
     <Compile Include="Models\Discount.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Product.cs" />

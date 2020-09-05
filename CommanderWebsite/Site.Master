@@ -76,7 +76,7 @@
                                 <%if (Context.User.Identity.IsAuthenticated == true) { %>
                                     <a runat="server" style="height:0px;width:0px;  background-color:transparent; outline:none;text-decoration:none;" 
                                          class=" cart-feature glyphicon glyphicon-shopping-cart" href="~/Views/Cart">
-                                        <%if (!Session["CartCount"].Equals(0)) {%>
+                                        <%if (Session["CartCount"] != null || !Session["CartCount"].Equals(0)) {%>
                                                :<%=(Session["CartCount"])%>
                                         <%} %> 
                                     </a>
@@ -116,7 +116,8 @@
                                                          <asp:LinkButton ID="LinkButton1" PostBackUrl="~/Admin/ProfileSettingsAdmin" runat="server">Profile Settings</asp:LinkButton></li>
                                                     <%} else
                                                         { %> 
-                                                         <li style="width: 100%"><a href="~/Customer/ProfileSettingsCustomer" >Profile Settings</a></li>
+                                                         <li style="width: 100%"><asp:LinkButton ID="LinkButton2" PostBackUrl="~/Customer/ProfileSettingsCustomer" runat="server">Profile Settings</asp:LinkButton></li>
+                                                    
                                                  
 
                                                     <%} %>
@@ -162,7 +163,7 @@
                                 
                         </ItemTemplate>
                     </asp:repeater></li>
-                    <li><p align="center" style="color: #333333"> <% if ((int)Session["CartCount"] == 0) Response.Write("<asp:LinkButton runat='server' ID='dfds' PostBackUrl='~/ViewCartEmpty.aspx'>No Items in cart</asp:LinkButton>"); %>
+                    <li><p align="center" style="color: #333333"> <% if ((int)Session["CartCount"] == 0) Response.Write("<asp:LinkButton runat='server' ID='dfds' PostBackUrl='~/Views/ViewCartEmpty.aspx'>No Items in cart</asp:LinkButton>"); %>
                     </p>
                     </li>
                  </ul>       

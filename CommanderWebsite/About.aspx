@@ -5,14 +5,13 @@
     <h2><%: Title %>.</h2>
     <h3>Your application description page.</h3>
     <p>Use this area to provide additional information.</p>
-    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url('Content/Images/Comm.jpg');">
+    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url('Content/Images/Comm.jpg');height:500px;">
       <div class="container">
         <div class="row align-items-center site-hero-inner justify-content-center">
           <div class="col-md-8 text-center">
 
             <div class="mb-5 element-animate">
-            
-              <h1>Why We Started Our Tutoring Business</h1>
+                <p>Commander</p>
             </div>
           </div>
         </div>

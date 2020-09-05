@@ -18,16 +18,22 @@ namespace CommanderWebsite.Admin
         {
             if (!IsPostBack)
             {
+                try {
                 CommanderEDM db = new CommanderEDM();
                 var ds = ProductsController.GetProducts();
                 listViewProducts.DataSource = ds;
                 listViewProducts.DataBind();
-                
+                 }
+                catch(Exception ex)
+                {
+                    Response.Write("alert('an error occured: " + ex + "');");
+                }
             }
         }
         
         protected void listViewProducts_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
+            try { 
             if (listViewProducts.Items.Count < 1)
             {
                 if (e.Item.ItemType.Equals(ListItemType.Header))
@@ -65,10 +71,13 @@ namespace CommanderWebsite.Admin
                     Image imagew = (Image)e.Item.FindControl("imgs");
                     imagew.ImageUrl = "~/Content/Images/noImage.png";
                 }
-                
-
+                }
+            
             }
-
+            catch(Exception ex)
+            {
+                Response.Write("alert('an error occured: " + ex + "');");
+            }
 
         }
 

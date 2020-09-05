@@ -22,6 +22,7 @@ namespace CommanderWebsite.Models
         public virtual DbSet<Wishlist> Wishlists { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Brand> Brands { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -167,6 +168,13 @@ namespace CommanderWebsite.Models
                 .WithOptional(e => e.Product1)
                 .HasForeignKey(e => e.Product_ID);
 
+            modelBuilder.Entity<Brand>()
+               .Property(e => e.Name)
+               .IsUnicode(false);
+
+            modelBuilder.Entity<Brand>()
+                .Property(e => e.Descrption)
+                .IsUnicode(false);
         }
     }
 }

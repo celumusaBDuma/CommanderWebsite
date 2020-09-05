@@ -14,14 +14,16 @@ namespace CommanderWebsite.Views
 {
     public partial class Women : System.Web.UI.Page
     {
+        DataTable myCart = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
             rep_bind();
         }
 
         protected void listViewProducts_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
+            try { 
             if (listViewProducts.Items.Count < 1)
             {
                 if (e.Item.ItemType.Equals(ListItemType.Header))
@@ -59,6 +61,11 @@ namespace CommanderWebsite.Views
                     Image imagew = (Image)e.Item.FindControl("imgs");
                     imagew.ImageUrl = "~/Content/Images/noImage.png";
                 }
+                }
+            }
+            catch(Exception ex)
+            {
+                Response.Write("alert('an error occured: " + ex + "');");
             }
         }
 
@@ -66,11 +73,19 @@ namespace CommanderWebsite.Views
 
         private void rep_bind()
         {
+            try
+            {
+
             CommanderEDM db = new CommanderEDM();
             var catQuery = CategoryController.getCatById("Women");
             var prod = ProductsController.getByCatID(catQuery);
             listViewProducts.DataSource = prod;
             listViewProducts.DataBind();
+            }
+            catch(Exception ex)
+            {
+                Response.Write("alert('an error occured: " + ex + "');");
+            }
             
 
         }

@@ -14,56 +14,69 @@ namespace CommanderWebsite.Views
 {
     public partial class Men : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             rep_bind();
         }
 
         protected void listViewProducts_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
-            if (listViewProducts.Items.Count < 1)
+            try
             {
-                if (e.Item.ItemType.Equals(ListItemType.Header))
+                if (listViewProducts.Items.Count < 1)
                 {
-                    HtmlGenericControl noRecordsDiv = (e.Item.FindControl("NoRecords") as HtmlGenericControl);
-                    if (noRecordsDiv != null)
+                    if (e.Item.ItemType.Equals(ListItemType.Header))
                     {
-                        noRecordsDiv.Visible = true;
+                        HtmlGenericControl noRecordsDiv = (e.Item.FindControl("NoRecords") as HtmlGenericControl);
+                        if (noRecordsDiv != null)
+                        {
+                            noRecordsDiv.Visible = true;
+                        }
+                    }
+                }
+                ListViewDataItem item = (ListViewDataItem)e.Item;
+                if (e.Item.ItemType.Equals(ListItemType.Item) || e.Item.ItemType.Equals(ListItemType.AlternatingItem))
+                {
+
+                    Label lbl = (Label)e.Item.FindControl("Label1");
+                    string a = lbl.Text;
+                    Session["val"] = a;
+
+
+                    Label lbl2 = (Label)e.Item.FindControl("Label1");
+                    string b = (string)Session["val"];
+                    var dataT = ProductsController.getByID2(int.Parse(b));
+                    if (dataT.Picture != null)
+                    {
+
+                        byte[] imageData = (byte[])dataT.Picture;
+                        string img = Convert.ToBase64String(imageData, 0, imageData.Length);
+                        Image imagew = (Image)e.Item.FindControl("imgs");
+                        imagew.ImageUrl = "data:image/png;base64," + img;
+
+                    }
+                    else
+                    {
+                        Image imagew = (Image)e.Item.FindControl("imgs");
+                        imagew.ImageUrl = "Content/Images/noImage.png";
                     }
                 }
             }
-            ListViewDataItem item = (ListViewDataItem)e.Item;
-            if (e.Item.ItemType.Equals(ListItemType.Item) || e.Item.ItemType.Equals(ListItemType.AlternatingItem))
+            catch(Exception ex)
             {
-
-                Label lbl = (Label)e.Item.FindControl("Label1");
-                string a = lbl.Text;
-                Session["val"] = a;
-
-
-                Label lbl2 = (Label)e.Item.FindControl("Label1");
-                string b = (string)Session["val"];
-                var dataT = ProductsController.getByID2(int.Parse(b));
-                if (dataT.Picture!= null)
-                {
-
-                    byte[] imageData = (byte[])dataT.Picture;
-                    string img = Convert.ToBase64String(imageData, 0, imageData.Length);
-                    Image imagew = (Image)e.Item.FindControl("imgs");
-                    imagew.ImageUrl = "data:image/png;base64," + img;
-
-                }
-                else
-                {
-                    Image imagew = (Image)e.Item.FindControl("imgs");
-                    imagew.ImageUrl = "Content/Images/noImage.png";
-                }
+                Response.Write("alert('an error occured: " + ex + "');");
             }
         }
 
 
         private void rep_bind()
         {
+            try
+            {
+
+            
             CommanderEDM db = new CommanderEDM();
             var catQuery = CategoryController.getCatById("Men");
             var prod = ProductsController.getByCatID(catQuery);
@@ -71,7 +84,11 @@ namespace CommanderWebsite.Views
             
             listViewProducts.DataSource = prod;
             listViewProducts.DataBind();
-           
+           }
+            catch (Exception ex)
+            {
+                Response.Write("alert('an error occured: " + ex + "');");
+            }
         }
     }
 }

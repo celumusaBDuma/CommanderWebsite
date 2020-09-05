@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="ViewCart.aspx.cs" Inherits="CommanderWebsite.Views.ViewCart" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class= "container">
+    <div class= "container" style="min-height:1024px;">
     <div align="center">
         
         <div style="margin-left: 40px" >
@@ -39,7 +39,7 @@
            
                 <div>
                     <h1 ><%#Eval("Name") %></h1>
-                    <p style="font-size: xx-large"><%#Eval("Type") %></p>
+                    <p style="font-size: xx-large">Quantity: <%#Eval("Quantity") %></p>
                     <p style="font-size: x-large">R <%#Eval("Price") %></p>
                     <hr />
                     <p></p>
@@ -66,7 +66,7 @@
                    <asp:button runat="server" text="Remove Item" ID="rem" CssClass="btn" onclick="rem_Click"
                   />  &nbsp;  &nbsp;  &nbsp;  &nbsp;<asp:button runat="server" ID="btnCheckout" 
                         CssClass="btn" Text="Checkout" onclick="btnCheckout_Click" 
-                PostBackUrl="~/CheckOut.aspx" />
+                PostBackUrl="~/Views/CheckOut.aspx" />
                 </div>
                 </div>
                 

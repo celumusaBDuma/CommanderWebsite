@@ -37,7 +37,7 @@ namespace CommanderWebsite
             return 0;
         }
 
-        public static DataTable NewRowCart(DataTable myCart, int ID)
+        public static DataTable NewRowCart(DataTable myCart, int ID, int Qty)
         {
             CommanderEDM db = new CommanderEDM();
             DataTable datat = new DataTable();
@@ -48,7 +48,7 @@ namespace CommanderWebsite
             Cartrow["Name"] = d.Name;
             Cartrow["Type"] = d.Type;
             Cartrow["Size"] = d.size;
-            Cartrow["Quantity"] = d.Quantity;
+            Cartrow["Quantity"] = Qty;
             Cartrow["Price"] = d.Price;
             cart.Rows.Add(Cartrow);
             return cart;

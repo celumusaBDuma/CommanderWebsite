@@ -18,17 +18,24 @@ namespace CommanderWebsite.Admin
         {
             if (!IsPostBack)
             {
-             
+             try { 
                 var list = CategoryController.getCategoryList();
                 foreach (int li in list)
                 {
                     DropDownList1.Items.Add(li.ToString());
                 }
+                }
+                catch(Exception ex)
+                {
+                    Response.Write("alert('an error occured: " + ex + "');");
+                }
+
             }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            try { 
             if (uploadimage() == true)
             {
                 int cId = int.Parse(DropDownList1.Text);
@@ -41,6 +48,11 @@ namespace CommanderWebsite.Admin
              
                 TextBox1.Text = "";
                 TextBox2.Text = "";
+            }
+            }
+            catch(Exception ex)
+            {
+                Response.Write("alert('an error occured: " + ex + "');");
             }
         }
 
