@@ -30,10 +30,11 @@ namespace CommanderWebsite.Controllers
             return prod;
         }
 
-        public static Product getSearchProd(string s)
+        public static IEnumerable<Product> getSearchProd(string s)
         {
             CommanderEDM db = new CommanderEDM();
-            var prod = db.Products.SingleOrDefault(c => c.Name.Contains(s));
+            var f = db.Products.Select(c => c).ToList();
+            var prod = f.Where(c => c.Name.Contains(s));
             return prod;
         }
 
