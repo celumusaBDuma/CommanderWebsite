@@ -76,9 +76,14 @@
                                 <%if (Context.User.Identity.IsAuthenticated == true) { %>
                                     <a runat="server" style="height:0px;width:0px;  background-color:transparent; outline:none;text-decoration:none;" 
                                          class=" cart-feature glyphicon glyphicon-shopping-cart" href="~/Views/Cart">
-                                        <%if (Session["CartCount"] != null || !Session["CartCount"].Equals(0)) {%>
+                                        <%try
+    {
+        if (Session["CartCount"] != null || !Session["CartCount"].Equals(0))
+        {%>
                                                :<%=(Session["CartCount"])%>
-                                        <%} %> 
+                                        <%}
+    }
+    catch (Exception) { } %> 
                                     </a>
                             
                                     <a runat="server" style="height:0px;width:0px; background-color:transparent; outline:none;text-decoration:none;"  
@@ -146,34 +151,62 @@
                                      %>
                            <li class="navbar-right cart-feature dropdown">
                                     <a runat="server" class="glyphicon glyphicon-shopping-cart" >
-                                        <%if (!Session["CartCount"].Equals(0)) {%>
+                                        <%try
+    {
+        if (!Session["CartCount"].Equals(0))
+        {%>
                                                :<%=(Session["CartCount"])%>
-                                        <%} %>
+                                        <%}
+    }
+    catch (Exception) { }%>
                                     </a>
             <ul class="dropdown-menu" style="color: #C0C0C0">
            
                         <li><asp:repeater id="rptr" runat="server">
                         <ItemTemplate>
                             
-                                    <a id="alinktosome2" runat="server">
+                                    <a id="alinktosome2" href='<%# "~/Views/ViewCart.aspx?Product_ID="+ Eval("Product_ID") %>' runat="server">
                                 <div align="center" style="width: 100%; height: 50px; border-top-style: solid; border-bottom-style: solid; border-top-width: thin; border-bottom-width: thin; border-top-color: #C0C0C0; border-bottom-color: #C0C0C0;">
-                               <p align="center"> <%#Eval("Name") %> <br /> &nbsp; Qty:<%#Eval("Quantity") %> 
-                               R <%#Eval("Price") %></p>
+                               <p align="center"> <%#Eval("Name") %> <br /> &nbsp; Qty:<%#Eval("Quantity") %>R <%#Eval("Price") %></p>
                                 </div></a>
                                 
                         </ItemTemplate>
                     </asp:repeater></li>
-                    <li><p align="center" style="color: #333333"> <% if ((int)Session["CartCount"] == 0) Response.Write("<asp:LinkButton runat='server' ID='dfds' PostBackUrl='~/Views/ViewCartEmpty.aspx'>No Items in cart</asp:LinkButton>"); %>
+                    <li><p align="center" style="color: #333333"> <% try { if ((int)Session["CartCount"] == 0) Response.Write("<asp:LinkButton runat='server' ID='dfds' OnClientClick='~/Views/ViewCartEmpty' PostBackUrl='~/Views/ViewCartEmpty.aspx'>No Items in cart</asp:LinkButton>"); } catch (Exception) { } %>
                     </p>
                     </li>
                  </ul>       
                             </li>
-                            <li class="navbar-right cart-feature">
-                                    <a runat="server" class="glyphicon glyphicon-heart-empty" href="#"></a>
-                                     
+                            <li class="navbar-right cart-feature dropdown">
+                                    <a runat="server" class="glyphicon glyphicon-heart-empty">
+                                        <%try
+    {
+        if (!Session["WishListCount"].Equals(0))
+        {%>
+                                               :<%=(Session["WishListCount"])%>
+                                        <%}
+    }
+    catch (Exception) { } %>
+                                    </a>
+                                     <ul class="dropdown-menu" style="color: #C0C0C0">
+           
+                        <li><asp:repeater id="Repeater1" runat="server">
+                        <ItemTemplate>
+                            
+                                    <a id="alinktosome3" href='<%# "~/Views/ViewWishList.aspx?Product_ID="+ Eval("Product_ID") %>' runat="server">
+                                <div align="center" style="width: 100%; height: 50px; border-top-style: solid; border-bottom-style: solid; border-top-width: thin; border-bottom-width: thin; border-top-color: #C0C0C0; border-bottom-color: #C0C0C0;">
+                               <p align="center"> <%#Eval("Name") %> <br /> &nbsp; Qty:<%#Eval("Quantity") %>R <%#Eval("Price") %></p>
+                                </div></a>
+                                
+                        </ItemTemplate>
+                    </asp:repeater></li>
+                    <li><p align="center" style="color: #333333"> <% try { if ((int)Session["WishListCount"] == 0) { Response.Write("<asp:LinkButton runat='server' ID='dfds' OnClientClick='~/Views/ViewWishListEmpty' PostBackUrl='~/Views/ViewWishListEmpty.aspx'>No Items in wishlist</asp:LinkButton>"); } } catch (Exception) { } %>
+                    </p>
+                    </li>
+                 </ul>    
                                      
                             </li>
-                                 <%} %>   
+                                 <%}  %>   
                             <li class="navbar-right" style="display:flex;">
                                  <div class="search input-group ">
                                     

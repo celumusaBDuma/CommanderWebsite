@@ -14,12 +14,18 @@ namespace CommanderWebsite.Models
 
         public int? Product_ID { get; set; }
 
-        public int? Customer_ID { get; set; }
+        [StringLength(50)]
+        public string wishlistId { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? DateAdded { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        [StringLength(50)]
+        public string Name { get; set; }
+
+        public decimal? Price { get; set; }
+
+        public int Quantity { get; set; }
 
         public virtual Product Product { get; set; }
 

@@ -10,14 +10,14 @@ namespace CommanderWebsite.Models
         public static string ShoppingCartId { get; set; }
 
         private static CommanderEDM _db = new CommanderEDM();
-       
+
         public static string CartSessionKey = "CartId";
 
-        public static void AddToCart(int id, int Qty, string name, decimal? price)
+        public static void AddToCart(int id, int? Qty, string name, decimal? price, string user)
         {
-           
+
             // Retrieve the product from the database.
-            ShoppingCartId = GetCartId();
+            ShoppingCartId = user;
             var cartItem = _db.Carts.SingleOrDefault(
             c => c.cartId == ShoppingCartId
             && c.Product_ID == id);
@@ -26,14 +26,14 @@ namespace CommanderWebsite.Models
                 // Create a new cart item if no cart item exists.
                 cartItem = new Cart
                 {
+
                     Cart_ID = Guid.NewGuid().ToString(),
                     cartId = ShoppingCartId,
-                    Customer_ID = int.Parse((from c in _db.Customers where c.Email == ShoppingCartId select c.Customer_ID).SingleOrDefault().ToString()),
                     Quantity = Qty,
                     DateCreated = DateTime.Now,
                     Product_ID = id,
                     Name = name,
-                    Price = price     
+                    Price = price * Qty
                 };
                 _db.Carts.Add(cartItem);
             }
@@ -41,7 +41,7 @@ namespace CommanderWebsite.Models
             {
                 // If the item does exist in the cart,
                 // then add one to the quantity.
-                cartItem.Quantity++;
+                cartItem.Quantity += Qty;
                 cartItem.Price += price;
             }
             _db.SaveChanges();
@@ -75,10 +75,43 @@ namespace CommanderWebsite.Models
             return HttpContext.Current.Session[CartSessionKey].ToString();
         }
 
-        public static List<Cart> GetCartItems()
+        public static List<Cart> GetCartItems(string user)
         {
-            ShoppingCartId = GetCartId();
-            return _db.Carts.Where(c => c.cartId == ShoppingCartId).ToList();
+            ShoppingCartId = user;
+            var d = _db.Carts.Select(c => c);
+            var ds = d.Where(c => c.cartId == ShoppingCartId).ToList();
+            return ds;
         }
+
+        public static List<Cart> GetCartItems(string user, int id)
+        {
+            ShoppingCartId = user;
+            var d = _db.Carts.Select(c => c);
+            var ds = d.Where(c => c.cartId == ShoppingCartId && c.Product_ID == id).ToList();
+            return ds;
+        }
+
+        public static Cart GetCartItems1(string user, int id)
+        {
+            ShoppingCartId = user;
+            CommanderEDM db = new CommanderEDM();
+            var ds = db.Carts.SingleOrDefault(c => c.cartId == ShoppingCartId && c.Product_ID == id);
+            return ds;
+        }
+
+        public static Cart GetCartItems2(string user)
+        {
+            ShoppingCartId = user;
+            var d = _db.Carts.SingleOrDefault(c => c.cartId == ShoppingCartId);
+            return d;
+        }
+
+        public static void removeItem(int prod, string user)
+        {
+            var dbItem = _db.Carts.SingleOrDefault(c => c.Product_ID == prod && c.cartId == user);
+            _db.Carts.Remove(dbItem);
+            _db.SaveChanges();
+        }
+
     }
 }

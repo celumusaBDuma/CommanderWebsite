@@ -99,7 +99,7 @@ namespace CommanderWebsite.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Delivery>()
-                .Property(e => e.Address)
+                .Property(e => e.dAddress)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Delivery>()

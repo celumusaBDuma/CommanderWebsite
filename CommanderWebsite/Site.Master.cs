@@ -21,6 +21,7 @@ namespace CommanderWebsite
 
         protected void Page_Init(object sender, EventArgs e)
         {
+           
             // The code below helps to protect against XSRF attacks
             var requestCookie = Request.Cookies[AntiXsrfTokenKey];
             Guid requestCookieGuidValue;
@@ -58,9 +59,30 @@ namespace CommanderWebsite
                 // Set Anti-XSRF token
                 ViewState[AntiXsrfTokenKey] = Page.ViewStateUserKey;
                 ViewState[AntiXsrfUserNameKey] = Context.User.Identity.Name ?? String.Empty;
+
+                try
+                {
+                    var myCart = CartController.GetCartItems(Context.User.Identity.Name);
+                    HttpContext.Current.Session["CartCount"] = myCart.Count;
+                    Repeater rp = (Repeater)Page.Master.FindControl("rptr");
+                    rp.DataSource = myCart;
+                    rp.DataBind();
+                    var myWishList = WishListController.GetWishListItems(Context.User.Identity.Name);
+                    HttpContext.Current.Session["WishListCount"] = myWishList.Count;
+                    Repeater rp2 = (Repeater)Page.Master.FindControl("Repeater1");
+                    rp2.DataSource = myWishList;
+                    rp2.DataBind();
+
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('" + ex + "')</script>");
+                }
             }
             else
             {
+                Session["CartCount"] = 0;
+                Session["WishListCount"] = 0;
                 // Validate the Anti-XSRF token
                 if ((string)ViewState[AntiXsrfTokenKey] != _antiXsrfTokenValue
                     || (string)ViewState[AntiXsrfUserNameKey] != (Context.User.Identity.Name ?? String.Empty))
@@ -84,9 +106,7 @@ namespace CommanderWebsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try { 
-            
-                
+           try {  
             if (!IsPostBack)
             {
                 var s = Request.Form["sb2"];
@@ -94,22 +114,23 @@ namespace CommanderWebsite
                 {
                     Response.Redirect("~/Views/Search.aspx?s=" + s.ToString());
                 }
-                    var myCart = CartController.GetCartItems();
+                    var myCart = CartController.GetCartItems(Context.User.Identity.Name);
                     HttpContext.Current.Session["CartCount"] = myCart.Count;
                     Repeater rp = (Repeater)Page.Master.FindControl("rptr");
                     rp.DataSource = myCart;
                     rp.DataBind();
-            }
+                    var myWishList = WishListController.GetWishListItems(Context.User.Identity.Name);
+                    HttpContext.Current.Session["WishListCount"] = myWishList.Count;
+                    Repeater rp2 = (Repeater)Page.Master.FindControl("Repeater1");
+                    rp2.DataSource = myWishList;
+                    rp2.DataBind();
+                }
             else
             {
                 Session["CartCount"] = 0;
+                Session["WishListCount"] = 0;
             }
-             //   var myCart = CartController.GetCartItems();
-               // HttpContext.Current.Session["CartCount"] = myCart.Count;
-
-                //Repeater rptrs = (Repeater)Page.Master.FindControl("rptr");
-            //rptr.DataSource = myCart;
-            //rptr.DataBind();
+             
             CommanderEDM db = new CommanderEDM();
             var userRow = AdminController.FindByEmailAdmin(Context.User.Identity.GetUserName());
             if (userRow != null)
@@ -142,7 +163,7 @@ namespace CommanderWebsite
         }
             catch(Exception ex)
             {
-                Response.Write("alert('an error occured: " + ex + "');");
+                Response.Write("<script>alert('an error occured: " + ex + "')</script>");
             }
         }
 
@@ -162,12 +183,14 @@ namespace CommanderWebsite
                 mm.To.Add(new System.Net.Mail.MailAddress(tbEmailHome.Text));
                 mm.Body = "Hi I would like to subscribe to your newsletter, account is " + tbEmailHome.Text;
                 EmailController.sendEmail(mm.To.ToString(), mm.Subject, mm.Body);
-
+                Label1.ForeColor = System.Drawing.Color.Green;
+                Label1.Text = "Sent!";
                 }
             catch (Exception ex)
             {
 
                 Label1.Text = ex.ToString();
+                Label1.ForeColor = System.Drawing.Color.Red;
 
             }
         }

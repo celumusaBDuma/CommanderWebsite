@@ -1,4 +1,4 @@
-namespace CommanderWebsite.Models
+﻿namespace CommanderWebsite.Models
 {
     using System;
     using System.Collections.Generic;
@@ -12,9 +12,6 @@ namespace CommanderWebsite.Models
         [Key]
         [StringLength(50)]
         public string Cart_ID { get; set; }
-
-        public int? Customer_ID { get; set; }
-
       
         public int? Product_ID { get; set; }
 

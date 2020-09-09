@@ -27,7 +27,7 @@ namespace CommanderWebsite.Admin
                 }
                 catch(Exception ex)
                 {
-                    Response.Write("alert('an error occured: " + ex + "');");
+                    Response.Write("<script>alert('an error occured: " + ex + "')</script>");
                 }
 
             }
@@ -46,13 +46,11 @@ namespace CommanderWebsite.Admin
                 
                 Label3.Text = "Product Has Been Successfully Saved";
              
-                TextBox1.Text = "";
-                TextBox2.Text = "";
             }
             }
             catch(Exception ex)
             {
-                Response.Write("alert('an error occured: " + ex + "');");
+                Response.Write("<script>alert('an error occured: " + ex + "')</script>");
             }
         }
 

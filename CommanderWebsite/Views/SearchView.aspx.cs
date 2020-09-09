@@ -12,11 +12,9 @@ namespace CommanderWebsite.Views
 {
     public partial class SearchView : System.Web.UI.Page
     {
-        DataTable myCart = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            myCart = (DataTable)Session["cart"];
+            
 
             if (!IsPostBack)
             {
@@ -58,33 +56,69 @@ namespace CommanderWebsite.Views
         {
             try
             {
-                if (myCart.Rows.Count < 1)
+
+                int id = int.Parse(Request.QueryString["Product_ID"]);
+                if (Context.User.Identity.IsAuthenticated == true)
                 {
-                    int id = int.Parse(Request.QueryString["Product_ID"]);
-
-
                     CommanderEDM db = new CommanderEDM();
                     var d = ProductsController.getByID2(id);
                     DropDownList df = (DropDownList)Page.Master.FindControl("dl");
-                    myCart = ShoppingCart.NewRowCart((DataTable)Session["cart"], d.Product_ID);
-
-                    Session["cart"] = myCart;
-                    Session["CartCount"] = myCart.Rows.Count;
+                    DropDownList df1 = (DropDownList)rptrImages2.Items[0].FindControl("DropDownList1");
+                    CartController.AddToCart(id, int.Parse(df1.SelectedValue), d.Name, d.Price, Context.User.Identity.Name);
+                    var myCart = CartController.GetCartItems(Context.User.Identity.Name);
+                    HttpContext.Current.Session["CartCount"] = myCart.Count;
+                    var myWishlist = WishListController.GetWishListItems(Context.User.Identity.Name);
+                    HttpContext.Current.Session["WishListCount"] = myWishlist.Count;
                     Repeater rp = (Repeater)Page.Master.FindControl("rptr");
-                    rp.DataSource = (DataTable)Session["cart"];
+                    rp.DataSource = myCart;
                     rp.DataBind();
-
                 }
                 else
                 {
-                    Label1.Text = "Only one item allowed on the cart";
+                    Response.Redirect("~/Account/Login?ReturnUrl=" + "~/Views/MensView?Product_ID=" + id);
                 }
-
+                }
+            catch (Exception ex)
+            {
+                Label1.Text = ex.ToString();
             }
+        }
+
+             protected void btnAddToWishList_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                int id = int.Parse(Request.QueryString["Product_ID"]);
+
+                if (Context.User.Identity.IsAuthenticated == true)
+                {
+                    CommanderEDM db = new CommanderEDM();
+                var d = ProductsController.getByID2(id);
+                var ds = db.Carts.SingleOrDefault(c => c.Product_ID == id);
+                int f = (int)ds.Quantity;
+                WishListController.AddToWishList(id, f, d.Name, d.Price, Context.User.Identity.Name);
+                var myWishList = WishListController.GetWishListItems(Context.User.Identity.Name);
+                HttpContext.Current.Session["WishListCount"] = myWishList.Count;
+                var mycart = CartController.GetCartItems(Context.User.Identity.Name);
+                HttpContext.Current.Session["CartCount"] = mycart.Count;
+                Repeater rp = (Repeater)Page.Master.FindControl("Repeater1");
+                rp.DataSource = myWishList;
+                rp.DataBind();
+             
+            }
+            else
+                {
+                Response.Redirect("~/Account/Login?ReturnUrl=" + "~/Views/MensView?Product_ID=" + id);
+            }
+
+        }
             catch (Exception ex)
             {
                 Label1.Text = ex.ToString();
             }
         }
     }
+    
 }

@@ -67,27 +67,48 @@ namespace CommanderWebsite.Customer
             }
         }
 
+        protected void Search_Click(object sender, EventArgs e)
+        {
+            var s = mySearch.Value; ;
+            Response.Redirect("~/Views/Search.aspx?s=" + s.ToString());
+        }
+
+        protected void Search_Click1(object sender, EventArgs e)
+        {
+            var s = mySearchbtn.Value; ;
+            Response.Redirect("~/Views/Search.aspx?s=" + s.ToString());
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if(Context.User.Identity.IsAuthenticated == false)
-           // {
-           //     Response.Redirect("~/Account/Login");
-           // }
-            CommanderEDM db = new CommanderEDM();
-            var userRow = CustomerController.FindByEmail(Context.User.Identity.Name);
-           // if(userRow == null) 
-          // {
-           //     Response.Redirect("~/");
-           // }
-          //  if (userRow.Picture != null || userRow != null)
+            try
             {
-                byte[] imageData = (byte[])userRow.Picture;
-                string img = Convert.ToBase64String(imageData, 0, imageData.Length);
-                Image imagesomet = (Image)cdLoginView.FindControl("Image4");
-                imagesomet.ImageUrl = "data:image/png;base64," + img;
+                if(Context.User.Identity.IsAuthenticated == false)
+                {
+                     Response.Redirect("~/Account/Login");
+                }
+                if (!Context.User.IsInRole("Customer"))
+                {
+                    Response.Redirect("~/");
+                }
+                CommanderEDM db = new CommanderEDM();
+                var userRow = CustomerController.FindByEmail(Context.User.Identity.Name);
+                // if(userRow == null) 
+                // {
+                //     Response.Redirect("~/");
+                // }
+                if (userRow.Picture != null || userRow != null)
+                {
+                    byte[] imageData = (byte[])userRow.Picture;
+                    string img = Convert.ToBase64String(imageData, 0, imageData.Length);
+                    Image imagesomet = (Image)cdLoginView.FindControl("Image4");
+                    imagesomet.ImageUrl = "data:image/png;base64," + img;
+                }
             }
-           
+            catch(Exception ex)
+            {
+                Response.Write("<script>alert('"+ex+"')</script>");
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

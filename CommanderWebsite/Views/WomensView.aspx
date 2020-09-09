@@ -56,8 +56,9 @@
                     <hr />
                 </div>
                 <asp:Label runat="server" id="llb" Text=""></asp:Label>
-                <div>
-                    <asp:button runat="server" text="Add To Cart" ID="btnAddToCart" 
+                <div><asp:button runat="server" text="Add To WishList" ID="Button1" 
+                        CssClass="btn" onclick="btnAddToWishList_Click" />
+                     &nbsp;  &nbsp;  &nbsp;  &nbsp; <asp:button runat="server" text="Add To Cart" ID="btnAddToCart" 
                         CssClass="btn" onclick="btnAddToCart_Click" />
                 </div>
                 <div>

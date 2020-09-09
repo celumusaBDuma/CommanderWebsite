@@ -22,6 +22,15 @@ namespace CommanderWebsite.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// mySearchbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText mySearchbtn;
+        
+        /// <summary>
         /// navBrand1 control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace CommanderWebsite.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LoginView cdLoginView;
+        
+        /// <summary>
+        /// mySearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText mySearch;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

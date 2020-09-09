@@ -265,16 +265,16 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Admin\AddBrands.aspx" />
     <Content Include="Admin\AddProducts.aspx" />
     <Content Include="Admin\CategoriesAdmin.aspx" />
-    <Content Include="Admin\CreateProduct.aspx" />
     <Content Include="Admin\DashboardAdmin.aspx" />
     <Content Include="Admin\DiscountsAdmin.aspx" />
     <Content Include="Admin\HelpAdmin.aspx" />
     <Content Include="Admin\ProductsAdmin.aspx" />
+    <Content Include="Admin\ProductsView.aspx" />
     <Content Include="Admin\ProfileSettingsAdmin.aspx" />
     <Content Include="Admin\RewardsAdmin.aspx" />
-    <Content Include="Admin\SettingsAdmin.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\backendstyle.css" />
@@ -286,17 +286,32 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\20200906_014103.jpg" />
     <Content Include="Content\Images\36-365828_navbar-toggle-icon-menu-hamburger-png-white.png" />
+    <Content Include="Content\Images\aejaz-memon-7bt8lEnGKO8-unsplash.jpg" />
     <Content Include="Content\Images\Af0sF2OS5S5gatqrKzVP_Silhoutte %281%29.jpg" />
     <Content Include="Content\Images\Af0sF2OS5S5gatqrKzVP_Silhoutte.jpg" />
+    <Content Include="Content\Images\andrea-junqueira-dAejsZCBodk-unsplash.jpg" />
+    <Content Include="Content\Images\anomaly-WWesmHEgXDs-unsplash.jpg" />
+    <Content Include="Content\Images\caleb-george-Ie4zWT6rurg-unsplash.jpg" />
+    <Content Include="Content\Images\cami-talpone-AGsii9KWbDE-unsplash.jpg" />
+    <Content Include="Content\Images\chase-fade-wTJFpe6X4kM-unsplash.jpg" />
     <Content Include="Content\Images\CommanderBlack.jpg" />
     <Content Include="Content\Images\CommanderPic.jpg" />
     <Content Include="Content\Images\Comm.jpg" />
+    <Content Include="Content\Images\damir-spanic-FGg-O-AT_CQ-unsplash.jpg" />
     <Content Include="Content\Images\download.jfif" />
     <Content Include="Content\Images\HeftyGorgeousItalianbrownbear-size_restricted.gif" />
     <Content Include="Content\Images\icons8-menu-48.png" />
+    <Content Include="Content\Images\joel-muniz-_bd7ut7YLEk-unsplash.jpg" />
+    <Content Include="Content\Images\keagan-henman-Won79_9oUEk-unsplash.jpg" />
+    <Content Include="Content\Images\lauren-fleischmann-ZogRkvEnahU-unsplash.jpg" />
+    <Content Include="Content\Images\mat-reding-55ZCa2WHMVg-unsplash.jpg" />
     <Content Include="Content\Images\menu-icon-f74b94a86745329ff48fd8a5f2a6783134e60da42990518733b2e43a17c84101.png" />
+    <Content Include="Content\Images\mohammed-hassan-HQmVMMpBjvM-unsplash.jpg" />
+    <Content Include="Content\Images\nathan-dumlao-Lwrhd8G5ZuQ-unsplash.jpg" />
     <Content Include="Content\Images\noImage.png" />
+    <Content Include="Content\Images\roberto-nickson-y5U5RPCC0HM-unsplash.jpg" />
     <Content Include="Content\Images\sale-text_7ef8864a-6623-4866-81a8-a9ba5a295573_2048x.gif" />
     <Content Include="Content\Images\Screenshot %28289%29.png" />
     <Content Include="Content\Images\ShortHandsomeLamprey-size_restricted.gif" />
@@ -305,11 +320,15 @@
     <Content Include="Content\Images\UserAvatar0.png" />
     <Content Include="Content\Images\UserAvatar1.png" />
     <Content Include="Content\Images\UserAvatar2.png" />
+    <Content Include="Content\Images\vitaly-taranov-fW2jv1L7yeA-unsplash.jpg" />
+    <Content Include="Content\Images\WhatsApp Image 2020-09-03 at 15.34.08.jpeg" />
+    <Content Include="Content\Images\WhatsApp Image 2020-09-03 at 21.51.07 %282%29.jpeg" />
     <Content Include="Content\owl.carousel.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Customer\DashboardCustomer.aspx" />
     <Content Include="Customer\HelpCustomer.aspx" />
     <Content Include="Customer\Orders.aspx" />
+    <Content Include="Customer\OrderView.aspx" />
     <Content Include="Customer\ProfileSettingsCustomer.aspx" />
     <Content Include="Customer\Returns.aspx" />
     <Content Include="Customer\Rewards.aspx" />
@@ -370,11 +389,7 @@
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jssor.slider-27.5.0.min.js" />
-    <Content Include="Scripts\js\config.js" />
-    <Content Include="Scripts\js\fb-client.js" />
-    <Content Include="Scripts\js\google-client.js" />
     <Content Include="Scripts\js\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\js\login-client.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
     <Content Include="Scripts\popper.min.js" />
@@ -409,16 +424,19 @@
     <Content Include="TermsOfUse.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Brands.aspx" />
-    <Content Include="Views\Cart.aspx" />
+    <Content Include="Views\CheckOut.aspx" />
     <Content Include="Views\Help.aspx" />
     <Content Include="Views\Men.aspx" />
     <Content Include="Views\MensView.aspx" />
     <Content Include="Views\Offers.aspx" />
+    <Content Include="Views\Receipt.aspx" />
     <Content Include="Views\Sale.aspx" />
     <Content Include="Views\Search.aspx" />
     <Content Include="Views\SearchView.aspx" />
     <Content Include="Views\ViewCart.aspx" />
     <Content Include="Views\ViewCartEmpty.aspx" />
+    <Content Include="Views\ViewWishList.aspx" />
+    <Content Include="Views\ViewWishListEmpty.aspx" />
     <Content Include="Views\Wishlist.aspx" />
     <Content Include="Views\Women.aspx" />
     <Content Include="Views\WomensView.aspx" />
@@ -545,6 +563,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddBrands.aspx.cs">
+      <DependentUpon>AddBrands.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddBrands.aspx.designer.cs">
+      <DependentUpon>AddBrands.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AddProducts.aspx.cs">
       <DependentUpon>AddProducts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -572,13 +597,6 @@
     </Compile>
     <Compile Include="Admin\CategoriesAdmin.aspx.designer.cs">
       <DependentUpon>CategoriesAdmin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\CreateProduct.aspx.cs">
-      <DependentUpon>CreateProduct.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\CreateProduct.aspx.designer.cs">
-      <DependentUpon>CreateProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\DashboardAdmin.aspx.cs">
       <DependentUpon>DashboardAdmin.aspx</DependentUpon>
@@ -608,6 +626,13 @@
     <Compile Include="Admin\ProductsAdmin.aspx.designer.cs">
       <DependentUpon>ProductsAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ProductsView.aspx.cs">
+      <DependentUpon>ProductsView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ProductsView.aspx.designer.cs">
+      <DependentUpon>ProductsView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ProfileSettingsAdmin.aspx.cs">
       <DependentUpon>ProfileSettingsAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -621,13 +646,6 @@
     </Compile>
     <Compile Include="Admin\RewardsAdmin.aspx.designer.cs">
       <DependentUpon>RewardsAdmin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\SettingsAdmin.aspx.cs">
-      <DependentUpon>SettingsAdmin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\SettingsAdmin.aspx.designer.cs">
-      <DependentUpon>SettingsAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -648,10 +666,14 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BrandsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\DeliveryController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\SocialLoginController.cs" />
+    <Compile Include="Controllers\WishListController.cs" />
     <Compile Include="Customer\Customer.Master.cs">
       <DependentUpon>Customer.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -686,6 +708,13 @@
     </Compile>
     <Compile Include="Customer\Orders.aspx.designer.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\OrderView.aspx.cs">
+      <DependentUpon>OrderView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\OrderView.aspx.designer.cs">
+      <DependentUpon>OrderView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\ProfileSettingsCustomer.aspx.cs">
       <DependentUpon>ProfileSettingsCustomer.aspx</DependentUpon>
@@ -781,12 +810,12 @@
     <Compile Include="Views\Brands.aspx.designer.cs">
       <DependentUpon>Brands.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cart.aspx.cs">
-      <DependentUpon>Cart.aspx</DependentUpon>
+    <Compile Include="Views\CheckOut.aspx.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Cart.aspx.designer.cs">
-      <DependentUpon>Cart.aspx</DependentUpon>
+    <Compile Include="Views\CheckOut.aspx.designer.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Help.aspx.cs">
       <DependentUpon>Help.aspx</DependentUpon>
@@ -815,6 +844,13 @@
     </Compile>
     <Compile Include="Views\Offers.aspx.designer.cs">
       <DependentUpon>Offers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Receipt.aspx.cs">
+      <DependentUpon>Receipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Receipt.aspx.designer.cs">
+      <DependentUpon>Receipt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Sale.aspx.cs">
       <DependentUpon>Sale.aspx</DependentUpon>
@@ -850,6 +886,20 @@
     </Compile>
     <Compile Include="Views\ViewCartEmpty.aspx.designer.cs">
       <DependentUpon>ViewCartEmpty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewWishList.aspx.cs">
+      <DependentUpon>ViewWishList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewWishList.aspx.designer.cs">
+      <DependentUpon>ViewWishList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewWishListEmpty.aspx.cs">
+      <DependentUpon>ViewWishListEmpty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewWishListEmpty.aspx.designer.cs">
+      <DependentUpon>ViewWishListEmpty.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>

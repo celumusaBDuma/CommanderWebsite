@@ -72,7 +72,25 @@ namespace CommanderWebsite.Controllers
             db.SaveChanges();
 
         }
-          public static byte[] getByImg(int img)
+
+        public static void UpdateProd(int prodID, string name, string type, string description, int? quantity, string size, decimal? price, byte[] picture, int? admin_id, int? category_id)
+        {
+            CommanderEDM db = new CommanderEDM();
+            var prod = db.Products.SingleOrDefault(c => c.Product_ID == prodID);
+            prod.Name = name;
+            prod.Type = type;
+            prod.Description = description;
+            prod.Quantity = quantity;
+            prod.size = size;
+            prod.Price = price;
+            prod.Picture = picture;
+            prod.Admin_ID = admin_id;
+            prod.Category_ID = category_id;
+            db.SaveChanges();
+
+        }
+
+        public static byte[] getByImg(int img)
           {
               var _db = new CommanderEDM();
               var full = _db.Products.SingleOrDefault(c => c.Product_ID == img).Picture;

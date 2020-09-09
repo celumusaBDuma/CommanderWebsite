@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="ViewCart.aspx.cs" Inherits="CommanderWebsite.Views.ViewCart" %>
+﻿<%@ Page Title="View Cart" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="ViewCart.aspx.cs" Inherits="CommanderWebsite.Views.ViewCart" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class= "container" style="min-height:1024px;">
@@ -64,9 +64,12 @@
                         </asp:repeater>
                         <div align="center">
                    <asp:button runat="server" text="Remove Item" ID="rem" CssClass="btn" onclick="rem_Click"
-                  />  &nbsp;  &nbsp;  &nbsp;  &nbsp;<asp:button runat="server" ID="btnCheckout" 
-                        CssClass="btn" Text="Checkout" onclick="btnCheckout_Click" 
-                PostBackUrl="~/Views/CheckOut.aspx" />
+                  />  &nbsp;  &nbsp;  &nbsp;  &nbsp;<asp:button runat="server" ID="Button1" 
+                        CssClass="btn" Text="Add To WishList" onclick="btnAddToWishList_Click" />
+                            <br />
+                            <br />
+                            <asp:button runat="server" ID="btnCheckout" 
+                        CssClass="btn" Text="Checkout" onclick="btnCheckout_Click"  />
                 </div>
                 </div>
                 
@@ -79,7 +82,7 @@
         </div>
            
             <asp:label runat="server" text="Label" ID="idf" Visible="False"></asp:label>
-            
+            <asp:label runat="server" text="Label" ID="Label3" Visible="False"></asp:label>
         </div>
     
     </div>

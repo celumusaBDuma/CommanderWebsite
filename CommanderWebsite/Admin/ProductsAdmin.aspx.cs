@@ -26,7 +26,7 @@ namespace CommanderWebsite.Admin
                  }
                 catch(Exception ex)
                 {
-                    Response.Write("alert('an error occured: " + ex + "');");
+                    Response.Write("<script>alert('an error occured: " + ex + "')</script>");
                 }
             }
         }
@@ -76,7 +76,7 @@ namespace CommanderWebsite.Admin
             }
             catch(Exception ex)
             {
-                Response.Write("alert('an error occured: " + ex + "');");
+                Response.Write("<script>alert('an error occured: " + ex + "')</script>");
             }
 
         }

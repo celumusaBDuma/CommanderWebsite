@@ -34,6 +34,7 @@ namespace CommanderWebsite.Account
                 ConfirmEmail.Visible = true;
                 //EmailController.sendEmail(user.Id, "Confirm your account", Email.Text, "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
                 CustomerController.AddCustomer(firstName.Text, lastName.Text, Email.Text, Password.Text);
+                var result1 = manager.AddToRole(user.Id,"Customer");
                // signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                // IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }

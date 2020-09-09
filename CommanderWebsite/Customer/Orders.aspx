@@ -1,45 +1,37 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/Customer.Master" AutoEventWireup="true" CodeBehind="Orders.aspx.cs" Inherits="CommanderWebsite.Customer.Orders" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>Page Content</h2>
-    <p>Start to type for a specific category inside the search bar to "filter" the search options.</p>
-    <p>Some text..Some text..Some text..Some text..Some text..Some text..Some text..Some text..</p>
-    <p>Some other text..Some text..Some text..Some text..Some text..Some text..Some text..Some text..</p>
-    <p>Some text..</p>
-
-     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+   <div style="text-align:center; min-height:1024px;" class="container">
+    <div  class="row2" style="text-align:center">
+                               
+                    <div style="text-align:center;min-height:1024px;" class="container-fluid">
+    <div  class="row2" style="text-align:center">
+                               
+                    <asp:ListView ID="listViewProducts" OnItemDataBound="listViewProducts_ItemDataBound" runat="server">
+                         <EmptyDataTemplate>
+                              <div id="NoRecords" runat="server" style="text-align:center; font-size:xx-large">
+                                No records are available.
+                              </div>
+                         </EmptyDataTemplate>
+                    <ItemTemplate> 
+                    <div class="col-md-3 col-md-4" style="display:flex;padding:15px; text-align:center;">
+                        <asp:HiddenField ID="HiddenField1" runat="server" />
+                        <a style="text-decoration:none;" href="OrderView.aspx?Product_ID=<%#Eval("Product_ID") %>">
+                        <div class="card thumbnail" style="height:400px;width:300px; margin-bottom:10px">
+                            <div style="text-align:center; width: 100%;padding-bottom:-15px;">
+                                                                    
+                                <asp:Image ID="imgs" ImageUrl=' <%# "~/FullImage.ashx?ImID="+ Eval("Product_ID") %>' Width="100%" Height="300px"  ImageAlign="Middle" runat="server"></asp:Image>
+                                <div class= "caption" style="margin-top:-10px;width:100%">
+                                <h3><%#Eval("Name") %></h3>
+                                <h2 style=" font-weight: normal; font-size:x-large;">R <%#Eval("Price")%></h2>
+                                <asp:Label ID="Label1" runat="server" style="display:none" Text='<%# Eval("Product_ID") %>'></asp:Label>
+                            </div></div>
+                            
+                        </div></a>
+                    </div></ItemTemplate>
+                       
+        </asp:ListView>
     </div>
-
-    <div class="row">
-        <div class="col-md-10">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
+</div>
         </div>
-        <div class="col-md-10">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-10">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
-    </div>
+     </div>
 </asp:Content>

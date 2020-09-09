@@ -52,9 +52,9 @@
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
           
             <div class="input-group">
-                <input type="text" id="mySearchbtn" onkeyup="myFunction()" placeholder="Search.." title="Type in a Category" />
+                <input type="text" id="mySearchbtn" placeholder="Search.." runat="server" title="Search for items" />
                 <div class="input-group-addon" style="color:white;border: none; background-color: transparent">
-                <button id="inputbtn3" type="button" class="btn glyphicon glyphicon-search" style="color:white; border-radius: 0px;border:none; height:auto; background-color: transparent;margin-top:-2px"></button>
+                <button id="inputbtn3" type="button" class="btn glyphicon glyphicon-search" onserverclick="Search_Click1" style="color:white; border-radius: 0px;border:none; height:auto; background-color: transparent;margin-top:-2px"></button>
                 </div>
             </div>
           <a href="DashboardCustomer">Dashboard</a>
@@ -112,9 +112,9 @@
      
       <h2 style="margin-top:-1px;">Menu</h2>
     <div class="input-group ">
-                <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a Category" />
+                <input type="text" id="mySearch" runat="server" placeholder="Search.." title="Search for items" />
                 <div class="input-group-addon" style="border-radius:0; background-color:white; ">
-                <button id="inputbtn2" type="button" class=" glyphicon glyphicon-search" style="color:black; background-color:transparent;border:none"></button>
+                <button id="inputbtn2" type="button" class=" glyphicon glyphicon-search" onserverclick="Search_Click" style="color:black; background-color:transparent;border:none"></button>
                 </div>
             </div> <ul id="myMenu">
       <li><a href="DashboardCustomer">Dashboard</a></li>
