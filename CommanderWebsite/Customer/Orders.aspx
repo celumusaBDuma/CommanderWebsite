@@ -21,8 +21,8 @@
                                                                     
                                 <asp:Image ID="imgs" ImageUrl=' <%# "~/FullImage.ashx?ImID="+ Eval("Product_ID") %>' Width="100%" Height="300px"  ImageAlign="Middle" runat="server"></asp:Image>
                                 <div class= "caption" style="margin-top:-10px;width:100%">
-                                <h3><%#Eval("Name") %></h3>
-                                <h2 style=" font-weight: normal; font-size:x-large;">R <%#Eval("Price")%></h2>
+                                <h3><%#Eval("Product.Name") %></h3>
+                                <h2 style=" font-weight: normal; font-size:x-large;">R <%#Eval("Final_Price")%></h2>
                                 <asp:Label ID="Label1" runat="server" style="display:none" Text='<%# Eval("Product_ID") %>'></asp:Label>
                             </div></div>
                             

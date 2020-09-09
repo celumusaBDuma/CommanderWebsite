@@ -58,5 +58,13 @@ namespace CommanderWebsite.Controllers
             return prodi;
         }
 
+        public static IEnumerable<Order> getByCatID3( int cus)
+        {
+            CommanderEDM db = new CommanderEDM();
+            var prod = db.Orders.Select(c => c).ToList();
+            var prodi = prod.Where(c => c.Customer_ID == cus && c.Product.Product_ID == c.Product_ID);
+            return prodi;
+        }
+
     }
 }

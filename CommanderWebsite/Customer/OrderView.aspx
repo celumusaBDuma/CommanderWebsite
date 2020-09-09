@@ -33,13 +33,13 @@
              <div  style="float: left; width: 100%" align="center">
            
                 <div>
-                    <h1><%#Eval("Name") %></h1>
-                    <p style="font-size: xx-large; font-weight: bolder"><%#Eval("Type") %></p>
+                    <h1><%#Eval("Product.Name") %></h1>
+                    <p style="font-size: xx-large; font-weight: bolder"><%#Eval("Product.Type") %></p>
                     <p style="font-size: xx-large; font-weight: bolder"></p>
-                    <p style="font-size: x-large">R <%#Eval("Price") %></p>
+                    <p style="font-size: x-large">R <%#Eval("Final_Price") %></p>
                     <hr />
                     <p style="font-size: x-large">Description</p>
-                    <p style="font-size: x-large"><%#Eval("Description")%></p>
+                    <p style="font-size: x-large"><%#Eval("Product.Description")%></p>
                     <hr />
                 </div>
                 <asp:Label runat="server" id="llb" Text=""></asp:Label>

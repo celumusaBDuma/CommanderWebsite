@@ -73,10 +73,10 @@ namespace CommanderWebsite.Customer
             try
             {
 
-                int id = int.Parse(Request.QueryString["Product_ID"]);
+               // int id = int.Parse(Request.QueryString["Product_ID"]);
                 CommanderEDM db = new CommanderEDM();
                 var cus = CustomerController.FindByEmail(Context.User.Identity.Name);
-                var prod = OrderController.getByCatID4(id, cus.Customer_ID);
+                var prod = OrderController.getByCatID3(cus.Customer_ID);
 
 
                 listViewProducts.DataSource = prod;

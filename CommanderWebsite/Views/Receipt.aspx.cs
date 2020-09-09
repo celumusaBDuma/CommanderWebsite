@@ -27,6 +27,7 @@ namespace CommanderWebsite.Views
             Label3.Text = firstname.ToString() + " " + lastname.ToString();
             gv3.DataSource = o;
             gv3.DataBind();
+            
         }
 
         protected void Unnamed3_Click(object sender, EventArgs e)

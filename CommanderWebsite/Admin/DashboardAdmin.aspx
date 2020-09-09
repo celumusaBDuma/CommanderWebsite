@@ -7,7 +7,7 @@
         <br />
         
         <div style="float:left;width:20%;">
-        <asp:Image ID="Image1" ImageUrl="~/Images/my_image.jpg" CssClass="thumbnail" Width="400px" Height="300px" runat="server" />
+        <asp:Image ID="Image1" ImageUrl="~/Content/Images/noImage.png" CssClass="thumbnail" Width="400px" Height="300px" runat="server" />
  </div><div style="float:left;width:80%; text-align:left; font-size:xx-large"> <asp:Label ID="Label2" runat="server" Font-Size="Larger" Text="Hello, Welcome"></asp:Label>
 &nbsp;<asp:Label ID="Label3" Font-Size="Larger" runat="server"></asp:Label></div>
 
