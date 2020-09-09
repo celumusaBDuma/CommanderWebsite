@@ -23,12 +23,12 @@ namespace CommanderWebsite.Customer
                     CommanderEDM db = new CommanderEDM();
                     var cus = CustomerController.FindByEmail(Context.User.Identity.Name);
                     var d1 = OrderController.getByCatID4(id, cus.Customer_ID);
-                    var d = OrderController.getOrder(id);
+                    var d = ProductsController.getByID2(id);
                     rptrImages2.DataSource = d1;
                     rptrImages2.DataBind();
-                    if (d.Product.Picture != null)
+                    if (d.Picture != null)
                     {
-                        byte[] imageData = (byte[])d.Product.Picture;
+                        byte[] imageData = (byte[])d.Picture;
                         string img = Convert.ToBase64String(imageData, 0, imageData.Length);
                         im.ImageUrl = "data:image/png;base64," + img;
 

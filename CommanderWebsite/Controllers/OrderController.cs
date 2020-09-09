@@ -53,9 +53,10 @@ namespace CommanderWebsite.Controllers
         public static IEnumerable<Order> getByCatID4(int id, int cus)
         {
             CommanderEDM db = new CommanderEDM();
-            var prod = db.Orders.Select(c => c).ToList();
-            var prodi = prod.Where(c => c.Customer_ID == cus);
-            return prodi;
+            var prodi = db.Orders.FirstOrDefault(c => c.Customer_ID == cus);
+            var prod = new List<Order>();
+            prod.Add(prodi);
+            return prod;
         }
 
         public static IEnumerable<Order> getByCatID3( int cus)
